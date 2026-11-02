@@ -173,7 +173,7 @@
           <div class="bento-main-cell">
             <div class="hero-text-reveal" style="display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(66,133,244,0.12);border:1px solid rgba(66,133,244,0.3);border-radius:var(--radius-full);padding:6px 16px;margin-bottom:var(--space-6);width:fit-content;">
               <span style="width:7px;height:7px;background:#34D399;border-radius:50%;box-shadow:0 0 10px #34D399;animation:pulse 2s infinite;display:block;"></span>
-              <span style="font-size:var(--text-xs);color:rgba(255,255,255,0.9);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">Production Pipeline Builder · Open for Roles</span>
+              <span style="font-size:var(--text-xs);color:rgba(255,255,255,0.9);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;" data-i18n="hero_beacon">Production Pipeline Builder · Open for Roles</span>
             </div>
 
             <h1 class="hero-title hero-text-reveal delay-1" data-i18n="hero_headline" style="font-size:var(--text-hero);font-weight:var(--fw-extrabold);color:white;line-height:1.08;margin-bottom:var(--space-6);letter-spacing:-0.03em;">
@@ -189,6 +189,33 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
                 <span data-i18n="hero_cta_projects">Explore Projects</span>
               </button>
+
+              <!-- CV Download Dropdown Menu -->
+              <div style="position:relative;display:inline-block;" id="cv-dropdown-wrapper">
+                <button class="btn btn-secondary btn-lg" id="cv-download-btn" onclick="toggleCVDropdown(event)" style="border-color:rgba(52,211,153,0.4);color:#34D399;background:rgba(52,211,153,0.08);backdrop-filter:blur(8px);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span data-i18n="cv_download_btn">Download CV</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:2px;"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div id="cv-dropdown-menu" style="display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:280px;background:#0d1629;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:8px;box-shadow:0 15px 35px rgba(0,0,0,0.5);z-index:100;">
+                  <div style="font-size:10px;text-transform:uppercase;color:#94A3B8;padding:6px 10px;letter-spacing:0.05em;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:4px;" data-i18n="cv_dropdown_title">Select Tailored Resume:</div>
+                  <a href="assets/cv/Nguyen_Quoc_Minh_Financial_Analyst_CV.pdf" download class="cv-menu-item" style="display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;color:#F1F5F9;text-decoration:none;font-size:12.5px;transition:background 0.2s;" onmouseover="this.style.background='rgba(66,133,244,0.15)'" onmouseout="this.style.background='transparent'">
+                    <span style="font-size:16px;">📊</span>
+                    <div>
+                      <div style="font-weight:600;" data-i18n="cv_fa_title">Financial Analyst CV</div>
+                      <div style="font-size:10px;color:#94A3B8;" data-i18n="cv_fa_sub">Quant & Financial Engineering</div>
+                    </div>
+                  </a>
+                  <a href="assets/cv/Nguyen_Quoc_Minh_Business_Analyst_CV.pdf" download class="cv-menu-item" style="display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;color:#F1F5F9;text-decoration:none;font-size:12.5px;transition:background 0.2s;" onmouseover="this.style.background='rgba(66,133,244,0.15)'" onmouseout="this.style.background='transparent'">
+                    <span style="font-size:16px;">💼</span>
+                    <div>
+                      <div style="font-weight:600;" data-i18n="cv_ba_title">Business Analyst CV</div>
+                      <div style="font-size:10px;color:#94A3B8;" data-i18n="cv_ba_sub">Systems & Business Automation</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
               <a class="btn btn-secondary btn-lg" href="https://github.com/nguyenquocminhtrading-design" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,0.22);color:white;background:rgba(255,255,255,0.06);backdrop-filter:blur(8px);">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
                 <span data-i18n="hero_cta_github">View GitHub</span>
@@ -197,9 +224,9 @@
 
             <!-- Quantitative Confidence Badges -->
             <div class="hero-text-reveal delay-4" style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
-              <span class="badge" style="background:rgba(52,211,153,0.12);color:#34D399;border:1px solid rgba(52,211,153,0.3);padding:4px 10px;">⚡ 84+ Trade Periods Audited</span>
-              <span class="badge" style="background:rgba(56,189,248,0.12);color:#38BDF8;border:1px solid rgba(56,189,248,0.3);padding:4px 10px;">📈 100K GPU Monte Carlo Paths</span>
-              <span class="badge" style="background:rgba(192,132,252,0.12);color:#C084FC;border:1px solid rgba(192,132,252,0.3);padding:4px 10px;">🔒 Self-Healing OAuth Engine</span>
+              <span class="badge" style="background:rgba(52,211,153,0.12);color:#34D399;border:1px solid rgba(52,211,153,0.3);padding:4px 10px;" data-i18n="hero_badge_trade">⚡ 84+ Trade Periods Audited</span>
+              <span class="badge" style="background:rgba(56,189,248,0.12);color:#38BDF8;border:1px solid rgba(56,189,248,0.3);padding:4px 10px;" data-i18n="hero_badge_cuda">📈 100K GPU Monte Carlo Paths</span>
+              <span class="badge" style="background:rgba(192,132,252,0.12);color:#C084FC;border:1px solid rgba(192,132,252,0.3);padding:4px 10px;" data-i18n="hero_badge_token">🔒 Self-Healing OAuth Engine</span>
             </div>
           </div>
 
@@ -215,8 +242,9 @@
                   </div>
                   <div class="window-title">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                    nqm-pipeline-executor — bash
+                    <span data-i18n="terminal_title">nqm-pipeline-sim · dry-run sandbox</span>
                   </div>
+                  <span class="badge" style="background:rgba(52,211,153,0.15);color:#34D399;font-size:9.5px;padding:2px 6px;margin-left:auto;" data-i18n="terminal_badge">SIMULATED WORKFLOW</span>
                 </div>
 
                 <div class="terminal-body">
@@ -224,32 +252,37 @@
                 </div>
 
                 <div class="terminal-chips">
-                  <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:var(--font-mono);align-self:center;margin-right:4px;">RUN DEMO:</span>
-                  <button class="terminal-chip-btn" data-cmd="cashew-ocr">▶ Cashew OCR Pipeline</button>
-                  <button class="terminal-chip-btn" data-cmd="fund-risk">▶ Fund Risk CUDA</button>
-                  <button class="terminal-chip-btn" data-cmd="token-health">▶ Token Self-Healing</button>
+                  <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:var(--font-mono);align-self:center;margin-right:4px;" data-i18n="terminal_run_label">RUN DRY-RUN:</span>
+                  <button class="terminal-chip-btn" data-cmd="cashew-ocr" data-i18n="terminal_chip_cashew">▶ Cashew OCR Pipeline</button>
+                  <button class="terminal-chip-btn" data-cmd="fund-risk" data-i18n="terminal_chip_fund">▶ Fund Risk Model</button>
+                  <button class="terminal-chip-btn" data-cmd="token-health" data-i18n="terminal_chip_token">▶ Token Self-Healing</button>
                 </div>
               </div>
             </div>
+
+            <!-- Plain-English Real Mechanism Summary -->
+            <div id="terminal-plain-summary" style="margin-top:var(--space-2);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-md);padding:8px 12px;font-size:11.5px;color:#94A3B8;line-height:1.5;" data-i18n="terminal_initial_summary">
+              Under the hood (Real Logic): Select a demo above to inspect how the actual pipeline executes in production.
+            </div>
           </div>
 
-          <!-- Bottom Right: Micro Stat Tiles -->
+          <!-- Bottom Right: Micro Stat Tiles (100% Verifiable) -->
           <div class="bento-metrics-cell">
             <div class="micro-tile">
               <span class="micro-tile-num counter-value" data-count="6" data-suffix="+">0+</span>
-              <span class="micro-tile-label">Production Platforms</span>
+              <span class="micro-tile-label" data-i18n="tile_featured">Featured Projects</span>
+            </div>
+            <div class="micro-tile">
+              <span class="micro-tile-num counter-value" data-count="10" data-suffix="+">0+</span>
+              <span class="micro-tile-label" data-i18n="tile_apis">APIs Integrated</span>
             </div>
             <div class="micro-tile">
               <span class="micro-tile-num counter-value" data-count="84" data-suffix=" mos">0 mos</span>
-              <span class="micro-tile-label">Historical Data Spanned</span>
+              <span class="micro-tile-label" data-i18n="tile_data">Trade Data Ingested</span>
             </div>
             <div class="micro-tile">
               <span class="micro-tile-num counter-value" data-count="50" data-suffix="K+">0K+</span>
-              <span class="micro-tile-label">Production Lines of Code</span>
-            </div>
-            <div class="micro-tile">
-              <span class="micro-tile-num counter-value" data-count="99" data-suffix=".9%">0%</span>
-              <span class="micro-tile-label">Token & Pipeline Uptime</span>
+              <span class="micro-tile-label" data-i18n="tile_code">Production Lines of Code</span>
             </div>
           </div>
 
@@ -269,7 +302,7 @@
         <div id="featured-projects" class="grid-auto"></div>
         <div style="text-align:center;margin-top:var(--space-8);" class="reveal">
           <button class="btn btn-secondary" onclick="navigate('projects')">
-            View All Projects
+            <span data-i18n="view_all_projects">View All Projects</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -305,7 +338,7 @@
     <div class="content-wrapper">
       <div class="section-heading">
         <div class="section-label" data-i18n="nav_projects">Projects</div>
-        <h1 class="section-title">All Projects</h1>
+        <h1 class="section-title" data-i18n="section_featured">All Projects</h1>
         <p class="section-description" data-i18n="section_featured_desc">Every system I've built, from production pipelines to engineering experiments.</p>
       </div>
 
@@ -377,12 +410,12 @@
 
       <!-- Capabilities -->
       <div style="margin-top:var(--space-16);" class="reveal">
-        <div class="section-label" style="margin-bottom:var(--space-6);">Financial Engineering Capabilities</div>
+        <div class="section-label" style="margin-bottom:var(--space-6);" data-i18n="cap_finance_title">Financial Engineering Capabilities</div>
         <div class="feature-list">
-          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="feature-title">Financial Data Pipelines</div><div class="feature-desc">Automated ETL for trade data, NAV time-series, and financial statements</div></div></div>
-          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="feature-title">Quantitative Analysis</div><div class="feature-desc">Sharpe ratio, Monte Carlo simulation, drawdown, risk-adjusted returns</div></div></div>
-          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div><div class="feature-title">OCR Document Extraction</div><div class="feature-desc">PDF financial statement parsing with multi-engine OCR and fallback reconstruction</div></div></div>
-          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><div class="feature-title">Market Intelligence</div><div class="feature-desc">Systematic data aggregation and trend analysis for investment research</div></div></div>
+          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="feature-title" data-i18n="cap_pipeline_title">Financial Data Pipelines</div><div class="feature-desc" data-i18n="cap_pipeline_desc">Automated ETL for trade data, NAV time-series, and financial statements</div></div></div>
+          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="feature-title" data-i18n="cap_quant_title">Quantitative Analysis</div><div class="feature-desc" data-i18n="cap_quant_desc">Sharpe ratio, Monte Carlo simulation, drawdown, risk-adjusted returns</div></div></div>
+          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div><div class="feature-title" data-i18n="cap_ocr_title">OCR Document Extraction</div><div class="feature-desc" data-i18n="cap_ocr_desc">PDF financial statement parsing with multi-engine OCR and fallback reconstruction</div></div></div>
+          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><div class="feature-title" data-i18n="cap_market_title">Market Intelligence</div><div class="feature-desc" data-i18n="cap_market_desc">Systematic data aggregation and trend analysis for investment research</div></div></div>
         </div>
       </div>
     </div>

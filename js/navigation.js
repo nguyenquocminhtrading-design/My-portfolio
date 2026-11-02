@@ -111,6 +111,7 @@ const Navigation = {
       document.scrollingElement.scrollTop = 0;
     }
     this.setActive(page);
+    window.location.hash = page;
   }
 };
 
@@ -118,15 +119,48 @@ const Navigation = {
 function navigate(page, params = {}) {
   // Special case: project detail
   if (page === 'project-detail') {
+    Navigation.currentPage = 'project-detail';
     Navigation.showPage('project-detail');
     Navigation.setActive('projects');
-    if (params.id && window.Projects) Projects.renderDetail(params.id);
+    if (params.id && window.Projects) {
+      Projects.renderDetail(params.id);
+      window.location.hash = `project-${params.id}`;
+    }
     return;
   }
   Navigation.showPage(page);
   // Trigger page-specific render
   if (window.App) App.onPageShow(page);
 }
+
+// Global CV Dropdown Toggle
+function toggleCVDropdown(e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById('cv-dropdown-menu');
+  if (menu) {
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  }
+}
+
+// Global Click listener & Escape key listener
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('cv-dropdown-menu');
+  if (menu && !e.target.closest('#cv-dropdown-wrapper')) {
+    menu.style.display = 'none';
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const menu = document.getElementById('cv-dropdown-menu');
+    if (menu) menu.style.display = 'none';
+    
+    // If on project detail page, press Escape to go back
+    if (Navigation.currentPage === 'project-detail' || document.getElementById('page-project-detail')?.classList.contains('active')) {
+      navigate('projects');
+    }
+  }
+});
 
 window.Navigation = Navigation;
 window.navigate   = navigate;

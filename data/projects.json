@@ -2,17 +2,34 @@
   "projects": [
     {
       "id": "xnk-cashew",
-      "name": { "en": "XNK Cashew Intelligence Platform", "vi": "Nền Tảng Dữ Liệu XNK Hạt Điều" },
+      "name": {
+        "en": "XNK Cashew Intelligence Platform",
+        "vi": "Nền Tảng Dữ Liệu XNK Hạt Điều"
+      },
       "tagline": {
         "en": "Automated OCR pipeline to scrape, process, and visualize Vietnam cashew import-export statistics from the General Department of Customs.",
         "vi": "Pipeline OCR tự động để thu thập, xử lý và trực quan hóa dữ liệu xuất nhập khẩu hạt điều Việt Nam từ Tổng Cục Hải Quan."
       },
-      "category": ["financial-engineering", "data-engineering", "automation"],
+      "category": [
+        "financial-engineering",
+        "data-engineering",
+        "automation"
+      ],
       "status": "production",
       "year": 2024,
-      "thumbnail": null,
-      "github": null,
-      "techStack": ["Python", "Playwright", "PDFPlumber", "PaddleOCR", "Chart.js", "Leaflet", "jsPDF", "ExcelJS", "NumPy"],
+      "thumbnail": "assets/images/projects/xnk-cashew-overview.png",
+      "github": "https://github.com/nguyenquocminhtrading-design",
+      "techStack": [
+        "Python",
+        "Playwright",
+        "PDFPlumber",
+        "PaddleOCR",
+        "Chart.js",
+        "Leaflet",
+        "jsPDF",
+        "ExcelJS",
+        "NumPy"
+      ],
       "overview": {
         "en": "A comprehensive data intelligence platform that automatically scrapes cashew import/export PDFs from the Vietnam General Department of Customs (TCHQ), extracts tabular data via multi-engine OCR, performs mathematical fallback reconstruction, and delivers a web-based BI dashboard with multi-year analysis, geographic visualization, and multi-format export.",
         "vi": "Nền tảng tình báo dữ liệu toàn diện tự động thu thập PDF XNK hạt điều từ Tổng cục Hải quan, trích xuất dữ liệu bảng qua OCR đa engine, thực hiện tái tạo toán học fallback, và cung cấp dashboard BI trên web với phân tích đa năm, trực quan hóa địa lý, và xuất đa định dạng."
@@ -26,51 +43,232 @@
         "vi": "Tự động hóa toàn bộ pipeline từ thu thập web đến dashboard BI tương tác, giúp các công ty xuất khẩu thực phẩm theo dõi luồng thương mại hạt điều, so sánh phiên bản, phân tích thị phần theo quốc gia và xuất báo cáo sẵn sàng cho hội đồng quản trị."
       },
       "workflow": [
-        { "step": "Orchestration", "desc": "main.py coordinates range/single-period runs with Smart Cache to avoid redundant scraping" },
-        { "step": "Web Scraping", "desc": "Playwright scrapes TCHQ portal, downloads 4 report types (2X, 5X, 2N, 5N) across 3 versions (SB/DC/CT)" },
-        { "step": "OCR Extraction", "desc": "pdfplumber + PaddleOCR extract tables; mathematical fallback reconstructs missing periods using growth rates" },
-        { "step": "Data Aggregation", "desc": "data_builder.py merges all years + Vinacas association data (757 records) into master Excel & JSON" },
-        { "step": "Web Dashboard", "desc": "Chart.js + Leaflet SPA serves trade flow visualization with year/version/flow filters and 6-format export" }
+        {
+          "step": {
+            "en": "Orchestration",
+            "vi": "Điều Phối Hệ Thống"
+          },
+          "desc": {
+            "en": "main.py coordinates range/single-period runs with Smart Cache to avoid redundant scraping",
+            "vi": "main.py điều phối chạy dải kỳ hoặc đơn kỳ với Bộ nhớ đệm thông minh để tránh cào dữ liệu trùng lặp"
+          }
+        },
+        {
+          "step": {
+            "en": "Web Scraping",
+            "vi": "Thu Thập Dữ Liệu Web"
+          },
+          "desc": {
+            "en": "Playwright scrapes TCHQ portal, downloads 4 report types (2X, 5X, 2N, 5N) across 3 versions (SB/DC/CT)",
+            "vi": "Playwright tự động thu thập từ cổng TCHQ, tải xuống 4 loại báo cáo (2X, 5X, 2N, 5N) trên cả 3 phiên bản (SB/ĐC/CT)"
+          }
+        },
+        {
+          "step": {
+            "en": "OCR Extraction",
+            "vi": "Trích Xuất Bằng OCR"
+          },
+          "desc": {
+            "en": "pdfplumber + PaddleOCR extract tables; mathematical fallback reconstructs missing periods using growth rates",
+            "vi": "pdfplumber + PaddleOCR trích xuất bảng biểu; thuật toán toán học fallback tái tạo các kỳ bị thiếu dựa trên tốc độ tăng trưởng"
+          }
+        },
+        {
+          "step": {
+            "en": "Data Aggregation",
+            "vi": "Tổng Hợp & Hợp Nhất Dữ Liệu"
+          },
+          "desc": {
+            "en": "data_builder.py merges all years + Vinacas association data (757 records) into master Excel & JSON",
+            "vi": "data_builder.py hợp nhất tất cả các năm + tập dữ liệu Hiệp hội Vinacas (757 bản ghi) vào Master Excel & JSON"
+          }
+        },
+        {
+          "step": {
+            "en": "Web Dashboard",
+            "vi": "Dashboard Trực Quan Web"
+          },
+          "desc": {
+            "en": "Chart.js + Leaflet SPA serves trade flow visualization with year/version/flow filters and 6-format export",
+            "vi": "SPA tích hợp Chart.js + Leaflet trực quan hóa luồng thương mại với bộ lọc năm/phiên bản/luồng hàng và xuất 6 định dạng"
+          }
+        }
       ],
       "features": [
-        { "title": "Smart Cache Engine", "desc": "Automatically detects incomplete periods and triggers targeted re-scraping without redundant downloads" },
-        { "title": "Multi-version OCR", "desc": "Handles Preliminary (SB), Adjusted (DC), and Official (CT) versions simultaneously with audit trail" },
-        { "title": "Mathematical Fallback", "desc": "Reconstructs missing month M data from period M+1 using growth rate inversion formulas" },
-        { "title": "Vinacas Cross-reference", "desc": "Embeds 757-record Vinacas association dataset for independent source validation" },
-        { "title": "Geographic Dashboard", "desc": "Leaflet choropleth map showing export/import distribution by partner country" },
-        { "title": "6-Format Export", "desc": "Download reports as HTML, Excel (5-sheet), PDF, PPTX, JSON, and CSV with full Vietnamese typography" }
+        {
+          "title": {
+            "en": "Smart Cache Engine",
+            "vi": "Bộ Nhớ Đệm Thông Minh"
+          },
+          "desc": {
+            "en": "Automatically detects incomplete periods and triggers targeted re-scraping without redundant downloads",
+            "vi": "Tự động phát hiện các kỳ thiếu dữ liệu và kích hoạt cào lại chính xác mà không tải dư thừa"
+          }
+        },
+        {
+          "title": {
+            "en": "Multi-version OCR",
+            "vi": "OCR Đa Phiên Bản Báo Cáo"
+          },
+          "desc": {
+            "en": "Handles Preliminary (SB), Adjusted (DC), and Official (CT) versions simultaneously with audit trail",
+            "vi": "Xử lý đồng thời các phiên bản Sơ Bộ (SB), Điều Chỉnh (ĐC) và Chính Thức (CT) kèm vết kiểm toán chi tiết"
+          }
+        },
+        {
+          "title": {
+            "en": "Mathematical Fallback",
+            "vi": "Thuật Toán Phục Hồi Toán Học"
+          },
+          "desc": {
+            "en": "Reconstructs missing month M data from period M+1 using growth rate inversion formulas",
+            "vi": "Tái tạo dữ liệu tháng M bị thiếu từ dữ liệu kỳ M+1 bằng công thức đảo ngược tỷ lệ tăng trưởng"
+          }
+        },
+        {
+          "title": {
+            "en": "Vinacas Cross-reference",
+            "vi": "Đối Chiếu Độc Lập Vinacas"
+          },
+          "desc": {
+            "en": "Embeds 757-record Vinacas association dataset for independent source validation",
+            "vi": "Tích hợp tập dữ liệu 757 bản ghi từ Hiệp hội Vinacas để đối chứng chéo nguồn dữ liệu độc lập"
+          }
+        },
+        {
+          "title": {
+            "en": "Geographic Dashboard",
+            "vi": "Bản Đồ Phân Bổ Địa Lý"
+          },
+          "desc": {
+            "en": "Leaflet choropleth map showing export/import distribution by partner country",
+            "vi": "Bản đồ nhiệt Leaflet trực quan hóa phân bổ xuất nhập khẩu theo từng quốc gia đối tác"
+          }
+        },
+        {
+          "title": {
+            "en": "6-Format Export",
+            "vi": "Xuất Dữ Liệu 6 Định Dạng"
+          },
+          "desc": {
+            "en": "Download reports as HTML, Excel (5-sheet), PDF, PPTX, JSON, and CSV with full Vietnamese typography",
+            "vi": "Xuất báo cáo dưới 6 định dạng HTML, Excel (5 sheet), PDF, PPTX, JSON và CSV hiển thị chuẩn tiếng Việt"
+          }
+        }
       ],
       "challenges": [
-        { "title": "PDF Structure Variability", "solution": "TCHQ PDFs change table structure across years. Built a schema-adaptive OCR parser with regex-based column detection and multi-engine fallback." },
-        { "title": "Missing Period Reconstruction", "solution": "Some early periods lack raw PDFs. Implemented mathematical inverse growth formula to derive month M from M+1 YoY and MoM deltas." },
-        { "title": "Multi-version Data Integrity", "solution": "Built a 3-layer version priority system (CT > DC > SB) with per-version sheet isolation and debug source tracking columns." }
+        {
+          "title": {
+            "en": "PDF Structure Variability",
+            "vi": "Cấu Trúc Bảng Biểu PDF Thay Đổi"
+          },
+          "solution": {
+            "en": "TCHQ PDFs change table structure across years. Built a schema-adaptive OCR parser with regex-based column detection and multi-engine fallback.",
+            "vi": "PDF của Tổng cục Hải quan thay đổi cấu trúc bảng qua từng năm. Tôi đã xây dựng bộ phân tích OCR thích ứng theo lược đồ với khả năng nhận diện cột bằng regex và cơ chế fallback đa engine."
+          }
+        },
+        {
+          "title": {
+            "en": "Missing Period Reconstruction",
+            "vi": "Tái Tạo Dữ Liệu Các Kỳ Bị Thiếu"
+          },
+          "solution": {
+            "en": "Some early periods lack raw PDFs. Implemented mathematical inverse growth formula to derive month M from M+1 YoY and MoM deltas.",
+            "vi": "Một số kỳ dữ liệu cũ thiếu file PDF gốc. Tôi đã thiết lập công thức toán học nghịch đảo tỷ lệ tăng trưởng để suy ngược số liệu tháng M từ số liệu chênh lệch YoY và MoM của tháng M+1."
+          }
+        },
+        {
+          "title": {
+            "en": "Multi-version Data Integrity",
+            "vi": "Toàn Vẹn Dữ Liệu Đa Phiên Bản"
+          },
+          "solution": {
+            "en": "Built a 3-layer version priority system (CT > DC > SB) with per-version sheet isolation and debug source tracking columns.",
+            "vi": "Xây dựng hệ thống ưu tiên phiên bản 3 lớp (Chính thức > Điều chỉnh > Sơ bộ) với từng sheet dữ liệu độc lập và cột theo dõi nguồn gốc truy vết chi tiết."
+          }
+        }
       ],
       "results": [
-        "Automated 2020–2026 cashew trade data extraction (84+ monthly periods)",
-        "6-format export engine generating boardroom-ready reports",
-        "Cross-source validation between TCHQ and Vinacas datasets",
-        "Web dashboard with real-time year/flow/version switching"
+        {
+          "en": "Automated 2020–2026 cashew trade data extraction (84+ monthly periods)",
+          "vi": "Tự động hóa hoàn toàn việc trích xuất dữ liệu thương mại hạt điều giai đoạn 2020–2026 (hơn 84 kỳ tháng)"
+        },
+        {
+          "en": "6-format export engine generating boardroom-ready reports",
+          "vi": "Engine xuất báo cáo 6 định dạng chất lượng cao sẵn sàng trình chiếu hội đồng quản trị"
+        },
+        {
+          "en": "Cross-source validation between TCHQ and Vinacas datasets",
+          "vi": "Đối chiếu chéo và kiểm chứng dữ liệu độc lập giữa Tổng cục Hải quan và Vinacas"
+        },
+        {
+          "en": "Web dashboard with real-time year/flow/version switching",
+          "vi": "Dashboard trên web với tính năng chuyển đổi tức thì giữa các năm, luồng hàng và phiên bản"
+        }
       ],
       "future": [
-        "Scheduled daily automation with email/Telegram alerts on new TCHQ publications",
-        "Price prediction module using historical trade patterns",
-        "Multi-commodity extension beyond cashews"
+        {
+          "en": "Scheduled daily automation with email/Telegram alerts on new TCHQ publications",
+          "vi": "Tự động hóa lịch quét hàng ngày kèm thông báo qua Email/Telegram khi Tổng cục Hải quan ra báo cáo mới"
+        },
+        {
+          "en": "Price prediction module using historical trade patterns",
+          "vi": "Module dự báo giá nông sản dựa trên mô hình chuỗi thời gian lịch sử thương mại"
+        },
+        {
+          "en": "Multi-commodity extension beyond cashews",
+          "vi": "Mở rộng sang các mặt hàng nông sản xuất khẩu khác ngoài hạt điều (cà phê, hạt tiêu, gạo)"
+        }
       ],
-      "relatedProjects": ["fund-portfolio", "job-scraping"]
+      "relatedProjects": [
+        "fund-portfolio",
+        "job-scraping"
+      ],
+      "gallery": [
+        "assets/images/projects/xnk-cashew-overview.png",
+        "assets/images/projects/xnk-cashew-trends.png",
+        "assets/images/projects/xnk-cashew-map.png",
+        "assets/images/projects/xnk-cashew-export.png"
+      ],
+      "cliCommand": "python main.py --from-year 2020 --to-year 2026 --reuse-pdfs",
+      "actualArtifacts": [
+        "output/all_years_cashew.xlsx (Master Workbook - 8 sheets)",
+        "output/data/all_years_cashew.json (Consolidated SPA DB)",
+        "Vincass/Vinacas.xlsx (757 Historical Validation Records)",
+        "output/qc/aggregate_reconciliation.json (Reconciliation Matrix)"
+      ]
     },
     {
       "id": "see-content-connector",
-      "name": { "en": "SEE Content Connector", "vi": "SEE Content Connector" },
+      "name": {
+        "en": "SEE Content Connector",
+        "vi": "SEE Content Connector"
+      },
       "tagline": {
         "en": "Multi-platform social media analytics hub with a self-healing OAuth token engine, live metrics sync, and an interactive performance dashboard.",
         "vi": "Trung tâm phân tích mạng xã hội đa nền tảng với engine token OAuth tự phục hồi, đồng bộ metrics trực tiếp và dashboard hiệu suất tương tác."
       },
-      "category": ["automation", "api-integration", "web-dev"],
+      "category": [
+        "automation",
+        "api-integration",
+        "web-dev"
+      ],
       "status": "production",
       "year": 2024,
-      "thumbnail": null,
-      "github": null,
-      "techStack": ["Node.js", "Express", "Next.js 14", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Docker", "Render", "Meta Graph API"],
+      "thumbnail": "assets/images/projects/SEE_content_connectror.png",
+      "github": "https://github.com/nguyenquocminhtrading-design",
+      "techStack": [
+        "Node.js",
+        "Express",
+        "Next.js 14",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Docker",
+        "Render",
+        "Meta Graph API"
+      ],
       "overview": {
         "en": "A production-deployed connector hub that integrates Facebook, Instagram, TikTok, and LinkedIn through their respective OAuth 2.0 APIs. Features a Self-Healing Token Engine that automatically exchanges short-lived tokens for permanent page access tokens, background sync workers running every 15 minutes, and a real-time analytics dashboard with Viral Score ranking.",
         "vi": "Hub kết nối triển khai sản xuất tích hợp Facebook, Instagram, TikTok và LinkedIn qua API OAuth 2.0. Có engine token tự phục hồi tự động đổi token ngắn hạn thành token truy cập trang vĩnh viễn, worker đồng bộ nền chạy mỗi 15 phút, và dashboard phân tích thời gian thực với xếp hạng Viral Score."
@@ -84,51 +282,228 @@
         "vi": "Xây dựng hệ thống tình báo mạng xã hội không cần bảo trì, chịu được hết hạn token, cung cấp phân tích đa nền tảng thống nhất và xếp hạng nội dung hiệu suất cao tự động."
       },
       "workflow": [
-        { "step": "OAuth 2.0 Authentication", "desc": "User authorizes via Meta/TikTok/LinkedIn OAuth flows; backend exchanges code for access tokens" },
-        { "step": "Self-Healing Token Engine", "desc": "Automatically upgrades short-lived tokens to Permanent Page Access Tokens; cron worker refreshes TikTok/LinkedIn tokens 7 days before expiry" },
-        { "step": "Background Sync Worker", "desc": "node-cron job runs every 15 minutes, fetching new posts and updating reach, impressions, likes, comments, shares" },
-        { "step": "Data Storage", "desc": "PostgreSQL stores assets + metrics with deduplication; in-memory fallback preserves data during token failure" },
-        { "step": "Analytics Dashboard", "desc": "Next.js frontend renders trend charts, stacked engagement bars, Viral Score rankings, and asset detail modals" }
+        {
+          "step": {
+            "en": "OAuth 2.0 Authentication",
+            "vi": "Xác Thực OAuth 2.0"
+          },
+          "desc": {
+            "en": "User authorizes via Meta/TikTok/LinkedIn OAuth flows; backend exchanges code for access tokens",
+            "vi": "User authorizes via Meta/TikTok/LinkedIn OAuth flows; backend exchanges code for access tokens"
+          }
+        },
+        {
+          "step": {
+            "en": "Self-Healing Token Engine",
+            "vi": "Self-Healing Token Engine"
+          },
+          "desc": {
+            "en": "Automatically upgrades short-lived tokens to Permanent Page Access Tokens; cron worker refreshes TikTok/LinkedIn tokens 7 days before expiry",
+            "vi": "Automatically upgrades short-lived tokens to Permanent Page Access Tokens; cron worker refreshes TikTok/LinkedIn tokens 7 days before expiry"
+          }
+        },
+        {
+          "step": {
+            "en": "Background Sync Worker",
+            "vi": "Background Sync Worker"
+          },
+          "desc": {
+            "en": "node-cron job runs every 15 minutes, fetching new posts and updating reach, impressions, likes, comments, shares",
+            "vi": "node-cron job runs every 15 minutes, fetching new posts and updating reach, impressions, likes, comments, shares"
+          }
+        },
+        {
+          "step": {
+            "en": "Data Storage",
+            "vi": "Data Storage"
+          },
+          "desc": {
+            "en": "PostgreSQL stores assets + metrics with deduplication; in-memory fallback preserves data during token failure",
+            "vi": "PostgreSQL stores assets + metrics with deduplication; in-memory fallback preserves data during token failure"
+          }
+        },
+        {
+          "step": {
+            "en": "Analytics Dashboard",
+            "vi": "Analytics Dashboard"
+          },
+          "desc": {
+            "en": "Next.js frontend renders trend charts, stacked engagement bars, Viral Score rankings, and asset detail modals",
+            "vi": "Next.js frontend renders trend charts, stacked engagement bars, Viral Score rankings, and asset detail modals"
+          }
+        }
       ],
       "features": [
-        { "title": "Self-Healing Token Engine", "desc": "Meta permanent tokens + TikTok/LinkedIn pre-expiry refresh. 100% data retention during token failure via Graceful Degradation" },
-        { "title": "15-Minute Live Sync", "desc": "Background worker continuously pulls Reach, Impressions, Likes, Comments, Shares across all connected platforms" },
-        { "title": "Viral Score Algorithm", "desc": "Custom 0-100 scoring model ranks top 5 performing posts based on engagement rate and reach velocity" },
-        { "title": "Asset Detail Modal", "desc": "Deep-dive view per post showing KPI metrics, video completion rate, and day-by-day growth trajectory" },
-        { "title": "1-Click Cloud Deploy", "desc": "render.yaml Blueprint deploys PostgreSQL + Node.js API + Next.js frontend to Render Cloud in a single click" },
-        { "title": "Token Management UI", "desc": "Live connection testing and one-click token update from the web UI — no server restart required" }
+        {
+          "title": {
+            "en": "Self-Healing Token Engine",
+            "vi": "Cơ Chế Token Tự Phục Hồi"
+          },
+          "desc": {
+            "en": "Meta permanent tokens + TikTok/LinkedIn pre-expiry refresh. 100% data retention during token failure via Graceful Degradation",
+            "vi": "Meta permanent tokens + TikTok/LinkedIn pre-expiry refresh. 100% data retention during token failure via Graceful Degradation"
+          }
+        },
+        {
+          "title": {
+            "en": "15-Minute Live Sync",
+            "vi": "15-Minute Live Sync"
+          },
+          "desc": {
+            "en": "Background worker continuously pulls Reach, Impressions, Likes, Comments, Shares across all connected platforms",
+            "vi": "Background worker continuously pulls Reach, Impressions, Likes, Comments, Shares across all connected platforms"
+          }
+        },
+        {
+          "title": {
+            "en": "Viral Score Algorithm",
+            "vi": "Thuật Toán Tính Điểm Lan Truyền"
+          },
+          "desc": {
+            "en": "Custom 0-100 scoring model ranks top 5 performing posts based on engagement rate and reach velocity",
+            "vi": "Custom 0-100 scoring model ranks top 5 performing posts based on engagement rate and reach velocity"
+          }
+        },
+        {
+          "title": {
+            "en": "Asset Detail Modal",
+            "vi": "Asset Detail Modal"
+          },
+          "desc": {
+            "en": "Deep-dive view per post showing KPI metrics, video completion rate, and day-by-day growth trajectory",
+            "vi": "Deep-dive view per post showing KPI metrics, video completion rate, and day-by-day growth trajectory"
+          }
+        },
+        {
+          "title": {
+            "en": "1-Click Cloud Deploy",
+            "vi": "1-Click Cloud Deploy"
+          },
+          "desc": {
+            "en": "render.yaml Blueprint deploys PostgreSQL + Node.js API + Next.js frontend to Render Cloud in a single click",
+            "vi": "render.yaml Blueprint deploys PostgreSQL + Node.js API + Next.js frontend to Render Cloud in a single click"
+          }
+        },
+        {
+          "title": {
+            "en": "Token Management UI",
+            "vi": "Token Management UI"
+          },
+          "desc": {
+            "en": "Live connection testing and one-click token update from the web UI — no server restart required",
+            "vi": "Live connection testing and one-click token update from the web UI — no server restart required"
+          }
+        }
       ],
       "challenges": [
-        { "title": "Token Permanence Across Platforms", "solution": "Meta tokens exchanged to never-expiring Page Access Tokens. TikTok/LinkedIn use refresh_token cron 7 days before expiry with alert fallback." },
-        { "title": "Data Continuity on Token Failure", "solution": "In-memory cache preserves all historical posts and charts. Banner + 1-click re-auth shown to user rather than empty dashboard." },
-        { "title": "Multi-platform Rate Limits", "solution": "Request queuing with exponential backoff; separate sync schedules per platform to avoid simultaneous API bursts." }
+        {
+          "title": {
+            "en": "Token Permanence Across Platforms",
+            "vi": "Tính Bền Vững Của Token Đa Nền Tảng"
+          },
+          "solution": {
+            "en": "Meta tokens exchanged to never-expiring Page Access Tokens. TikTok/LinkedIn use refresh_token cron 7 days before expiry with alert fallback.",
+            "vi": "Token Meta được đổi lấy token dài hạn (60 ngày) qua Graph API. Đối với TikTok/LinkedIn yêu cầu làm mới thường xuyên, đã xây dựng cronjob chạy mỗi 6 giờ để làm mới tự động trước khi hết hạn."
+          }
+        },
+        {
+          "title": {
+            "en": "Data Continuity on Token Failure",
+            "vi": "Data Continuity on Token Failure"
+          },
+          "solution": {
+            "en": "In-memory cache preserves all historical posts and charts. Banner + 1-click re-auth shown to user rather than empty dashboard.",
+            "vi": "In-memory cache preserves all historical posts and charts. Banner + 1-click re-auth shown to user rather than empty dashboard."
+          }
+        },
+        {
+          "title": {
+            "en": "Multi-platform Rate Limits",
+            "vi": "Multi-platform Rate Limits"
+          },
+          "solution": {
+            "en": "Request queuing with exponential backoff; separate sync schedules per platform to avoid simultaneous API bursts.",
+            "vi": "Request queuing with exponential backoff; separate sync schedules per platform to avoid simultaneous API bursts."
+          }
+        }
       ],
       "results": [
-        "Zero-downtime token management across 4 social platforms",
-        "Automated 15-minute metrics refresh with 100% data retention",
-        "1-click Render Cloud deployment with IaC blueprint",
-        "Viral Score algorithm ranking top content automatically"
+        {
+          "en": "Zero-downtime token management across 4 social platforms",
+          "vi": "Quản lý token hoạt động liên tục 100% thời gian không gián đoạn trên cả 4 nền tảng mạng xã hội"
+        },
+        {
+          "en": "Automated 15-minute metrics refresh with 100% data retention",
+          "vi": "Automated 15-minute metrics refresh with 100% data retention"
+        },
+        {
+          "en": "1-click Render Cloud deployment with IaC blueprint",
+          "vi": "1-click Render Cloud deployment with IaC blueprint"
+        },
+        {
+          "en": "Viral Score algorithm ranking top content automatically",
+          "vi": "Viral Score algorithm ranking top content automatically"
+        }
       ],
       "future": [
-        "AI-powered content recommendation engine based on engagement patterns",
-        "YouTube and Twitter/X API integration",
-        "Automated post scheduling and A/B testing"
+        {
+          "en": "AI-powered content recommendation engine based on engagement patterns",
+          "vi": "Hệ thống AI gợi ý chiến lược nội dung dựa trên quy luật tương tác lịch sử"
+        },
+        {
+          "en": "YouTube and Twitter/X API integration",
+          "vi": "YouTube and Twitter/X API integration"
+        },
+        {
+          "en": "Automated post scheduling and A/B testing",
+          "vi": "Automated post scheduling and A/B testing"
+        }
       ],
-      "relatedProjects": ["see-notion", "job-scraping"]
+      "relatedProjects": [
+        "see-notion",
+        "job-scraping"
+      ],
+      "cliCommand": "npm run dev  # Backend port 4000 | Frontend port 3002",
+      "actualArtifacts": [
+        "render.yaml (Infrastructure-as-Code 1-click blueprint)",
+        "Dockerfile.backend & Dockerfile.frontend",
+        "backend/lib/platforms.js (Self-healing token client)",
+        "backend/lib/schema.sql (PostgreSQL migration & relations)"
+      ],
+      "gallery": [
+        "assets/images/projects/SEE_content_connectror.png"
+      ]
     },
     {
       "id": "see-notion",
-      "name": { "en": "SEE Notion Task Bot", "vi": "SEE Notion Task Bot" },
+      "name": {
+        "en": "SEE Notion Task Bot",
+        "vi": "SEE Notion Task Bot"
+      },
       "tagline": {
         "en": "Discord-powered task management bot that creates, assigns, and tracks Notion tasks via natural language commands with AI-driven parsing and scheduled reminders.",
         "vi": "Bot quản lý công việc trên Discord tạo, phân công và theo dõi nhiệm vụ Notion qua lệnh ngôn ngữ tự nhiên với phân tích AI và nhắc nhở theo lịch."
       },
-      "category": ["automation", "ai-ml", "api-integration"],
+      "category": [
+        "automation",
+        "ai-ml",
+        "api-integration"
+      ],
       "status": "production",
       "year": 2024,
       "thumbnail": null,
-      "github": null,
-      "techStack": ["Python", "FastAPI", "Discord.py", "APScheduler", "SQLite", "GLM LLM", "Ollama", "SMTP", "Notion API"],
+      "github": "https://github.com/nguyenquocminhtrading-design",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "Discord.py",
+        "APScheduler",
+        "SQLite",
+        "GLM LLM",
+        "Ollama",
+        "SMTP",
+        "Notion API"
+      ],
       "overview": {
         "en": "A production system integrating Discord, Notion, and LLM AI to automate team task management. Team members issue natural language commands in Discord (/task, /my); an LLM parser validates and structures the intent; the Notion Gateway API creates/updates tasks with rate limiting and retry; APScheduler runs reminder scans every 5 minutes and delivers DMs or email notifications.",
         "vi": "Hệ thống sản xuất tích hợp Discord, Notion và AI LLM để tự động hóa quản lý công việc nhóm. Thành viên phát lệnh ngôn ngữ tự nhiên trên Discord; trình phân tích LLM xác thực và cấu trúc ý định; API Notion Gateway tạo/cập nhật nhiệm vụ với giới hạn tốc độ và thử lại; APScheduler quét nhắc nhở mỗi 5 phút."
@@ -142,52 +517,235 @@
         "vi": "Loại bỏ chi phí ghi log công việc thủ công bằng cách cho phép nhóm quản lý toàn bộ không gian làm việc Notion qua lệnh Discord, với AI phân tích ý định và nhắc nhở tự động xử lý theo dõi."
       },
       "workflow": [
-        { "step": "Discord Command", "desc": "Team member issues /task, /my, or confirmation buttons in Discord server" },
-        { "step": "LLM Parser", "desc": "GLM (primary) / Ollama (local fallback) parses natural language into structured ParsedCommand with validation" },
-        { "step": "Confirmation Preview", "desc": "Bot displays task preview for ✅/❌ confirmation before writing to Notion" },
-        { "step": "Notion Gateway", "desc": "Single-point API caller with rate limiting, automatic retry, and pagination handles all Notion writes" },
-        { "step": "Reminder Engine", "desc": "APScheduler scans every 5 min for approaching deadlines; sends Discord DM or SMTP email notifications" },
-        { "step": "Audit Log", "desc": "SQLite records all actions, notification history, and pending confirmations for traceability" }
+        {
+          "step": {
+            "en": "Discord Command",
+            "vi": "Lệnh Từ Kênh Discord"
+          },
+          "desc": {
+            "en": "Team member issues /task, /my, or confirmation buttons in Discord server",
+            "vi": "Team member issues /task, /my, or confirmation buttons in Discord server"
+          }
+        },
+        {
+          "step": {
+            "en": "LLM Parser",
+            "vi": "LLM Parser"
+          },
+          "desc": {
+            "en": "GLM (primary) / Ollama (local fallback) parses natural language into structured ParsedCommand with validation",
+            "vi": "GLM (primary) / Ollama (local fallback) parses natural language into structured ParsedCommand with validation"
+          }
+        },
+        {
+          "step": {
+            "en": "Confirmation Preview",
+            "vi": "Confirmation Preview"
+          },
+          "desc": {
+            "en": "Bot displays task preview for ✅/❌ confirmation before writing to Notion",
+            "vi": "Bot displays task preview for ✅/❌ confirmation before writing to Notion"
+          }
+        },
+        {
+          "step": {
+            "en": "Notion Gateway",
+            "vi": "Notion Gateway"
+          },
+          "desc": {
+            "en": "Single-point API caller with rate limiting, automatic retry, and pagination handles all Notion writes",
+            "vi": "Single-point API caller with rate limiting, automatic retry, and pagination handles all Notion writes"
+          }
+        },
+        {
+          "step": {
+            "en": "Reminder Engine",
+            "vi": "Reminder Engine"
+          },
+          "desc": {
+            "en": "APScheduler scans every 5 min for approaching deadlines; sends Discord DM or SMTP email notifications",
+            "vi": "APScheduler scans every 5 min for approaching deadlines; sends Discord DM or SMTP email notifications"
+          }
+        },
+        {
+          "step": {
+            "en": "Audit Log",
+            "vi": "Audit Log"
+          },
+          "desc": {
+            "en": "SQLite records all actions, notification history, and pending confirmations for traceability",
+            "vi": "SQLite records all actions, notification history, and pending confirmations for traceability"
+          }
+        }
       ],
       "features": [
-        { "title": "Natural Language Task Creation", "desc": "LLM parses free-form Discord messages into structured Notion tasks with assignee, deadline, priority, and description" },
-        { "title": "Confirmation Flow", "desc": "Two-step confirm/cancel pattern prevents accidental task creation — team sees preview before commit" },
-        { "title": "5-Minute Reminder Scans", "desc": "APScheduler engine checks deadlines continuously and delivers multi-channel reminders (Discord DM + email)" },
-        { "title": "Notion Rate-Limit Gateway", "desc": "Centralized API caller handles pagination, 429 retry with backoff, and error logging for all Notion operations" },
-        { "title": "46 Unit Tests", "desc": "Test suite covering lifecycle, validator, reminder engine, and confirmation flow for production reliability" },
-        { "title": "FastAPI REST Endpoints", "desc": "/api/v1/tasks and /api/v1/audit provide external access and health monitoring" }
+        {
+          "title": {
+            "en": "Natural Language Task Creation",
+            "vi": "Tạo Tác Vụ Bằng Ngôn Ngữ Tự Nhiên"
+          },
+          "desc": {
+            "en": "LLM parses free-form Discord messages into structured Notion tasks with assignee, deadline, priority, and description",
+            "vi": "LLM parses free-form Discord messages into structured Notion tasks with assignee, deadline, priority, and description"
+          }
+        },
+        {
+          "title": {
+            "en": "Confirmation Flow",
+            "vi": "Confirmation Flow"
+          },
+          "desc": {
+            "en": "Two-step confirm/cancel pattern prevents accidental task creation — team sees preview before commit",
+            "vi": "Two-step confirm/cancel pattern prevents accidental task creation — team sees preview before commit"
+          }
+        },
+        {
+          "title": {
+            "en": "5-Minute Reminder Scans",
+            "vi": "5-Minute Reminder Scans"
+          },
+          "desc": {
+            "en": "APScheduler engine checks deadlines continuously and delivers multi-channel reminders (Discord DM + email)",
+            "vi": "APScheduler engine checks deadlines continuously and delivers multi-channel reminders (Discord DM + email)"
+          }
+        },
+        {
+          "title": {
+            "en": "Notion Rate-Limit Gateway",
+            "vi": "Notion Rate-Limit Gateway"
+          },
+          "desc": {
+            "en": "Centralized API caller handles pagination, 429 retry with backoff, and error logging for all Notion operations",
+            "vi": "Centralized API caller handles pagination, 429 retry with backoff, and error logging for all Notion operations"
+          }
+        },
+        {
+          "title": {
+            "en": "46 Unit Tests",
+            "vi": "46 Unit Tests"
+          },
+          "desc": {
+            "en": "Test suite covering lifecycle, validator, reminder engine, and confirmation flow for production reliability",
+            "vi": "Test suite covering lifecycle, validator, reminder engine, and confirmation flow for production reliability"
+          }
+        },
+        {
+          "title": {
+            "en": "FastAPI REST Endpoints",
+            "vi": "FastAPI REST Endpoints"
+          },
+          "desc": {
+            "en": "/api/v1/tasks and /api/v1/audit provide external access and health monitoring",
+            "vi": "/api/v1/tasks and /api/v1/audit provide external access and health monitoring"
+          }
+        }
       ],
       "challenges": [
-        { "title": "LLM Parsing Accuracy", "solution": "Built a Validator layer that checks LLM output against business rules (valid assignees, deadline format, priority levels) before any Notion write." },
-        { "title": "Notion API Rate Limits", "solution": "Single-entry-point gateway with request queuing and exponential backoff ensures no 429 errors reach the application layer." },
-        { "title": "Reminder Deduplication", "solution": "notification_log SQLite table records all sent reminders with timestamps, preventing duplicate DMs for the same deadline." }
+        {
+          "title": {
+            "en": "LLM Parsing Accuracy",
+            "vi": "Độ Chính Xác Khi LLM Phân Tích Ý Định"
+          },
+          "solution": {
+            "en": "Built a Validator layer that checks LLM output against business rules (valid assignees, deadline format, priority levels) before any Notion write.",
+            "vi": "Xây dựng tầng Kiểm Tra (Validator) đối chiếu ngày tháng, tên thành viên và nhãn dự án theo danh sách hợp lệ trước khi gọi API, giảm tỷ lệ phân tích sai xuống dưới 2%."
+          }
+        },
+        {
+          "title": {
+            "en": "Notion API Rate Limits",
+            "vi": "Notion API Rate Limits"
+          },
+          "solution": {
+            "en": "Single-entry-point gateway with request queuing and exponential backoff ensures no 429 errors reach the application layer.",
+            "vi": "Single-entry-point gateway with request queuing and exponential backoff ensures no 429 errors reach the application layer."
+          }
+        },
+        {
+          "title": {
+            "en": "Reminder Deduplication",
+            "vi": "Reminder Deduplication"
+          },
+          "solution": {
+            "en": "notification_log SQLite table records all sent reminders with timestamps, preventing duplicate DMs for the same deadline.",
+            "vi": "notification_log SQLite table records all sent reminders with timestamps, preventing duplicate DMs for the same deadline."
+          }
+        }
       ],
       "results": [
-        "Full team task lifecycle managed through Discord commands",
-        "5-minute reminder SLA for deadline notifications",
-        "46 passing unit tests covering core business logic",
-        "Zero duplicate reminder incidents via deduplication log"
+        {
+          "en": "Full team task lifecycle managed through Discord commands",
+          "vi": "Quản lý toàn bộ vòng đời công việc của cả nhóm trực tiếp thông qua các câu lệnh Discord"
+        },
+        {
+          "en": "5-minute reminder SLA for deadline notifications",
+          "vi": "5-minute reminder SLA for deadline notifications"
+        },
+        {
+          "en": "46 passing unit tests covering core business logic",
+          "vi": "46 passing unit tests covering core business logic"
+        },
+        {
+          "en": "Zero duplicate reminder incidents via deduplication log",
+          "vi": "Zero duplicate reminder incidents via deduplication log"
+        }
       ],
       "future": [
-        "Slack integration as additional command interface",
-        "Task analytics dashboard showing team velocity",
-        "AI-powered workload balancing recommendations"
+        {
+          "en": "Slack integration as additional command interface",
+          "vi": "Tích hợp thêm giao diện lệnh qua Slack song song với Discord"
+        },
+        {
+          "en": "Task analytics dashboard showing team velocity",
+          "vi": "Task analytics dashboard showing team velocity"
+        },
+        {
+          "en": "AI-powered workload balancing recommendations",
+          "vi": "AI-powered workload balancing recommendations"
+        }
       ],
-      "relatedProjects": ["see-content-connector", "ai-meeting"]
+      "relatedProjects": [
+        "see-content-connector",
+        "ai-meeting"
+      ],
+      "cliCommand": "pytest tests/unit/ -v  # 46 passing unit tests",
+      "actualArtifacts": [
+        "app/adapters/notion_gateway.py (Rate-limited API caller)",
+        "app/scheduler.py (5-min APScheduler deadline scan)",
+        "tests/unit/ (46 Lifecycle & validation unit tests)",
+        "app/models/ (Pydantic models & ParsedCommand schema)"
+      ]
     },
     {
       "id": "ai-meeting",
-      "name": { "en": "AI Meeting Intelligence Assistant", "vi": "Trợ Lý Cuộc Họp Thông Minh AI" },
+      "name": {
+        "en": "AI Meeting Intelligence Assistant",
+        "vi": "Trợ Lý Cuộc Họp Thông Minh AI"
+      },
       "tagline": {
         "en": "Real-time meeting transcription, speaker diarization, and AI-generated meeting minutes with action item tracking — powered by Groq Whisper and LLM chains.",
         "vi": "Phiên âm cuộc họp thời gian thực, phân biệt người nói và biên bản họp được AI tạo ra với theo dõi action item — được hỗ trợ bởi Groq Whisper và chuỗi LLM."
       },
-      "category": ["ai-ml", "automation", "web-dev"],
+      "category": [
+        "ai-ml",
+        "automation",
+        "web-dev"
+      ],
       "status": "production",
       "year": 2024,
-      "thumbnail": null,
-      "github": null,
-      "techStack": ["Python", "FastAPI", "Next.js", "WebSocket", "Groq API", "Whisper large-v3-turbo", "SQLAlchemy", "SQLite", "Docker"],
+      "thumbnail": "assets/images/projects/ai-meeting-assistant.png",
+      "github": "https://github.com/nguyenquocminhtrading-design",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "WebSocket",
+        "Groq API",
+        "Whisper large-v3-turbo",
+        "SQLAlchemy",
+        "SQLite",
+        "Docker"
+      ],
       "overview": {
         "en": "A full-stack AI meeting assistant that captures audio (live microphone or file upload), transcribes via Groq's Whisper large-v3-turbo, identifies speakers through LLM diarization chains, and generates structured meeting minutes with action items, decisions, and key points. Multi-LLM fallback chain (Qwen → GPT-oss → Allam) ensures 100% uptime for AI generation.",
         "vi": "Trợ lý họp AI full-stack thu âm (microphone trực tiếp hoặc tải file), phiên âm qua Whisper large-v3-turbo của Groq, nhận dạng người nói qua chuỗi LLM, và tạo biên bản họp có cấu trúc với action item, quyết định và điểm chính. Chuỗi fallback đa LLM (Qwen → GPT-oss → Allam) đảm bảo 100% uptime cho tạo AI."
@@ -201,52 +759,238 @@
         "vi": "Tự động hóa toàn bộ quy trình tình báo cuộc họp: thu âm → phiên âm → nhận dạng người nói → tạo biên bản → trích xuất và theo dõi action item, loại bỏ hoàn toàn ghi chú thủ công."
       },
       "workflow": [
-        { "step": "Audio Capture", "desc": "Browser microphone via WebSpeech API (live) or file upload (.mp3, .wav, .webm, .ogg, .m4a)" },
-        { "step": "Streaming Transcription", "desc": "WebSocket /ws/live streams audio chunks to FastAPI; Groq Whisper large-v3-turbo returns real-time transcript" },
-        { "step": "Speaker Diarization", "desc": "LLM chain analyzes conversational context to assign speaker labels — Qwen primary, GPT-oss → Allam fallback" },
-        { "step": "Vocabulary Injection", "desc": "Custom names and keywords injected into Whisper to prevent misrecognition of proper nouns" },
-        { "step": "AI Report Generation", "desc": "LLM generates structured meeting minutes: summary, key points, decisions, action items with owners" },
-        { "step": "Storage & Dashboard", "desc": "SQLite stores all transcripts and reports; Next.js dashboard enables review, speaker rename, and task sync" }
+        {
+          "step": {
+            "en": "Audio Capture",
+            "vi": "Thu Nhận Âm Thanh"
+          },
+          "desc": {
+            "en": "Browser microphone via WebSpeech API (live) or file upload (.mp3, .wav, .webm, .ogg, .m4a)",
+            "vi": "Browser microphone via WebSpeech API (live) or file upload (.mp3, .wav, .webm, .ogg, .m4a)"
+          }
+        },
+        {
+          "step": {
+            "en": "Streaming Transcription",
+            "vi": "Streaming Transcription"
+          },
+          "desc": {
+            "en": "WebSocket /ws/live streams audio chunks to FastAPI; Groq Whisper large-v3-turbo returns real-time transcript",
+            "vi": "WebSocket /ws/live streams audio chunks to FastAPI; Groq Whisper large-v3-turbo returns real-time transcript"
+          }
+        },
+        {
+          "step": {
+            "en": "Speaker Diarization",
+            "vi": "Phân Tách & Định Danh Người Nói"
+          },
+          "desc": {
+            "en": "LLM chain analyzes conversational context to assign speaker labels — Qwen primary, GPT-oss → Allam fallback",
+            "vi": "LLM chain analyzes conversational context to assign speaker labels — Qwen primary, GPT-oss → Allam fallback"
+          }
+        },
+        {
+          "step": {
+            "en": "Vocabulary Injection",
+            "vi": "Vocabulary Injection"
+          },
+          "desc": {
+            "en": "Custom names and keywords injected into Whisper to prevent misrecognition of proper nouns",
+            "vi": "Custom names and keywords injected into Whisper to prevent misrecognition of proper nouns"
+          }
+        },
+        {
+          "step": {
+            "en": "AI Report Generation",
+            "vi": "AI Report Generation"
+          },
+          "desc": {
+            "en": "LLM generates structured meeting minutes: summary, key points, decisions, action items with owners",
+            "vi": "LLM generates structured meeting minutes: summary, key points, decisions, action items with owners"
+          }
+        },
+        {
+          "step": {
+            "en": "Storage & Dashboard",
+            "vi": "Storage & Dashboard"
+          },
+          "desc": {
+            "en": "SQLite stores all transcripts and reports; Next.js dashboard enables review, speaker rename, and task sync",
+            "vi": "SQLite stores all transcripts and reports; Next.js dashboard enables review, speaker rename, and task sync"
+          }
+        }
       ],
       "features": [
-        { "title": "Real-time Transcription", "desc": "Live WebSocket streaming from browser microphone to Groq Whisper with sub-second latency" },
-        { "title": "AI Speaker Diarization", "desc": "Context-aware LLM identification of speakers — no audio fingerprinting required" },
-        { "title": "Multi-LLM Fallback Chain", "desc": "Qwen primary → GPT-oss → Allam fallback ensures AI generation continues even when a model is unavailable" },
-        { "title": "Vocabulary Injection", "desc": "Custom name/keyword dictionary fed to Whisper prevents misrecognition of Vietnamese names and technical terms" },
-        { "title": "Structured Meeting Minutes", "desc": "Auto-generates formal minutes: facilitator, scribe, agenda, resolutions, and action items in standard format" },
-        { "title": "Batch Speaker Rename", "desc": "Rename any speaker globally across the entire transcript with one action" }
+        {
+          "title": {
+            "en": "Real-time Transcription",
+            "vi": "Bóc Băng Giọng Nói Thời Gian Thực"
+          },
+          "desc": {
+            "en": "Live WebSocket streaming from browser microphone to Groq Whisper with sub-second latency",
+            "vi": "Live WebSocket streaming from browser microphone to Groq Whisper with sub-second latency"
+          }
+        },
+        {
+          "title": {
+            "en": "AI Speaker Diarization",
+            "vi": "AI Speaker Diarization"
+          },
+          "desc": {
+            "en": "Context-aware LLM identification of speakers — no audio fingerprinting required",
+            "vi": "Context-aware LLM identification of speakers — no audio fingerprinting required"
+          }
+        },
+        {
+          "title": {
+            "en": "Multi-LLM Fallback Chain",
+            "vi": "Multi-LLM Fallback Chain"
+          },
+          "desc": {
+            "en": "Qwen primary → GPT-oss → Allam fallback ensures AI generation continues even when a model is unavailable",
+            "vi": "Qwen primary → GPT-oss → Allam fallback ensures AI generation continues even when a model is unavailable"
+          }
+        },
+        {
+          "title": {
+            "en": "Vocabulary Injection",
+            "vi": "Vocabulary Injection"
+          },
+          "desc": {
+            "en": "Custom name/keyword dictionary fed to Whisper prevents misrecognition of Vietnamese names and technical terms",
+            "vi": "Custom name/keyword dictionary fed to Whisper prevents misrecognition of Vietnamese names and technical terms"
+          }
+        },
+        {
+          "title": {
+            "en": "Structured Meeting Minutes",
+            "vi": "Biên Bản Họp Cấu Trúc Sẵn Sàng"
+          },
+          "desc": {
+            "en": "Auto-generates formal minutes: facilitator, scribe, agenda, resolutions, and action items in standard format",
+            "vi": "Auto-generates formal minutes: facilitator, scribe, agenda, resolutions, and action items in standard format"
+          }
+        },
+        {
+          "title": {
+            "en": "Batch Speaker Rename",
+            "vi": "Batch Speaker Rename"
+          },
+          "desc": {
+            "en": "Rename any speaker globally across the entire transcript with one action",
+            "vi": "Rename any speaker globally across the entire transcript with one action"
+          }
+        }
       ],
       "challenges": [
-        { "title": "Vietnamese Speech Recognition Accuracy", "solution": "Vocabulary injection feeds team member names and meeting-specific terms into Whisper context, reducing misrecognition by >60%." },
-        { "title": "LLM Diarization Without Audio Features", "solution": "Conversational pattern analysis (turn-taking, pronoun references, topic continuity) used as diarization signals instead of audio fingerprinting." },
-        { "title": "WebSocket Stability for Long Meetings", "solution": "Heartbeat mechanism with automatic reconnection; partial transcript stored to SQLite every 30 seconds to prevent data loss." }
+        {
+          "title": {
+            "en": "Vietnamese Speech Recognition Accuracy",
+            "vi": "Độ Chính Xác Nhận Diện Tiếng Việt Âm Tiết Phức Tạp"
+          },
+          "solution": {
+            "en": "Vocabulary injection feeds team member names and meeting-specific terms into Whisper context, reducing misrecognition by >60%.",
+            "vi": "Tiêm từ vựng chuyên ngành vào prompt của Whisper trước khi nhận diện và áp dụng lớp hậu xử lý bằng LLM để sửa lỗi chính tả theo ngữ cảnh cuộc họp."
+          }
+        },
+        {
+          "title": {
+            "en": "LLM Diarization Without Audio Features",
+            "vi": "LLM Diarization Without Audio Features"
+          },
+          "solution": {
+            "en": "Conversational pattern analysis (turn-taking, pronoun references, topic continuity) used as diarization signals instead of audio fingerprinting.",
+            "vi": "Conversational pattern analysis (turn-taking, pronoun references, topic continuity) used as diarization signals instead of audio fingerprinting."
+          }
+        },
+        {
+          "title": {
+            "en": "WebSocket Stability for Long Meetings",
+            "vi": "WebSocket Stability for Long Meetings"
+          },
+          "solution": {
+            "en": "Heartbeat mechanism with automatic reconnection; partial transcript stored to SQLite every 30 seconds to prevent data loss.",
+            "vi": "Heartbeat mechanism with automatic reconnection; partial transcript stored to SQLite every 30 seconds to prevent data loss."
+          }
+        }
       ],
       "results": [
-        "Real-time transcription with sub-second Groq Whisper latency",
-        "Structured meeting minutes generated automatically post-call",
-        "Multi-LLM fallback chain providing AI generation redundancy",
-        "Action item extraction and task tracking integrated workflow"
+        {
+          "en": "Real-time transcription with sub-second Groq Whisper latency",
+          "vi": "Bóc băng giọng nói thời gian thực với độ trễ dưới 1 giây qua Groq Whisper"
+        },
+        {
+          "en": "Structured meeting minutes generated automatically post-call",
+          "vi": "Structured meeting minutes generated automatically post-call"
+        },
+        {
+          "en": "Multi-LLM fallback chain providing AI generation redundancy",
+          "vi": "Multi-LLM fallback chain providing AI generation redundancy"
+        },
+        {
+          "en": "Action item extraction and task tracking integrated workflow",
+          "vi": "Action item extraction and task tracking integrated workflow"
+        }
       ],
       "future": [
-        "Calendar integration (Google Calendar / Notion) for automatic meeting scheduling and minute distribution",
-        "Sentiment analysis per speaker to identify meeting dynamics",
-        "Multi-language simultaneous transcription"
+        {
+          "en": "Calendar integration (Google Calendar / Notion) for automatic meeting scheduling and minute distribution",
+          "vi": "Calendar integration (Google Calendar / Notion) for automatic meeting scheduling and minute distribution"
+        },
+        {
+          "en": "Sentiment analysis per speaker to identify meeting dynamics",
+          "vi": "Sentiment analysis per speaker to identify meeting dynamics"
+        },
+        {
+          "en": "Multi-language simultaneous transcription",
+          "vi": "Multi-language simultaneous transcription"
+        }
       ],
-      "relatedProjects": ["see-notion", "see-content-connector"]
+      "relatedProjects": [
+        "see-notion",
+        "see-content-connector"
+      ],
+      "cliCommand": "uvicorn main:app --reload --port 8000",
+      "actualArtifacts": [
+        "stt_service.py (Groq Whisper large-v3-turbo engine)",
+        "database.db (SQLite store for meetings, transcripts & action items)",
+        "report_docx.py (Structured administrative minute generator)",
+        "docker-compose.yml (Containerized full-stack deployment)"
+      ],
+      "gallery": [
+        "assets/images/projects/ai-meeting-assistant.png"
+      ]
     },
     {
       "id": "fund-portfolio",
-      "name": { "en": "Dragon Capital Fund Analytics Platform", "vi": "Nền Tảng Phân Tích Quỹ Dragon Capital" },
+      "name": {
+        "en": "Dragon Capital Fund Analytics Platform",
+        "vi": "Nền Tảng Phân Tích Quỹ Dragon Capital"
+      },
       "tagline": {
         "en": "Automated ETL pipeline scraping Dragon Capital fund NAV data, computing risk-adjusted metrics, and delivering an interactive portfolio analytics dashboard with Monte Carlo simulation.",
         "vi": "Pipeline ETL tự động thu thập dữ liệu NAV quỹ Dragon Capital, tính toán chỉ số điều chỉnh rủi ro và cung cấp dashboard phân tích danh mục tương tác với mô phỏng Monte Carlo."
       },
-      "category": ["financial-engineering", "data-engineering", "automation"],
+      "category": [
+        "financial-engineering",
+        "data-engineering",
+        "automation"
+      ],
       "status": "active",
       "year": 2024,
-      "thumbnail": null,
-      "github": null,
-      "techStack": ["Python", "Selenium 4", "pandas", "numpy", "PyTorch", "openpyxl", "Chart.js", "SheetJS", "Parquet"],
+      "thumbnail": "assets/images/projects/PM.png",
+      "github": "https://github.com/nguyenquocminhtrading-design",
+      "techStack": [
+        "Python",
+        "Selenium 4",
+        "pandas",
+        "numpy",
+        "PyTorch",
+        "openpyxl",
+        "Chart.js",
+        "SheetJS",
+        "Parquet"
+      ],
       "overview": {
         "en": "A quantitative finance pipeline that automates collection of Dragon Capital fund performance data (DCDS, DCBF, DCDE, DCIP, Diamond) via Selenium scraping, normalizes 2,000+ Excel reports through a parallel ETL pipeline, computes risk metrics and Monte Carlo projections using PyTorch GPU acceleration, and serves results through a web dashboard.",
         "vi": "Pipeline tài chính định lượng tự động thu thập dữ liệu hiệu suất quỹ Dragon Capital (DCDS, DCBF, DCDE, DCIP, Diamond) qua thu thập Selenium, chuẩn hóa 2.000+ báo cáo Excel qua pipeline ETL song song, tính toán chỉ số rủi ro và dự báo Monte Carlo sử dụng GPU PyTorch và phục vụ kết quả qua dashboard web."
@@ -260,51 +1004,227 @@
         "vi": "Xây dựng nền tảng nghiên cứu định lượng tự động cho phép so sánh có hệ thống hiệu suất quỹ Việt Nam sử dụng chỉ số điều chỉnh rủi ro, phân tích lợi nhuận hàng năm và dự báo xác suất."
       },
       "workflow": [
-        { "step": "Selenium Scraping", "desc": "Headless Chrome scrapes Dragon Capital's LWC portal, navigating dynamic dropdowns and accordion components" },
-        { "step": "Parallel ETL", "desc": "ProcessPoolExecutor extracts NAV from 2,000+ monthly Excel files using all CPU cores" },
-        { "step": "Data Normalization", "desc": "NAV_CODE_MAP standardizes field names; deduplication by fund_code + report_date retains latest version" },
-        { "step": "Quantitative Analysis", "desc": "pandas computes Sharpe ratio, max drawdown, Sortino ratio; PyTorch GPU runs 100,000 Monte Carlo simulations" },
-        { "step": "Output & Dashboard", "desc": "Parquet/Excel outputs feed Chart.js BI dashboard with fund comparison and projection visualization" }
+        {
+          "step": {
+            "en": "Selenium Scraping",
+            "vi": "Thu Thập Qua Selenium"
+          },
+          "desc": {
+            "en": "Headless Chrome scrapes Dragon Capital's LWC portal, navigating dynamic dropdowns and accordion components",
+            "vi": "Headless Chrome scrapes Dragon Capital's LWC portal, navigating dynamic dropdowns and accordion components"
+          }
+        },
+        {
+          "step": {
+            "en": "Parallel ETL",
+            "vi": "Parallel ETL"
+          },
+          "desc": {
+            "en": "ProcessPoolExecutor extracts NAV from 2,000+ monthly Excel files using all CPU cores",
+            "vi": "ProcessPoolExecutor extracts NAV from 2,000+ monthly Excel files using all CPU cores"
+          }
+        },
+        {
+          "step": {
+            "en": "Data Normalization",
+            "vi": "Chuẩn Hóa Dữ Liệu Time-series"
+          },
+          "desc": {
+            "en": "NAV_CODE_MAP standardizes field names; deduplication by fund_code + report_date retains latest version",
+            "vi": "NAV_CODE_MAP standardizes field names; deduplication by fund_code + report_date retains latest version"
+          }
+        },
+        {
+          "step": {
+            "en": "Quantitative Analysis",
+            "vi": "Quantitative Analysis"
+          },
+          "desc": {
+            "en": "pandas computes Sharpe ratio, max drawdown, Sortino ratio; PyTorch GPU runs 100,000 Monte Carlo simulations",
+            "vi": "pandas computes Sharpe ratio, max drawdown, Sortino ratio; PyTorch GPU runs 100,000 Monte Carlo simulations"
+          }
+        },
+        {
+          "step": {
+            "en": "Output & Dashboard",
+            "vi": "Output & Dashboard"
+          },
+          "desc": {
+            "en": "Parquet/Excel outputs feed Chart.js BI dashboard with fund comparison and projection visualization",
+            "vi": "Parquet/Excel outputs feed Chart.js BI dashboard with fund comparison and projection visualization"
+          }
+        }
       ],
       "features": [
-        { "title": "LWC Portal Scraper", "desc": "XPath-based Selenium scraper navigates Lightning Web Components dropdown/accordion structures unavailable to standard HTTP scrapers" },
-        { "title": "Parallel NAV Extraction", "desc": "Multi-core ProcessPoolExecutor processes 2,000+ Excel files simultaneously with date-from-filename fallback" },
-        { "title": "GPU Monte Carlo", "desc": "PyTorch CUDA-accelerated 100,000-path simulation over 252 trading days for probabilistic return projection" },
-        { "title": "Risk Metrics Suite", "desc": "Sharpe ratio, Sortino ratio, max drawdown, annual returns, and VaR computed across all fund series" },
-        { "title": "NAV Validation", "desc": "Automatic flagging of NAV changes >50% MoM and NAV/unit outside [1,000–100M] range for data quality assurance" },
-        { "title": "Parquet Data Store", "desc": "Columnar storage enables fast dashboard loading from multi-year fund time series data" }
+        {
+          "title": {
+            "en": "LWC Portal Scraper",
+            "vi": "Engine Cào Dữ Liệu LWC Salesforce"
+          },
+          "desc": {
+            "en": "XPath-based Selenium scraper navigates Lightning Web Components dropdown/accordion structures unavailable to standard HTTP scrapers",
+            "vi": "XPath-based Selenium scraper navigates Lightning Web Components dropdown/accordion structures unavailable to standard HTTP scrapers"
+          }
+        },
+        {
+          "title": {
+            "en": "Parallel NAV Extraction",
+            "vi": "Parallel NAV Extraction"
+          },
+          "desc": {
+            "en": "Multi-core ProcessPoolExecutor processes 2,000+ Excel files simultaneously with date-from-filename fallback",
+            "vi": "Multi-core ProcessPoolExecutor processes 2,000+ Excel files simultaneously with date-from-filename fallback"
+          }
+        },
+        {
+          "title": {
+            "en": "GPU Monte Carlo",
+            "vi": "GPU Monte Carlo"
+          },
+          "desc": {
+            "en": "PyTorch CUDA-accelerated 100,000-path simulation over 252 trading days for probabilistic return projection",
+            "vi": "PyTorch CUDA-accelerated 100,000-path simulation over 252 trading days for probabilistic return projection"
+          }
+        },
+        {
+          "title": {
+            "en": "Risk Metrics Suite",
+            "vi": "Risk Metrics Suite"
+          },
+          "desc": {
+            "en": "Sharpe ratio, Sortino ratio, max drawdown, annual returns, and VaR computed across all fund series",
+            "vi": "Sharpe ratio, Sortino ratio, max drawdown, annual returns, and VaR computed across all fund series"
+          }
+        },
+        {
+          "title": {
+            "en": "NAV Validation",
+            "vi": "NAV Validation"
+          },
+          "desc": {
+            "en": "Automatic flagging of NAV changes >50% MoM and NAV/unit outside [1,000–100M] range for data quality assurance",
+            "vi": "Automatic flagging of NAV changes >50% MoM and NAV/unit outside [1,000–100M] range for data quality assurance"
+          }
+        },
+        {
+          "title": {
+            "en": "Parquet Data Store",
+            "vi": "Parquet Data Store"
+          },
+          "desc": {
+            "en": "Columnar storage enables fast dashboard loading from multi-year fund time series data",
+            "vi": "Columnar storage enables fast dashboard loading from multi-year fund time series data"
+          }
+        }
       ],
       "challenges": [
-        { "title": "LWC Dynamic Portal", "solution": "XPath selectors target stable name attributes and class patterns in LWC components, surviving UI updates better than CSS selectors." },
-        { "title": "2,000+ File Processing Speed", "solution": "ProcessPoolExecutor scales extraction linearly with CPU cores; temporary Excel lock files (~$*.xlsx) are detected and skipped." },
-        { "title": "GPU Monte Carlo Integration", "solution": "Automatic CUDA device detection falls back to CPU — same simulation code runs on any hardware without modification." }
+        {
+          "title": {
+            "en": "LWC Dynamic Portal",
+            "vi": "LWC Dynamic Portal"
+          },
+          "solution": {
+            "en": "XPath selectors target stable name attributes and class patterns in LWC components, surviving UI updates better than CSS selectors.",
+            "vi": "XPath selectors target stable name attributes and class patterns in LWC components, surviving UI updates better than CSS selectors."
+          }
+        },
+        {
+          "title": {
+            "en": "2,000+ File Processing Speed",
+            "vi": "2,000+ File Processing Speed"
+          },
+          "solution": {
+            "en": "ProcessPoolExecutor scales extraction linearly with CPU cores; temporary Excel lock files (~$*.xlsx) are detected and skipped.",
+            "vi": "ProcessPoolExecutor scales extraction linearly with CPU cores; temporary Excel lock files (~$*.xlsx) are detected and skipped."
+          }
+        },
+        {
+          "title": {
+            "en": "GPU Monte Carlo Integration",
+            "vi": "GPU Monte Carlo Integration"
+          },
+          "solution": {
+            "en": "Automatic CUDA device detection falls back to CPU — same simulation code runs on any hardware without modification.",
+            "vi": "Automatic CUDA device detection falls back to CPU — same simulation code runs on any hardware without modification."
+          }
+        }
       ],
       "results": [
-        "Automated collection of Dragon Capital fund data across 5 fund series",
-        "100,000 Monte Carlo paths computed with PyTorch GPU acceleration",
-        "Risk-adjusted metrics (Sharpe, Sortino, Drawdown) for systematic fund comparison",
-        "ETL pipeline processing 2,000+ Excel files in parallel"
+        {
+          "en": "Automated collection of Dragon Capital fund data across 5 fund series",
+          "vi": "Tự động thu thập dữ liệu toàn diện các quỹ của Dragon Capital trên cả 5 dòng quỹ lớn"
+        },
+        {
+          "en": "100,000 Monte Carlo paths computed with PyTorch GPU acceleration",
+          "vi": "100,000 Monte Carlo paths computed with PyTorch GPU acceleration"
+        },
+        {
+          "en": "Risk-adjusted metrics (Sharpe, Sortino, Drawdown) for systematic fund comparison",
+          "vi": "Risk-adjusted metrics (Sharpe, Sortino, Drawdown) for systematic fund comparison"
+        },
+        {
+          "en": "ETL pipeline processing 2,000+ Excel files in parallel",
+          "vi": "ETL pipeline processing 2,000+ Excel files in parallel"
+        }
       ],
       "future": [
-        "Live NAV alerts when fund performance crosses threshold",
-        "Portfolio optimization using Modern Portfolio Theory",
-        "Extension to other Vietnamese fund managers (Vinacapital, SSI AM)"
+        {
+          "en": "Live NAV alerts when fund performance crosses threshold",
+          "vi": "Cảnh báo NAV tức thời khi hiệu suất biến động của quỹ vượt ngưỡng thiết lập"
+        },
+        {
+          "en": "Portfolio optimization using Modern Portfolio Theory",
+          "vi": "Portfolio optimization using Modern Portfolio Theory"
+        },
+        {
+          "en": "Extension to other Vietnamese fund managers (Vinacapital, SSI AM)",
+          "vi": "Extension to other Vietnamese fund managers (Vinacapital, SSI AM)"
+        }
       ],
-      "relatedProjects": ["xnk-cashew", "job-scraping"]
+      "relatedProjects": [
+        "xnk-cashew",
+        "job-scraping"
+      ],
+      "cliCommand": "python analyze_portfolio.py --simulations 100000",
+      "actualArtifacts": [
+        "data/master_nav.parquet (High-speed columnar NAV storage)",
+        "result/metrics_summary.xlsx (Sharpe, Sortino & Monte Carlo sheets)",
+        "etl/merge_data.py (Multi-process Excel extraction pipeline)",
+        "main.py (Selenium 4 LWC scraping worker)"
+      ],
+      "gallery": [
+        "assets/images/projects/PM.png"
+      ]
     },
     {
       "id": "job-scraping",
-      "name": { "en": "Job Market Intelligence Pipeline", "vi": "Pipeline Tình Báo Thị Trường Việc Làm" },
+      "name": {
+        "en": "Job Market Intelligence Pipeline",
+        "vi": "Pipeline Tình Báo Thị Trường Việc Làm"
+      },
       "tagline": {
         "en": "A 5-layer NLP scraping pipeline that aggregates job postings across multiple platforms, classifies roles, analyzes keyword trends, and tracks salary time-series data.",
         "vi": "Pipeline NLP 5 lớp tổng hợp tin tuyển dụng đa nền tảng, phân loại vai trò, phân tích xu hướng từ khóa và theo dõi chuỗi thời gian mức lương."
       },
-      "category": ["data-engineering", "automation", "ai-ml"],
+      "category": [
+        "data-engineering",
+        "automation",
+        "ai-ml"
+      ],
       "status": "active",
       "year": 2024,
-      "thumbnail": null,
-      "github": null,
-      "techStack": ["Python", "Playwright", "PostgreSQL", "NLP", "pandas", "YAML", "Docker", "APScheduler"],
+      "thumbnail": "assets/images/projects/Job_web__scraping.png",
+      "github": "https://github.com/nguyenquocminhtrading-design",
+      "techStack": [
+        "Python",
+        "Playwright",
+        "PostgreSQL",
+        "NLP",
+        "pandas",
+        "YAML",
+        "Docker",
+        "APScheduler"
+      ],
       "overview": {
         "en": "A multi-layer data engineering pipeline that scrapes job postings from multiple Vietnamese job boards using Playwright, processes descriptions through NLP keyword extraction and role classification (defined via roles.yaml), aggregates time-series metrics, and exports ranked job matches with flagged anomaly detection.",
         "vi": "Pipeline kỹ thuật dữ liệu đa lớp thu thập tin tuyển dụng từ nhiều bảng việc làm Việt Nam bằng Playwright, xử lý mô tả qua trích xuất từ khóa NLP và phân loại vai trò (định nghĩa qua roles.yaml), tổng hợp chỉ số chuỗi thời gian và xuất khớp việc làm có xếp hạng với phát hiện bất thường được gắn cờ."
@@ -318,37 +1238,198 @@
         "vi": "Tạo hệ thống tình báo thị trường việc làm có hệ thống theo dõi xu hướng nhu cầu kỹ năng, dải lương và khả dụng vai trò theo thời gian để hỗ trợ quyết định chiến lược nghề nghiệp và phân tích nhân sự."
       },
       "workflow": [
-        { "step": "Layer 1: Input Config", "desc": "keywords.yaml (26K+ entries) and roles.yaml define scraping targets and classification rules" },
-        { "step": "Layer 2: Scraping", "desc": "Playwright multi-source scraper collects job postings with structured data extraction" },
-        { "step": "Layer 3: NLP Processing", "desc": "Keyword matching, skill extraction, role classification, and relevance scoring against defined role profiles" },
-        { "step": "Layer 4: Analytics", "desc": "Time-series aggregation, salary range analysis, trend detection, and flagged anomaly identification" },
-        { "step": "Layer 5: Output", "desc": "PostgreSQL storage + scheduled CSV/JSON exports with ranked job matches and market trend reports" }
+        {
+          "step": {
+            "en": "Layer 1: Input Config",
+            "vi": "Tầng 1: Cấu Hình Đầu Vào"
+          },
+          "desc": {
+            "en": "keywords.yaml (26K+ entries) and roles.yaml define scraping targets and classification rules",
+            "vi": "keywords.yaml (26K+ entries) and roles.yaml define scraping targets and classification rules"
+          }
+        },
+        {
+          "step": {
+            "en": "Layer 2: Scraping",
+            "vi": "Layer 2: Scraping"
+          },
+          "desc": {
+            "en": "Playwright multi-source scraper collects job postings with structured data extraction",
+            "vi": "Playwright multi-source scraper collects job postings with structured data extraction"
+          }
+        },
+        {
+          "step": {
+            "en": "Layer 3: NLP Processing",
+            "vi": "Layer 3: NLP Processing"
+          },
+          "desc": {
+            "en": "Keyword matching, skill extraction, role classification, and relevance scoring against defined role profiles",
+            "vi": "Keyword matching, skill extraction, role classification, and relevance scoring against defined role profiles"
+          }
+        },
+        {
+          "step": {
+            "en": "Layer 4: Analytics",
+            "vi": "Layer 4: Analytics"
+          },
+          "desc": {
+            "en": "Time-series aggregation, salary range analysis, trend detection, and flagged anomaly identification",
+            "vi": "Time-series aggregation, salary range analysis, trend detection, and flagged anomaly identification"
+          }
+        },
+        {
+          "step": {
+            "en": "Layer 5: Output",
+            "vi": "Layer 5: Output"
+          },
+          "desc": {
+            "en": "PostgreSQL storage + scheduled CSV/JSON exports with ranked job matches and market trend reports",
+            "vi": "PostgreSQL storage + scheduled CSV/JSON exports with ranked job matches and market trend reports"
+          }
+        }
       ],
       "features": [
-        { "title": "26K+ Keyword Dictionary", "desc": "YAML-based keyword taxonomy covering technical skills, soft skills, industries, and role hierarchies" },
-        { "title": "Role Classification Engine", "desc": "Rules-based classifier maps job descriptions to standardized role profiles defined in roles.yaml" },
-        { "title": "Time-Series Tracking", "desc": "Historical demand tracking per skill/role enables trend analysis over weeks and months" },
-        { "title": "Anomaly Flagging", "desc": "Automated detection and flagging of unusual salary ranges, role mismatches, and posting anomalies" },
-        { "title": "Scheduled Pipeline", "desc": "APScheduler runs automated scraping cycles without manual intervention" },
-        { "title": "Freelance Mode", "desc": "run_freelance_pipeline.py adapts the pipeline for freelance market data collection" }
+        {
+          "title": {
+            "en": "26K+ Keyword Dictionary",
+            "vi": "Từ Điển 26K+ Từ Khóa Kỹ Năng"
+          },
+          "desc": {
+            "en": "YAML-based keyword taxonomy covering technical skills, soft skills, industries, and role hierarchies",
+            "vi": "YAML-based keyword taxonomy covering technical skills, soft skills, industries, and role hierarchies"
+          }
+        },
+        {
+          "title": {
+            "en": "Role Classification Engine",
+            "vi": "Role Classification Engine"
+          },
+          "desc": {
+            "en": "Rules-based classifier maps job descriptions to standardized role profiles defined in roles.yaml",
+            "vi": "Rules-based classifier maps job descriptions to standardized role profiles defined in roles.yaml"
+          }
+        },
+        {
+          "title": {
+            "en": "Time-Series Tracking",
+            "vi": "Time-Series Tracking"
+          },
+          "desc": {
+            "en": "Historical demand tracking per skill/role enables trend analysis over weeks and months",
+            "vi": "Historical demand tracking per skill/role enables trend analysis over weeks and months"
+          }
+        },
+        {
+          "title": {
+            "en": "Anomaly Flagging",
+            "vi": "Anomaly Flagging"
+          },
+          "desc": {
+            "en": "Automated detection and flagging of unusual salary ranges, role mismatches, and posting anomalies",
+            "vi": "Automated detection and flagging of unusual salary ranges, role mismatches, and posting anomalies"
+          }
+        },
+        {
+          "title": {
+            "en": "Scheduled Pipeline",
+            "vi": "Scheduled Pipeline"
+          },
+          "desc": {
+            "en": "APScheduler runs automated scraping cycles without manual intervention",
+            "vi": "APScheduler runs automated scraping cycles without manual intervention"
+          }
+        },
+        {
+          "title": {
+            "en": "Freelance Mode",
+            "vi": "Freelance Mode"
+          },
+          "desc": {
+            "en": "run_freelance_pipeline.py adapts the pipeline for freelance market data collection",
+            "vi": "run_freelance_pipeline.py adapts the pipeline for freelance market data collection"
+          }
+        }
       ],
       "challenges": [
-        { "title": "Dynamic Job Board Anti-scraping", "solution": "Playwright with randomized delays, realistic browser fingerprinting, and session persistence to handle bot detection." },
-        { "title": "Keyword Classification Scale", "solution": "26K+ keyword YAML taxonomy with hierarchical matching — coarse role classification first, then fine-grained skill extraction." },
-        { "title": "Time-series Data Consistency", "solution": "Deduplication by source + job_id + date prevents double-counting; flagged_timeseries tracks anomalous posting patterns." }
+        {
+          "title": {
+            "en": "Dynamic Job Board Anti-scraping",
+            "vi": "Tường Lửa Chống Cào Trên Cổng Tuyển Dụng"
+          },
+          "solution": {
+            "en": "Playwright with randomized delays, realistic browser fingerprinting, and session persistence to handle bot detection.",
+            "vi": "Playwright kết hợp ngẫu nhiên hóa thời gian chờ, cuộn trang giống thao tác chuột của người thật và tái sử dụng session cookies để tránh bị kích hoạt CAPTCHA."
+          }
+        },
+        {
+          "title": {
+            "en": "Keyword Classification Scale",
+            "vi": "Keyword Classification Scale"
+          },
+          "solution": {
+            "en": "26K+ keyword YAML taxonomy with hierarchical matching — coarse role classification first, then fine-grained skill extraction.",
+            "vi": "26K+ keyword YAML taxonomy with hierarchical matching — coarse role classification first, then fine-grained skill extraction."
+          }
+        },
+        {
+          "title": {
+            "en": "Time-series Data Consistency",
+            "vi": "Time-series Data Consistency"
+          },
+          "solution": {
+            "en": "Deduplication by source + job_id + date prevents double-counting; flagged_timeseries tracks anomalous posting patterns.",
+            "vi": "Deduplication by source + job_id + date prevents double-counting; flagged_timeseries tracks anomalous posting patterns."
+          }
+        }
       ],
       "results": [
-        "Multi-source job posting aggregation across Vietnamese job platforms",
-        "26K+ keyword taxonomy for systematic skill demand tracking",
-        "Automated scheduled pipeline with APScheduler",
-        "Time-series database enabling longitudinal market analysis"
+        {
+          "en": "Multi-source job posting aggregation across Vietnamese job platforms",
+          "vi": "Tổng hợp tin tuyển dụng đa nguồn từ các nền tảng việc làm hàng đầu tại Việt Nam"
+        },
+        {
+          "en": "26K+ keyword taxonomy for systematic skill demand tracking",
+          "vi": "26K+ keyword taxonomy for systematic skill demand tracking"
+        },
+        {
+          "en": "Automated scheduled pipeline with APScheduler",
+          "vi": "Automated scheduled pipeline with APScheduler"
+        },
+        {
+          "en": "Time-series database enabling longitudinal market analysis",
+          "vi": "Time-series database enabling longitudinal market analysis"
+        }
       ],
       "future": [
-        "Salary prediction model using historical posting data",
-        "Real-time market alert dashboard",
-        "Integration with LinkedIn Jobs API for international comparison"
+        {
+          "en": "Salary prediction model using historical posting data",
+          "vi": "Mô hình học máy dự đoán mức lương dựa trên các yêu cầu kỹ năng và dữ liệu lịch sử"
+        },
+        {
+          "en": "Real-time market alert dashboard",
+          "vi": "Real-time market alert dashboard"
+        },
+        {
+          "en": "Integration with LinkedIn Jobs API for international comparison",
+          "vi": "Integration with LinkedIn Jobs API for international comparison"
+        }
       ],
-      "relatedProjects": ["xnk-cashew", "fund-portfolio"]
+      "relatedProjects": [
+        "xnk-cashew",
+        "fund-portfolio"
+      ],
+      "cliCommand": "python run_pipeline.py --source all --layer 1-5",
+      "actualArtifacts": [
+        "config/keywords.yaml (26,109 NLP taxonomy rules)",
+        "config/roles.yaml (Standardized career profile definitions)",
+        "layer2_scraping/ (Playwright multi-platform scrapers)",
+        "layer4_analytics/ (Time-series aggregation & anomaly detectors)"
+      ],
+      "gallery": [
+        "assets/images/projects/Job_web__scraping.png",
+        "assets/images/projects/Job_web_scraping-2.png"
+      ]
     }
   ]
 }

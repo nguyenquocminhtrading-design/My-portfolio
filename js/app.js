@@ -2,7 +2,7 @@
 
 const TECH_CATEGORIES = [
   {
-    name: 'Languages',
+    name: { en: 'Languages', vi: 'Ngôn Ngữ Lập Trình' },
     items: [
       { name: 'Python',      bg: '#3776AB22', color: '#3776AB', abbr: 'Py' },
       { name: 'JavaScript',  bg: '#F7DF1E22', color: '#B8A60A', abbr: 'JS' },
@@ -12,7 +12,7 @@ const TECH_CATEGORIES = [
     ]
   },
   {
-    name: 'Backend & APIs',
+    name: { en: 'Backend & APIs', vi: 'Backend & Tích Hợp API' },
     items: [
       { name: 'FastAPI',    bg: '#00978522', color: '#009785', abbr: 'FA' },
       { name: 'Node.js',   bg: '#33993322', color: '#339933', abbr: 'No' },
@@ -21,7 +21,7 @@ const TECH_CATEGORIES = [
     ]
   },
   {
-    name: 'Frontend',
+    name: { en: 'Frontend', vi: 'Giao Diện Người Dùng (Frontend)' },
     items: [
       { name: 'Next.js',      bg: '#00000022', color: '#888',    abbr: 'Nx' },
       { name: 'React',        bg: '#61DAFB22', color: '#20A4C4', abbr: 'Re' },
@@ -31,7 +31,7 @@ const TECH_CATEGORIES = [
     ]
   },
   {
-    name: 'Data & AI',
+    name: { en: 'Data & AI', vi: 'Kỹ Thuật Dữ Liệu & AI' },
     items: [
       { name: 'pandas',      bg: '#15005922', color: '#4F3CDB', abbr: 'pd' },
       { name: 'PyTorch',     bg: '#EE440022', color: '#EE4400', abbr: 'PT' },
@@ -42,7 +42,7 @@ const TECH_CATEGORIES = [
     ]
   },
   {
-    name: 'Databases',
+    name: { en: 'Databases', vi: 'Cơ Sở Dữ Liệu' },
     items: [
       { name: 'PostgreSQL', bg: '#33699922', color: '#336699', abbr: 'PG' },
       { name: 'SQLite',     bg: '#0F80CC22', color: '#0F80CC', abbr: 'SQ' },
@@ -50,7 +50,7 @@ const TECH_CATEGORIES = [
     ]
   },
   {
-    name: 'DevOps & Cloud',
+    name: { en: 'DevOps & Cloud', vi: 'DevOps & Hạ Tầng Cloud' },
     items: [
       { name: 'Docker',  bg: '#2496ED22', color: '#2496ED', abbr: 'Do' },
       { name: 'Render',  bg: '#46E3B722', color: '#20C79A', abbr: 'Rn' },
@@ -124,7 +124,11 @@ const App = {
     this.onPageShow(current);
     if (current === 'projects') Filters.refresh();
     if (current === 'project-detail') {
-      // Re-render with current project if any
+      const hash = window.location.hash || '';
+      const projId = hash.replace('#project-', '');
+      if (projId && window.Projects) {
+        Projects.renderDetail(projId);
+      }
     }
   },
 
@@ -219,9 +223,12 @@ const App = {
   renderTechPage() {
     const container = document.getElementById('tech-full-grid');
     if (!container) return;
-    container.innerHTML = TECH_CATEGORIES.map((cat, ci) => `
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    container.innerHTML = TECH_CATEGORIES.map((cat, ci) => {
+      const catTitle = typeof cat.name === 'object' ? (cat.name[lang] || cat.name.en) : cat.name;
+      return `
       <div class="reveal" style="transition-delay:${ci * 0.1}s">
-        <h3 style="font-size:var(--text-lg);font-weight:var(--fw-semibold);color:var(--color-text-primary);margin-bottom:var(--space-4);">${cat.name}</h3>
+        <h3 style="font-size:var(--text-lg);font-weight:var(--fw-semibold);color:var(--color-text-primary);margin-bottom:var(--space-4);">${catTitle}</h3>
         <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);">
           ${cat.items.map(t => `
           <div class="tech-item">
@@ -233,7 +240,8 @@ const App = {
             </div>
           </div>`).join('')}
         </div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
     if (window.Animations) setTimeout(() => Animations.observeReveal(), 50);
   },
 

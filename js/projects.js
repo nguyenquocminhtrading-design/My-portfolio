@@ -31,52 +31,52 @@ const Projects = {
 
   ARCH: {
     'xnk-cashew': [
-      { label: 'TCHQ Website', color: '#4285F4' },
-      { label: 'Playwright Scraper', color: '#00BCD4' },
-      { label: 'PDF Reports (2X/5X/2N/5N)', color: '#34D399' },
-      { label: 'OCR Pipeline + Fallback Math', color: '#FBBF24' },
-      { label: 'Master Excel + JSON', color: '#F472B6' },
-      { label: 'Web BI Dashboard', color: '#4285F4' }
+      { label_en: 'TCHQ Website', label_vi: 'Cổng TTDT Tổng Cục Hải Quan', color: '#4285F4' },
+      { label_en: 'Playwright Scraper', label_vi: 'Bộ Thu Thập Playwright Tự Động', color: '#00BCD4' },
+      { label_en: 'PDF Reports (2X/5X/2N/5N)', label_vi: 'Báo Cáo PDF (2X/5X/2N/5N)', color: '#34D399' },
+      { label_en: 'OCR Pipeline + Fallback Math', label_vi: 'Pipeline OCR + Toán Phục Hồi Fallback', color: '#FBBF24' },
+      { label_en: 'Master Excel + JSON', label_vi: 'Master Excel (8 Sheets) + JSON', color: '#F472B6' },
+      { label_en: 'Web BI Dashboard', label_vi: 'Dashboard Phân Tích Web BI', color: '#4285F4' }
     ],
     'see-content-connector': [
-      { label: 'OAuth 2.0 (Meta/TikTok/LinkedIn)', color: '#4285F4' },
-      { label: 'Self-Healing Token Engine', color: '#00BCD4' },
-      { label: 'PostgreSQL (Tokens + Posts)', color: '#34D399' },
-      { label: 'Sync Worker (every 15 min)', color: '#FBBF24' },
-      { label: 'Express REST API', color: '#F472B6' },
-      { label: 'Next.js Dashboard + Viral Score', color: '#4285F4' }
+      { label_en: 'OAuth 2.0 (Meta/TikTok/LinkedIn)', label_vi: 'Xác Thực OAuth 2.0 Đa Kênh', color: '#4285F4' },
+      { label_en: 'Self-Healing Token Engine', label_vi: 'Engine Token Tự Phục Hồi', color: '#00BCD4' },
+      { label_en: 'PostgreSQL (Tokens + Posts)', label_vi: 'PostgreSQL (Lưu Token & Bài Viết)', color: '#34D399' },
+      { label_en: 'Sync Worker (every 15 min)', label_vi: 'Tiến Trình Đồng Bộ (Mỗi 15 Phút)', color: '#FBBF24' },
+      { label_en: 'Express REST API', label_vi: 'Hệ Thống API REST Express', color: '#F472B6' },
+      { label_en: 'Next.js Dashboard + Viral Score', label_vi: 'Next.js Dashboard + Điểm Lan Truyền', color: '#4285F4' }
     ],
     'see-notion': [
-      { label: 'Discord Command (/task /my)', color: '#4285F4' },
-      { label: 'LLM Parser (GLM / Ollama)', color: '#00BCD4' },
-      { label: 'Validator + Confirmation Preview', color: '#34D399' },
-      { label: 'Notion API Gateway', color: '#FBBF24' },
-      { label: 'APScheduler Reminder Engine', color: '#F472B6' },
-      { label: 'SQLite Audit Log + FastAPI', color: '#4285F4' }
+      { label_en: 'Discord Command (/task /my)', label_vi: 'Giao Diện Lệnh Discord (/task /my)', color: '#4285F4' },
+      { label_en: 'LLM Parser (GLM / Ollama)', label_vi: 'Bộ Phân Tích Ý Định LLM (GLM / Ollama)', color: '#00BCD4' },
+      { label_en: 'Validator + Confirmation Preview', label_vi: 'Lớp Kiểm Tra + Bản Xem Trước Xác Nhận', color: '#34D399' },
+      { label_en: 'Notion API Gateway', label_vi: 'Gateway Tích Hợp Notion API', color: '#FBBF24' },
+      { label_en: 'APScheduler Reminder Engine', label_vi: 'Engine Nhắc Việc Tự Động APScheduler', color: '#F472B6' },
+      { label_en: 'SQLite Audit Log + FastAPI', label_vi: 'Nhật Ký Kiểm Toán SQLite + FastAPI', color: '#4285F4' }
     ],
     'ai-meeting': [
-      { label: 'Audio Capture (Mic / File Upload)', color: '#4285F4' },
-      { label: 'WebSocket Streaming', color: '#00BCD4' },
-      { label: 'Groq Whisper large-v3-turbo', color: '#34D399' },
-      { label: 'LLM Diarization Chain (Qwen → Allam)', color: '#FBBF24' },
-      { label: 'AI Report Generation', color: '#F472B6' },
-      { label: 'Next.js Dashboard + SQLite', color: '#4285F4' }
+      { label_en: 'Audio Capture (Mic / File Upload)', label_vi: 'Thu Âm Thanh (Micro / Tải Tệp Lên)', color: '#4285F4' },
+      { label_en: 'WebSocket Streaming', label_vi: 'Truyền Phát Trực Tiếp WebSocket', color: '#00BCD4' },
+      { label_en: 'Groq Whisper large-v3-turbo', label_vi: 'Groq Whisper large-v3-turbo (STT)', color: '#34D399' },
+      { label_en: 'LLM Diarization Chain (Qwen → Allam)', label_vi: 'Chuỗi Tách Người Nói (Qwen → Allam)', color: '#FBBF24' },
+      { label_en: 'AI Report Generation', label_vi: 'Tự Động Sinh Biên Bản & Đầu Việc', color: '#F472B6' },
+      { label_en: 'Next.js Dashboard + SQLite', label_vi: 'Dashboard Next.js + Cơ Sở Dữ Liệu SQLite', color: '#4285F4' }
     ],
     'fund-portfolio': [
-      { label: 'Dragon Capital Portal (LWC)', color: '#4285F4' },
-      { label: 'Selenium Scraper', color: '#00BCD4' },
-      { label: '2,000+ Excel Files', color: '#34D399' },
-      { label: 'Parallel ETL (ProcessPoolExecutor)', color: '#FBBF24' },
-      { label: 'PyTorch GPU Monte Carlo', color: '#F472B6' },
-      { label: 'Parquet + Chart.js Dashboard', color: '#4285F4' }
+      { label_en: 'Dragon Capital Portal (LWC)', label_vi: 'Cổng Quỹ Dragon Capital (LWC Salesforce)', color: '#4285F4' },
+      { label_en: 'Selenium Scraper', label_vi: 'Trình Thu Thập Dữ Liệu Selenium', color: '#00BCD4' },
+      { label_en: '2,000+ Excel Files', label_vi: 'Kho 2.000+ Báo Cáo Quỹ Hàng Ngày', color: '#34D399' },
+      { label_en: 'Parallel ETL (ProcessPoolExecutor)', label_vi: 'ETL Song Song Đa Nhân CPU', color: '#FBBF24' },
+      { label_en: 'PyTorch GPU Monte Carlo', label_vi: 'PyTorch GPU Mô Phỏng 100K Kịch Bản', color: '#F472B6' },
+      { label_en: 'Parquet + Chart.js Dashboard', label_vi: 'Lưu Kho Parquet + Dashboard Chart.js', color: '#4285F4' }
     ],
     'job-scraping': [
-      { label: 'Config (26K+ keywords.yaml)', color: '#4285F4' },
-      { label: 'Playwright Multi-source Scraper', color: '#00BCD4' },
-      { label: 'NLP Classification + Scoring', color: '#34D399' },
-      { label: 'Time-series Analytics', color: '#FBBF24' },
-      { label: 'PostgreSQL + APScheduler', color: '#F472B6' },
-      { label: 'Ranked Exports + Reports', color: '#4285F4' }
+      { label_en: 'Config (26K+ keywords.yaml)', label_vi: 'Cấu Hình Từ Điển 26K+ Từ Khóa YAML', color: '#4285F4' },
+      { label_en: 'Playwright Multi-source Scraper', label_vi: 'Trình Cào Đa Cổng Tuyển Dụng Playwright', color: '#00BCD4' },
+      { label_en: 'NLP Classification + Scoring', label_vi: 'Phân Loại & Chấm Điểm Nhu Cầu NLP', color: '#34D399' },
+      { label_en: 'Time-series Analytics', label_vi: 'Phân Tích Xu Hướng Chuỗi Thời Gian', color: '#FBBF24' },
+      { label_en: 'PostgreSQL + APScheduler', label_vi: 'Kho Dữ Liệu PostgreSQL + APScheduler', color: '#F472B6' },
+      { label_en: 'Ranked Exports + Reports', label_vi: 'Xuất Báo Cáo & Xếp Hạng Kỹ Năng Hot', color: '#4285F4' }
     ]
   },
 
@@ -116,6 +116,7 @@ const Projects = {
   archSVG(projectId) {
     const steps = this.ARCH[projectId] || [];
     if (!steps.length) return '';
+    const lang = this.getLang();
     const nodeH = 48, gap = 38, svgW = 540;
     const svgH = steps.length * nodeH + (steps.length - 1) * gap + 40;
 
@@ -128,6 +129,7 @@ const Projects = {
       </defs>`;
 
     steps.forEach((step, i) => {
+      const label = lang === 'vi' ? (step.label_vi || step.label_en) : step.label_en;
       const y = 20 + i * (nodeH + gap);
       const cy = y + nodeH / 2;
       
@@ -154,7 +156,7 @@ const Projects = {
         <rect x="25" y="${y}" width="490" height="${nodeH}" rx="12" fill="${step.color}1c" stroke="${step.color}" stroke-width="1.8" />
         <circle cx="56" cy="${cy}" r="15" fill="${step.color}" opacity="0.95" />
         <text x="56" y="${cy+4}" text-anchor="middle" font-size="12" font-weight="800" fill="#FFFFFF" font-family="Inter,sans-serif">${i+1}</text>
-        <text x="86" y="${cy+5}" font-size="14" font-weight="600" fill="#F1F5F9" font-family="Inter,sans-serif" letter-spacing="-0.01em">${step.label}</text>
+        <text x="86" y="${cy+5}" font-size="13.5" font-weight="600" fill="#F1F5F9" font-family="Inter,sans-serif" letter-spacing="-0.01em">${label}</text>
         <circle cx="490" cy="${cy}" r="3.5" fill="${step.color}" opacity="0.85">
           <animate attributeName="r" values="3.5;5.5;3.5" dur="2s" repeatCount="indefinite" />
           <animate attributeName="opacity" values="0.85;0.3;0.85" dur="2s" repeatCount="indefinite" />
@@ -174,12 +176,16 @@ const Projects = {
     const tags = this.techTags((project.techStack || []).slice(0, 5));
     const icon = this.ICONS[project.id] || '';
 
+    const thumbHTML = project.thumbnail
+      ? `<img src="${project.thumbnail}" alt="${Utils.sanitize(name)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.remove();" />`
+      : `<div class="card-thumbnail-icon" style="color:${(this.ARCH[project.id]?.[0]?.color) || 'var(--color-accent)'};">${icon}</div>`;
+
     return `
     <div class="project-card reveal" data-id="${project.id}" data-categories='${JSON.stringify(project.category)}' data-year="${project.year}" data-name="${Utils.sanitize(name)}">
       <div class="card-accent-line"></div>
       <div class="card-thumbnail">
         <div class="card-thumbnail-overlay"></div>
-        <div class="card-thumbnail-icon" style="color:${(this.ARCH[project.id]?.[0]?.color) || 'var(--color-accent)'};">${icon}</div>
+        ${thumbHTML}
       </div>
       <div class="card-body">
         <div class="card-header">
@@ -212,50 +218,68 @@ const Projects = {
     const cats = (project.category || []).map(c => this.catBadge(c)).join('');
 
     // Workflow steps
-    const workflowHTML = (project.workflow || []).map((s, i) => `
+    const workflowHTML = (project.workflow || []).map((s, i) => {
+      const stepName = typeof s.step === 'object' ? (s.step[lang] || s.step.en) : s.step;
+      const stepDesc = typeof s.desc === 'object' ? (s.desc[lang] || s.desc.en) : s.desc;
+      return `
       <div class="workflow-step">
         <div class="step-number">${i+1}</div>
         <div class="step-content">
-          <div class="step-title">${Utils.sanitize(s.step)}</div>
-          <div class="step-desc">${Utils.sanitize(s.desc)}</div>
+          <div class="step-title">${Utils.sanitize(stepName)}</div>
+          <div class="step-desc">${Utils.sanitize(stepDesc)}</div>
         </div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
 
     // Features
-    const featuresHTML = (project.features || []).map(f => `
+    const featuresHTML = (project.features || []).map(f => {
+      const featTitle = typeof f.title === 'object' ? (f.title[lang] || f.title.en) : f.title;
+      const featDesc = typeof f.desc === 'object' ? (f.desc[lang] || f.desc.en) : f.desc;
+      return `
       <div class="feature-item">
         <div class="feature-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <div>
-          <div class="feature-title">${Utils.sanitize(f.title)}</div>
-          <div class="feature-desc">${Utils.sanitize(f.desc)}</div>
+          <div class="feature-title">${Utils.sanitize(featTitle)}</div>
+          <div class="feature-desc">${Utils.sanitize(featDesc)}</div>
         </div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
 
     // Challenges
-    const challengesHTML = (project.challenges || []).map((c, i) => `
+    const challengesHTML = (project.challenges || []).map((c, i) => {
+      const chTitle = typeof c.title === 'object' ? (c.title[lang] || c.title.en) : c.title;
+      const chSolution = typeof c.solution === 'object' ? (c.solution[lang] || c.solution.en) : c.solution;
+      return `
       <div class="challenge-item" id="ch-${i}">
         <div class="challenge-header" onclick="Projects.toggleChallenge('ch-${i}')">
-          <span class="challenge-title">⚠️ ${Utils.sanitize(c.title)}</span>
+          <span class="challenge-title">⚠️ ${Utils.sanitize(chTitle)}</span>
           <svg class="challenge-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </div>
-        <div class="challenge-body"><p>✅ <strong>Solution:</strong> ${Utils.sanitize(c.solution)}</p></div>
-      </div>`).join('');
+        <div class="challenge-body"><p>✅ <strong>${Utils.t('detail_solution_label')}</strong> ${Utils.sanitize(chSolution)}</p></div>
+      </div>`;
+    }).join('');
 
     // Results
-    const resultsHTML = (project.results || []).map(r => `
+    const resultsHTML = (project.results || []).map(r => {
+      const resText = typeof r === 'object' ? (r[lang] || r.en) : r;
+      return `
       <div style="display:flex;align-items:flex-start;gap:var(--space-3);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);">
         <span style="color:var(--color-success);font-size:18px;flex-shrink:0;margin-top:1px;">✓</span>
-        <span style="font-size:var(--text-sm);color:var(--color-text-secondary);">${Utils.sanitize(r)}</span>
-      </div>`).join('');
+        <span style="font-size:var(--text-sm);color:var(--color-text-secondary);">${Utils.sanitize(resText)}</span>
+      </div>`;
+    }).join('');
 
     // Future
-    const futureHTML = (project.future || []).map(f => `
+    const futureHTML = (project.future || []).map(f => {
+      const futText = typeof f === 'object' ? (f[lang] || f.en) : f;
+      return `
       <div style="display:flex;align-items:flex-start;gap:var(--space-3);padding:var(--space-3) 0;border-bottom:1px solid var(--color-border);">
         <span style="color:var(--color-accent);font-size:18px;flex-shrink:0;margin-top:1px;">→</span>
-        <span style="font-size:var(--text-sm);color:var(--color-text-secondary);">${Utils.sanitize(f)}</span>
-      </div>`).join('');
+        <span style="font-size:var(--text-sm);color:var(--color-text-secondary);">${Utils.sanitize(futText)}</span>
+      </div>`;
+    }).join('');
 
     // Related
     const relatedHTML = (project.relatedProjects || []).map(rid => {
@@ -295,10 +319,10 @@ const Projects = {
       <h1 class="detail-title">${Utils.sanitize(name)}</h1>
       <p class="detail-description">${Utils.sanitize(tagline)}</p>
       <div class="detail-meta">
-        <div class="detail-meta-item"><span class="detail-meta-label">Status</span><span class="detail-meta-value">${this.statusBadge(project.status)}</span></div>
-        <div class="detail-meta-item"><span class="detail-meta-label">Year</span><span class="detail-meta-value">${project.year || '—'}</span></div>
-        <div class="detail-meta-item"><span class="detail-meta-label">Stack Size</span><span class="detail-meta-value">${(project.techStack||[]).length} technologies</span></div>
-        ${project.github ? `<div class="detail-meta-item"><span class="detail-meta-label">Repository</span><a href="${project.github}" target="_blank" rel="noopener" class="detail-meta-value" style="color:rgba(255,255,255,0.9);">View on GitHub →</a></div>` : ''}
+        <div class="detail-meta-item"><span class="detail-meta-label">${Utils.t('detail_meta_status')}</span><span class="detail-meta-value">${this.statusBadge(project.status)}</span></div>
+        <div class="detail-meta-item"><span class="detail-meta-label">${Utils.t('detail_meta_year')}</span><span class="detail-meta-value">${project.year || '—'}</span></div>
+        <div class="detail-meta-item"><span class="detail-meta-label">${Utils.t('detail_meta_stack')}</span><span class="detail-meta-value">${(project.techStack||[]).length} ${Utils.t('detail_meta_technologies')}</span></div>
+        ${project.github ? `<div class="detail-meta-item"><span class="detail-meta-label">${Utils.t('detail_meta_repo')}</span><a href="${project.github}" target="_blank" rel="noopener" class="detail-meta-value" style="color:rgba(255,255,255,0.9);">${Utils.t('detail_view_repo')}</a></div>` : ''}
       </div>
     </div>
 
@@ -329,14 +353,27 @@ const Projects = {
       <div class="detail-section">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-4);">
           <h2 class="detail-section-title" style="margin-bottom:0;">${archIcon}${Utils.t('detail_architecture')}</h2>
-          <span class="badge" style="background:rgba(66,133,244,0.12);color:var(--color-accent);border:1px solid rgba(66,133,244,0.25);">⚡ Active Data Pulse Stream</span>
+          <span class="badge" style="background:rgba(66,133,244,0.12);color:var(--color-accent);border:1px solid rgba(66,133,244,0.25);">${Utils.t('detail_pulse_badge')}</span>
         </div>
         <div class="arch-diagram" style="background:#090F1C;border-color:rgba(255,255,255,0.08);box-shadow:inset 0 2px 20px rgba(0,0,0,0.5);">${this.archSVG(project.id)}</div>
       </div>
 
-      <!-- Live Engineering Verification & Inspector Window (macOS Mockup) -->
+      <!-- Real Visual Evidence Gallery (if available) -->
+      ${project.gallery && project.gallery.length ? `
       <div class="detail-section">
-        <h2 class="detail-section-title">${codeIcon}Production Execution & Data Inspector</h2>
+        <h2 class="detail-section-title">${eyeIcon}${Utils.t('detail_visual_proof')}</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:var(--space-4);">
+          ${project.gallery.map(img => `
+            <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border);background:#090F1C;box-shadow:var(--shadow-sm);">
+              <img src="${img}" alt="System UI Artifact" loading="lazy" style="width:100%;height:190px;object-fit:cover;display:block;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
+            </div>
+          `).join('')}
+        </div>
+      </div>` : ''}
+
+      <!-- Codebase Architecture & Verified CLI Execution (Transparent & Self-verifying) -->
+      <div class="detail-section">
+        <h2 class="detail-section-title">${codeIcon}${Utils.t('detail_codebase_arch')}</h2>
         <div class="window-frame">
           <div class="window-header">
             <div class="window-controls">
@@ -345,25 +382,32 @@ const Projects = {
               <span class="window-dot window-dot-green"></span>
             </div>
             <div class="window-title">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              ${project.id}-runtime-manifest.json
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+              ${project.id} — execution-environment
             </div>
-            <button class="btn btn-sm btn-ghost" style="color:rgba(255,255,255,0.6);margin-left:auto;font-size:11px;" onclick="Utils.copyToClipboard(JSON.stringify(Projects.data.find(p=>p.id==='${project.id}'),null,2),'Copied manifest JSON!')">Copy Spec</button>
+            ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="btn btn-sm btn-ghost" style="color:#60A5FA;margin-left:auto;font-size:11px;">View Repository ↗</a>` : ''}
           </div>
-          <div style="padding:var(--space-4);background:#070C16;color:#94A3B8;font-family:var(--font-mono);font-size:12px;line-height:1.6;max-height:260px;overflow-y:auto;">
-            <pre style="margin:0;"><code style="color:#38BDF8;">// Production Audit & Metadata Check: ${project.id}</code>
-<code style="color:#A78BFA;">{
-  "system_id": "${project.id}",
-  "status": "${project.status}",
-  "engine_runtime": "Python 3.11 / Node 18+ (Verified)",
-  "tech_stack": ${JSON.stringify(project.techStack)},
-  "reconciliation_status": "OK",
-  "audit_verified": true,
-  "roi_metrics": {
-    "speedup": "95% over manual processing",
-    "fault_tolerance": "Graceful fallback enabled"
-  }
-}</code></pre>
+          <div style="padding:var(--space-5);background:#070C16;color:#E2E8F0;font-family:var(--font-mono);font-size:12px;line-height:1.7;">
+            ${project.cliCommand ? `
+            <div style="margin-bottom:var(--space-4);padding-bottom:var(--space-3);border-bottom:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#64748B;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">${Utils.t('detail_cli_label')}</div>
+              <div style="background:rgba(255,255,255,0.04);padding:8px 12px;border-radius:6px;color:#38BDF8;display:flex;align-items:center;justify-content:space-between;">
+                <code>$ ${Utils.sanitize(project.cliCommand)}</code>
+                <button class="btn btn-sm btn-ghost" style="color:#94A3B8;padding:2px 8px;font-size:11px;" onclick="Utils.copyToClipboard('${project.cliCommand.replace(/'/g, "\\'")}','Copied CLI command!')">Copy</button>
+              </div>
+            </div>` : ''}
+
+            ${project.actualArtifacts && project.actualArtifacts.length ? `
+            <div>
+              <div style="color:#64748B;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">${Utils.t('detail_artifacts_label')}</div>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
+                ${project.actualArtifacts.map(art => `
+                  <li style="display:flex;align-items:center;gap:8px;color:#CBD5E1;">
+                    <span style="color:#34D399;">✔</span> <code>${Utils.sanitize(art)}</code>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>` : ''}
           </div>
         </div>
       </div>

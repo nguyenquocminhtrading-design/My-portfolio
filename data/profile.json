@@ -7,17 +7,21 @@
   },
   "bio": {
     "en": "I'm a finance-oriented engineer with hands-on expertise in building automation pipelines, financial data systems, API integrations, and AI-powered tools. I specialize in transforming complex business workflows into clean, maintainable technical solutions — from OCR extraction pipelines to real-time analytics dashboards.",
-    "vi": "Tôi là kỹ sư định hướng tài chính với kinh nghiệm thực tế trong xây dựng pipeline tự động hóa, hệ thống dữ liệu tài chính, tích hợp API và công cụ AI. Tôi chuyên chuyển đổi các quy trình kinh doanh phức tạp thành giải pháp kỹ thuật sạch, có thể bảo trì."
+    "vi": "Tôi là kỹ sư định hướng tài chính với kinh nghiệm thực tế trong xây dựng pipeline tự động hóa, hệ thống dữ liệu tài chính, tích hợp API và công cụ AI. Tôi chuyên chuyển đổi các quy trình kinh doanh phức tạp thành giải pháp kỹ thuật sạch, có thể kiểm chứng và bảo trì."
   },
   "github":   "https://github.com/nguyenquocminhtrading-design",
   "linkedin": "https://www.linkedin.com/in/minh-nguyen-7a6789353/",
   "email":    "nguyenquocminh.trading@gmail.com",
   "photo":    "assets/images/headshot.jpg",
+  "cvList": [
+    { "title": "Financial Analyst CV", "file": "assets/cv/Nguyen_Quoc_Minh_Financial_Analyst_CV.pdf", "role": "FA / Financial Engineering" },
+    { "title": "Business Analyst CV", "file": "assets/cv/Nguyen_Quoc_Minh_Business_Analyst_CV.pdf", "role": "BA / Systems & Workflows" }
+  ],
   "stats": [
-    { "label": { "en": "Projects Built", "vi": "Dự Án" }, "value": 6, "suffix": "+" },
-    { "label": { "en": "APIs Integrated", "vi": "API Tích Hợp" }, "value": 10, "suffix": "+" },
-    { "label": { "en": "Lines of Code", "vi": "Dòng Code" }, "value": 50, "suffix": "K+" },
-    { "label": { "en": "Years Active", "vi": "Năm Kinh Nghiệm" }, "value": 3, "suffix": "+" }
+    { "label": { "en": "Featured Projects", "vi": "Dự Án Tiêu Biểu" }, "value": 6, "suffix": "+" },
+    { "label": { "en": "APIs Integrated", "vi": "API Đã Tích Hợp" }, "value": 10, "suffix": "+" },
+    { "label": { "en": "Data Spanned", "vi": "Tháng Dữ Liệu" }, "value": 84, "suffix": " mos" },
+    { "label": { "en": "Production Code", "vi": "Dòng Code Thực Tế" }, "value": 50, "suffix": "K+" }
   ],
   "skills": [
     { "name": "Python", "category": "core" },
