@@ -1,0 +1,44 @@
+/* ============================================================
+   DARK THEME OVERRIDES
+   Applied via [data-theme="dark"] on <html>
+   ============================================================ */
+
+[data-theme="dark"] {
+  --color-bg:            #0B1220;
+  --color-bg-secondary:  #0F1929;
+  --color-bg-tertiary:   #121D30;
+  --color-surface:       #121D30;
+  --color-surface-raised:#162038;
+  --color-border:        #1E2D45;
+  --color-border-subtle: #1A2540;
+  --color-divider:       #1E2D45;
+
+  --color-text-primary:  #E8EEFA;
+  --color-text-secondary:#8FA3C0;
+  --color-text-muted:    #5A7494;
+  --color-text-inverse:  #0B1220;
+  --color-text-accent:   #5B9CF6;
+  --color-text-code:     #93C5FD;
+
+  --color-accent:        #5B9CF6;
+  --color-accent-hover:  #7DB8F8;
+  --color-accent-subtle: rgba(91,156,246,0.12);
+  --color-accent-border: rgba(91,156,246,0.30);
+
+  --color-success:       #34D399;
+  --color-success-bg:    rgba(52,211,153,0.12);
+  --color-warning:       #FBBF24;
+  --color-warning-bg:    rgba(251,191,36,0.12);
+  --color-info:          #5B9CF6;
+  --color-info-bg:       rgba(91,156,246,0.12);
+  --color-danger:        #F87171;
+  --color-danger-bg:     rgba(248,113,113,0.12);
+
+  --shadow-xs:  0 1px 2px rgba(0,0,0,0.20);
+  --shadow-sm:  0 1px 4px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.15);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.30), 0 2px 4px rgba(0,0,0,0.20);
+  --shadow-lg:  0 8px 24px rgba(0,0,0,0.35), 0 4px 8px rgba(0,0,0,0.25);
+  --shadow-xl:  0 16px 48px rgba(0,0,0,0.40), 0 8px 16px rgba(0,0,0,0.30);
+  --shadow-card:0 1px 3px rgba(0,0,0,0.25), 0 4px 16px rgba(0,0,0,0.20);
+  --shadow-accent:0 4px 20px rgba(91,156,246,0.30);
+}

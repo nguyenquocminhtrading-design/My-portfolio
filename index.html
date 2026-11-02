@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nguyen Quoc Minh — Automation Engineer, Financial Engineering, Full-stack Pipeline Builder" />
+  <title>Nguyen Quoc Minh · Engineering Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     SCROLL PROGRESS
+════════════════════════════════════════════════════════ -->
+<div id="scroll-progress"></div>
+
+<!-- ════════════════════════════════════════════════════════
+     MOBILE HEADER
+════════════════════════════════════════════════════════ -->
+<header id="mobile-header">
+  <div class="mobile-header-brand">
+    <div class="sidebar-logo">NQM</div>
+    <span class="mobile-header-name">Nguyen Quoc Minh</span>
+  </div>
+  <button class="hamburger-btn" id="hamburger-btn" aria-label="Open navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</header>
+
+<!-- ════════════════════════════════════════════════════════
+     SIDEBAR OVERLAY (mobile)
+════════════════════════════════════════════════════════ -->
+<div id="sidebar-overlay"></div>
+
+<!-- ════════════════════════════════════════════════════════
+     SIDEBAR
+════════════════════════════════════════════════════════ -->
+<aside id="sidebar">
+  <!-- Header -->
+  <div class="sidebar-header">
+    <div class="sidebar-logo">NQM</div>
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-name">Nguyen Quoc Minh</div>
+      <div class="sidebar-brand-role" data-i18n="title_short">Engineer · Finance</div>
+    </div>
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Collapse sidebar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sidebar-nav" role="navigation">
+    <div class="nav-section" data-i18n="nav_section_main">Navigation</div>
+
+    <div class="nav-item active" data-page="home" data-tooltip="Overview">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <span class="nav-label" data-i18n="nav_overview">Overview</span>
+    </div>
+
+    <div class="nav-item" data-page="projects" data-tooltip="Projects">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <span class="nav-label" data-i18n="nav_projects">Projects</span>
+    </div>
+
+    <div class="nav-item" data-page="lab" data-tooltip="Engineering Lab">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      </div>
+      <span class="nav-label" data-i18n="nav_lab">Engineering Lab</span>
+    </div>
+
+    <div class="nav-item" data-page="finance" data-tooltip="Finance & Quant">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <span class="nav-label" data-i18n="nav_finance">Finance & Quant</span>
+    </div>
+
+    <div class="nav-item" data-page="automation" data-tooltip="Automation">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+      </div>
+      <span class="nav-label" data-i18n="nav_automation">Automation</span>
+    </div>
+
+    <div class="nav-item" data-page="tech" data-tooltip="Tech Stack">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <span class="nav-label" data-i18n="nav_tech">Tech Stack</span>
+    </div>
+
+    <div class="nav-section" data-i18n="nav_section_me" style="margin-top:var(--space-4)">Personal</div>
+
+    <div class="nav-item" data-page="about" data-tooltip="About">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <span class="nav-label" data-i18n="nav_about">About</span>
+    </div>
+
+    <div class="nav-item" data-page="contact" data-tooltip="Contact">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <span class="nav-label" data-i18n="nav_contact">Contact</span>
+    </div>
+  </nav>
+
+  <!-- Footer actions -->
+  <div class="sidebar-footer">
+    <div class="sidebar-footer-actions">
+      <!-- Theme toggle -->
+      <button class="sidebar-action-btn" id="theme-toggle" aria-label="Toggle theme">
+        <svg id="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span id="theme-label" class="nav-label" data-i18n="theme_dark">Dark Mode</span>
+      </button>
+
+      <!-- GitHub shortcut -->
+      <a class="sidebar-action-btn" id="github-link" href="https://github.com/nguyenquocminhtrading-design" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span class="nav-label">GitHub</span>
+      </a>
+    </div>
+
+    <!-- Language toggle -->
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+  </div>
+</aside>
+
+<!-- ════════════════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: HOME / OVERVIEW
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-home" class="page-section active">
+
+    <!-- Hero (Bento Grid Architecture) -->
+    <div class="hero-section" style="position:relative;overflow:hidden;background:linear-gradient(160deg,var(--color-brand-deep) 0%,#0A1324 50%,#0B1220 100%);padding:var(--space-16) var(--space-8) var(--space-12);min-height:90vh;display:flex;align-items:center;">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="grid-pattern"></div>
+
+      <div style="position:relative;z-index:2;max-width:var(--content-max);margin:0 auto;width:100%;">
+        
+        <div class="bento-hero">
+
+          <!-- Left Main Cell -->
+          <div class="bento-main-cell">
+            <div class="hero-text-reveal" style="display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(66,133,244,0.12);border:1px solid rgba(66,133,244,0.3);border-radius:var(--radius-full);padding:6px 16px;margin-bottom:var(--space-6);width:fit-content;">
+              <span style="width:7px;height:7px;background:#34D399;border-radius:50%;box-shadow:0 0 10px #34D399;animation:pulse 2s infinite;display:block;"></span>
+              <span style="font-size:var(--text-xs);color:rgba(255,255,255,0.9);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">Production Pipeline Builder · Open for Roles</span>
+            </div>
+
+            <h1 class="hero-title hero-text-reveal delay-1" data-i18n="hero_headline" style="font-size:var(--text-hero);font-weight:var(--fw-extrabold);color:white;line-height:1.08;margin-bottom:var(--space-6);letter-spacing:-0.03em;">
+              Engineering Finance into Intelligent Systems.
+            </h1>
+
+            <p class="hero-text-reveal delay-2" data-i18n="hero_sub" style="font-size:var(--text-lg);color:rgba(255,255,255,0.72);line-height:var(--leading-relaxed);max-width:540px;margin-bottom:var(--space-8);">
+              I design and build end-to-end automation pipelines, quantitative models, OCR extractors, and resilient multi-platform API hubs that convert complex financial workflows into automated reality.
+            </p>
+
+            <div class="hero-actions hero-text-reveal delay-3" style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-8);">
+              <button class="btn btn-primary btn-lg" onclick="navigate('projects')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                <span data-i18n="hero_cta_projects">Explore Projects</span>
+              </button>
+              <a class="btn btn-secondary btn-lg" href="https://github.com/nguyenquocminhtrading-design" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,0.22);color:white;background:rgba(255,255,255,0.06);backdrop-filter:blur(8px);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span data-i18n="hero_cta_github">View GitHub</span>
+              </a>
+            </div>
+
+            <!-- Quantitative Confidence Badges -->
+            <div class="hero-text-reveal delay-4" style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
+              <span class="badge" style="background:rgba(52,211,153,0.12);color:#34D399;border:1px solid rgba(52,211,153,0.3);padding:4px 10px;">⚡ 84+ Trade Periods Audited</span>
+              <span class="badge" style="background:rgba(56,189,248,0.12);color:#38BDF8;border:1px solid rgba(56,189,248,0.3);padding:4px 10px;">📈 100K GPU Monte Carlo Paths</span>
+              <span class="badge" style="background:rgba(192,132,252,0.12);color:#C084FC;border:1px solid rgba(192,132,252,0.3);padding:4px 10px;">🔒 Self-Healing OAuth Engine</span>
+            </div>
+          </div>
+
+          <!-- Top Right: Interactive Live Engineering Terminal -->
+          <div class="bento-terminal-cell">
+            <div class="border-beam-card" id="recruiter-terminal">
+              <div class="border-beam-inner">
+                <div class="window-header">
+                  <div class="window-controls">
+                    <span class="window-dot window-dot-red"></span>
+                    <span class="window-dot window-dot-yellow"></span>
+                    <span class="window-dot window-dot-green"></span>
+                  </div>
+                  <div class="window-title">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                    nqm-pipeline-executor — bash
+                  </div>
+                </div>
+
+                <div class="terminal-body">
+                  <!-- Live streaming lines injected via terminal.js -->
+                </div>
+
+                <div class="terminal-chips">
+                  <span style="font-size:10px;color:rgba(255,255,255,0.4);font-family:var(--font-mono);align-self:center;margin-right:4px;">RUN DEMO:</span>
+                  <button class="terminal-chip-btn" data-cmd="cashew-ocr">▶ Cashew OCR Pipeline</button>
+                  <button class="terminal-chip-btn" data-cmd="fund-risk">▶ Fund Risk CUDA</button>
+                  <button class="terminal-chip-btn" data-cmd="token-health">▶ Token Self-Healing</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Right: Micro Stat Tiles -->
+          <div class="bento-metrics-cell">
+            <div class="micro-tile">
+              <span class="micro-tile-num counter-value" data-count="6" data-suffix="+">0+</span>
+              <span class="micro-tile-label">Production Platforms</span>
+            </div>
+            <div class="micro-tile">
+              <span class="micro-tile-num counter-value" data-count="84" data-suffix=" mos">0 mos</span>
+              <span class="micro-tile-label">Historical Data Spanned</span>
+            </div>
+            <div class="micro-tile">
+              <span class="micro-tile-num counter-value" data-count="50" data-suffix="K+">0K+</span>
+              <span class="micro-tile-label">Production Lines of Code</span>
+            </div>
+            <div class="micro-tile">
+              <span class="micro-tile-num counter-value" data-count="99" data-suffix=".9%">0%</span>
+              <span class="micro-tile-label">Token & Pipeline Uptime</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Featured Projects -->
+    <div style="background:var(--color-bg-secondary);border-top:1px solid var(--color-border);">
+      <div class="content-wrapper">
+        <div class="section-heading reveal">
+          <div class="section-label" data-i18n="section_featured_label">Selected Work</div>
+          <h2 class="section-title" data-i18n="section_featured">Featured Projects</h2>
+          <p class="section-description" data-i18n="section_featured_desc">A selection of production systems across finance, automation, and AI.</p>
+        </div>
+        <div id="featured-projects" class="grid-auto"></div>
+        <div style="text-align:center;margin-top:var(--space-8);" class="reveal">
+          <button class="btn btn-secondary" onclick="navigate('projects')">
+            View All Projects
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div style="background:var(--color-bg);">
+      <div class="content-wrapper">
+        <div class="section-heading reveal">
+          <div class="section-label" data-i18n="section_stats_label">By the Numbers</div>
+        </div>
+        <div id="stats-grid" class="stats-row grid-3"></div>
+      </div>
+    </div>
+
+    <!-- Tech Strip -->
+    <div style="background:var(--color-bg-secondary);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
+      <div class="content-wrapper">
+        <div class="section-heading reveal">
+          <div class="section-label" data-i18n="section_tech_label">Technology Stack</div>
+          <h2 class="section-title" data-i18n="section_tech">Core Technologies</h2>
+        </div>
+        <div id="tech-strip" style="display:flex;flex-wrap:wrap;gap:var(--space-2);"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: PROJECTS EXPLORER
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-projects" class="page-section">
+    <div class="content-wrapper">
+      <div class="section-heading">
+        <div class="section-label" data-i18n="nav_projects">Projects</div>
+        <h1 class="section-title">All Projects</h1>
+        <p class="section-description" data-i18n="section_featured_desc">Every system I've built, from production pipelines to engineering experiments.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-row" style="display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-6);">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" class="search-input" id="project-search" placeholder="Search projects..." data-i18n-placeholder="search_placeholder" />
+        </div>
+        <select class="sort-select" id="project-sort">
+          <option value="newest" data-i18n="sort_newest">Newest First</option>
+          <option value="oldest" data-i18n="sort_oldest">Oldest First</option>
+          <option value="az" data-i18n="sort_az">Name A–Z</option>
+        </select>
+        <div class="view-toggle" style="margin-left:auto;">
+          <button class="view-btn active" id="view-grid-btn" title="Grid view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </button>
+          <button class="view-btn" id="view-list-btn" title="List view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category chips -->
+      <div class="filter-chips" style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-8);" id="filter-chips"></div>
+
+      <!-- Projects grid -->
+      <div class="projects-container grid-auto" id="projects-grid"></div>
+      <div id="no-results" style="display:none;text-align:center;padding:var(--space-16);color:var(--color-text-muted);">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin:0 auto var(--space-4);opacity:0.4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <p data-i18n="no_results">No projects found matching your search.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: PROJECT DETAIL
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-project-detail" class="page-section">
+    <div id="project-detail-content"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: ENGINEERING LAB
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-lab" class="page-section">
+    <div class="content-wrapper">
+      <div class="section-heading reveal">
+        <div class="section-label" data-i18n="lab_label">Experiments & Prototypes</div>
+        <h1 class="section-title" data-i18n="lab_title">Engineering Lab</h1>
+        <p class="section-description" data-i18n="lab_desc">Active development, experiments, and engineering explorations.</p>
+      </div>
+      <div id="lab-projects" class="grid-auto"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: FINANCE & QUANT
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-finance" class="page-section">
+    <div class="content-wrapper">
+      <div class="section-heading reveal">
+        <div class="section-label" data-i18n="finance_label">Financial Engineering</div>
+        <h1 class="section-title" data-i18n="finance_title">Finance & Quant</h1>
+        <p class="section-description" data-i18n="finance_desc">Projects at the intersection of finance, data, and engineering systems.</p>
+      </div>
+      <div id="finance-projects" class="grid-auto"></div>
+
+      <!-- Capabilities -->
+      <div style="margin-top:var(--space-16);" class="reveal">
+        <div class="section-label" style="margin-bottom:var(--space-6);">Financial Engineering Capabilities</div>
+        <div class="feature-list">
+          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="feature-title">Financial Data Pipelines</div><div class="feature-desc">Automated ETL for trade data, NAV time-series, and financial statements</div></div></div>
+          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="feature-title">Quantitative Analysis</div><div class="feature-desc">Sharpe ratio, Monte Carlo simulation, drawdown, risk-adjusted returns</div></div></div>
+          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div><div class="feature-title">OCR Document Extraction</div><div class="feature-desc">PDF financial statement parsing with multi-engine OCR and fallback reconstruction</div></div></div>
+          <div class="feature-item"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><div class="feature-title">Market Intelligence</div><div class="feature-desc">Systematic data aggregation and trend analysis for investment research</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: AUTOMATION
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-automation" class="page-section">
+    <div class="content-wrapper">
+      <div class="section-heading reveal">
+        <div class="section-label" data-i18n="automation_label">Process Automation</div>
+        <h1 class="section-title" data-i18n="automation_title">Automation Systems</h1>
+        <p class="section-description" data-i18n="automation_desc">End-to-end automation pipelines, bots, and intelligent workflow engines.</p>
+      </div>
+      <div id="automation-projects" class="grid-auto"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: TECH STACK
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-tech" class="page-section">
+    <div class="content-wrapper">
+      <div class="section-heading reveal">
+        <div class="section-label" data-i18n="tech_label">Tools & Frameworks</div>
+        <h1 class="section-title" data-i18n="tech_title">Technology Stack</h1>
+        <p class="section-description" data-i18n="tech_desc">Every tool, language, and framework I actively work with.</p>
+      </div>
+      <div id="tech-full-grid" style="display:flex;flex-direction:column;gap:var(--space-10);"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: ABOUT
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-about" class="page-section">
+    <div class="content-wrapper">
+      <div id="about-content"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE: CONTACT
+  ══════════════════════════════════════════════════════ -->
+  <section id="page-contact" class="page-section">
+    <div class="content-wrapper" style="max-width:680px;">
+      <div class="section-heading reveal">
+        <div class="section-label" data-i18n="contact_label">Contact</div>
+        <h1 class="section-title" data-i18n="contact_title">Get in Touch</h1>
+        <p class="section-description" data-i18n="contact_desc">Open to collaborations, technical discussions, and new opportunities.</p>
+      </div>
+      <div id="contact-cards" style="display:flex;flex-direction:column;gap:var(--space-4);"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════════════════════════════════════════════
+     BACK TO TOP
+════════════════════════════════════════════════════════ -->
+<button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<!-- ════════════════════════════════════════════════════════
+     TOAST CONTAINER
+════════════════════════════════════════════════════════ -->
+<div id="toast-container"></div>
+
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════ -->
+<script src="js/utils.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/lang.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

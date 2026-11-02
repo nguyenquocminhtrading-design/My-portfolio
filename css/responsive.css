@@ -1,0 +1,149 @@
+/* ============================================================
+   RESPONSIVE — Breakpoints
+   Desktop first approach
+   ============================================================ */
+
+/* ── Laptop (< 1440px) ───────────────────────────────────── */
+@media (max-width: 1439px) {
+  .content-wrapper { padding: var(--space-8) var(--space-6); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .hero-blob-1 { width: 400px; height: 400px; }
+}
+
+/* ── Tablet (< 1024px) ───────────────────────────────────── */
+@media (max-width: 1023px) {
+  :root {
+    --sidebar-w: 240px;
+  }
+
+  #sidebar {
+    transform: translateX(-100%);
+  }
+  #sidebar.mobile-open {
+    transform: translateX(0);
+    width: var(--sidebar-w);
+  }
+  #main-content {
+    margin-left: 0 !important;
+    padding-top: var(--header-h);
+  }
+  #mobile-header { display: flex; }
+
+  .content-wrapper { padding: var(--space-6) var(--space-5); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-wrapper { position: static; max-width: 280px; margin: 0 auto; }
+
+  .detail-hero { padding: var(--space-8) var(--space-5); }
+  .detail-section { padding: var(--space-8) var(--space-5); }
+  .detail-title { font-size: var(--text-3xl); }
+}
+
+/* ── Mobile (< 768px) ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .content-wrapper { padding: var(--space-5) var(--space-4); }
+
+  .grid-3, .grid-2, .grid-auto {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title  { font-size: var(--text-2xl); }
+  .section-description { font-size: var(--text-base); }
+
+  /* Hero */
+  .hero-section { padding: var(--space-12) var(--space-4) var(--space-10); }
+  .hero-title   { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .hero-visual  { display: none; } /* Hide complex SVG on mobile */
+
+  /* Stats */
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+
+  /* Project Card List → Grid on mobile */
+  .projects-container.list-view .project-card {
+    flex-direction: column;
+  }
+  .projects-container.list-view .card-thumbnail {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .projects-container.list-view .card-actions {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+    flex-direction: row;
+  }
+
+  /* Filter row stack */
+  .filter-row { flex-direction: column; gap: var(--space-3); }
+  .filter-chips { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; }
+  .search-wrapper { max-width: 100%; }
+
+  /* Detail */
+  .detail-title { font-size: var(--text-2xl); }
+  .detail-meta  { gap: var(--space-4); }
+  .detail-section { padding: var(--space-6) var(--space-4); }
+  .feature-list { grid-template-columns: 1fr; }
+
+  /* About */
+  .about-photo-wrapper { max-width: 200px; }
+
+  /* Back to top */
+  #back-to-top { bottom: var(--space-4); right: var(--space-4); }
+
+  /* Touch targets */
+  .nav-item { min-height: 48px; }
+  .btn { min-height: 44px; }
+}
+
+/* ── Small Mobile (< 375px) ──────────────────────────────── */
+@media (max-width: 374px) {
+  .content-wrapper { padding: var(--space-4) var(--space-3); }
+  .stats-row { grid-template-columns: 1fr; }
+  .detail-meta { gap: var(--space-3); }
+}
+
+/* ── Print ───────────────────────────────────────────────── */
+@media print {
+  #sidebar, #mobile-header, #back-to-top, #scroll-progress,
+  #toast-container { display: none !important; }
+  #main-content { margin-left: 0 !important; }
+  .project-card { break-inside: avoid; }
+}
+
+
+/* ── Bento Grid Responsive Tweaks ── */
+@media (max-width: 1100px) {
+  .bento-hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .bento-main-cell {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .bento-terminal-cell {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  .bento-metrics-cell {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+}
+
+@media (max-width: 600px) {
+  .bento-metrics-cell {
+    grid-template-columns: 1fr;
+  }
+  .terminal-chips {
+    gap: 4px;
+  }
+  .terminal-chip-btn {
+    font-size: 9.5px;
+  }
+}

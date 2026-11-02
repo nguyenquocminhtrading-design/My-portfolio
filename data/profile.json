@@ -1,0 +1,40 @@
+{
+  "name": { "en": "Nguyen Quoc Minh", "vi": "Nguyễn Quốc Minh" },
+  "title": { "en": "Automation Engineer | Financial Engineering | Full-stack Pipeline Builder", "vi": "Kỹ Sư Tự Động Hóa | Kỹ Thuật Tài Chính | Xây Dựng Pipeline Full-stack" },
+  "tagline": {
+    "en": "Bridging Finance and Engineering through Automation, Data, and Intelligent Systems.",
+    "vi": "Kết Nối Tài Chính và Kỹ Thuật qua Tự Động Hóa, Dữ Liệu và Hệ Thống Thông Minh."
+  },
+  "bio": {
+    "en": "I'm a finance-oriented engineer with hands-on expertise in building automation pipelines, financial data systems, API integrations, and AI-powered tools. I specialize in transforming complex business workflows into clean, maintainable technical solutions — from OCR extraction pipelines to real-time analytics dashboards.",
+    "vi": "Tôi là kỹ sư định hướng tài chính với kinh nghiệm thực tế trong xây dựng pipeline tự động hóa, hệ thống dữ liệu tài chính, tích hợp API và công cụ AI. Tôi chuyên chuyển đổi các quy trình kinh doanh phức tạp thành giải pháp kỹ thuật sạch, có thể bảo trì."
+  },
+  "github":   "https://github.com/nguyenquocminhtrading-design",
+  "linkedin": "https://www.linkedin.com/in/minh-nguyen-7a6789353/",
+  "email":    "nguyenquocminh.trading@gmail.com",
+  "photo":    "assets/images/headshot.jpg",
+  "stats": [
+    { "label": { "en": "Projects Built", "vi": "Dự Án" }, "value": 6, "suffix": "+" },
+    { "label": { "en": "APIs Integrated", "vi": "API Tích Hợp" }, "value": 10, "suffix": "+" },
+    { "label": { "en": "Lines of Code", "vi": "Dòng Code" }, "value": 50, "suffix": "K+" },
+    { "label": { "en": "Years Active", "vi": "Năm Kinh Nghiệm" }, "value": 3, "suffix": "+" }
+  ],
+  "skills": [
+    { "name": "Python", "category": "core" },
+    { "name": "Financial Analysis", "category": "finance" },
+    { "name": "API Integration", "category": "core" },
+    { "name": "Web Scraping", "category": "data" },
+    { "name": "OCR / Document Processing", "category": "data" },
+    { "name": "Data Engineering", "category": "data" },
+    { "name": "SQL / PostgreSQL", "category": "data" },
+    { "name": "JavaScript / TypeScript", "category": "core" },
+    { "name": "Node.js", "category": "backend" },
+    { "name": "FastAPI", "category": "backend" },
+    { "name": "Next.js / React", "category": "frontend" },
+    { "name": "Docker / Cloud Deploy", "category": "devops" },
+    { "name": "LLM / AI Systems", "category": "ai" },
+    { "name": "Quantitative Finance", "category": "finance" },
+    { "name": "System Architecture", "category": "core" },
+    { "name": "Automation Engineering", "category": "core" }
+  ]
+}

@@ -1,0 +1,354 @@
+{
+  "projects": [
+    {
+      "id": "xnk-cashew",
+      "name": { "en": "XNK Cashew Intelligence Platform", "vi": "Nền Tảng Dữ Liệu XNK Hạt Điều" },
+      "tagline": {
+        "en": "Automated OCR pipeline to scrape, process, and visualize Vietnam cashew import-export statistics from the General Department of Customs.",
+        "vi": "Pipeline OCR tự động để thu thập, xử lý và trực quan hóa dữ liệu xuất nhập khẩu hạt điều Việt Nam từ Tổng Cục Hải Quan."
+      },
+      "category": ["financial-engineering", "data-engineering", "automation"],
+      "status": "production",
+      "year": 2024,
+      "thumbnail": null,
+      "github": null,
+      "techStack": ["Python", "Playwright", "PDFPlumber", "PaddleOCR", "Chart.js", "Leaflet", "jsPDF", "ExcelJS", "NumPy"],
+      "overview": {
+        "en": "A comprehensive data intelligence platform that automatically scrapes cashew import/export PDFs from the Vietnam General Department of Customs (TCHQ), extracts tabular data via multi-engine OCR, performs mathematical fallback reconstruction, and delivers a web-based BI dashboard with multi-year analysis, geographic visualization, and multi-format export.",
+        "vi": "Nền tảng tình báo dữ liệu toàn diện tự động thu thập PDF XNK hạt điều từ Tổng cục Hải quan, trích xuất dữ liệu bảng qua OCR đa engine, thực hiện tái tạo toán học fallback, và cung cấp dashboard BI trên web với phân tích đa năm, trực quan hóa địa lý, và xuất đa định dạng."
+      },
+      "problem": {
+        "en": "Vietnam's cashew trade data is published as static PDF documents across multiple report versions (Preliminary, Adjusted, Official) on the TCHQ portal. Manual extraction is error-prone, time-consuming, and fails to provide the longitudinal analysis required for market intelligence.",
+        "vi": "Dữ liệu thương mại hạt điều Việt Nam được công bố dưới dạng tài liệu PDF tĩnh qua nhiều phiên bản báo cáo trên cổng TCHQ. Việc trích xuất thủ công dễ xảy ra lỗi, tốn thời gian và không thể cung cấp phân tích theo chiều dọc thời gian cần thiết cho tình báo thị trường."
+      },
+      "businessObjective": {
+        "en": "Automate the complete data pipeline from web scraping to interactive BI dashboard, enabling food export companies to track cashew trade flows, compare versions, analyze market share by country, and export boardroom-ready reports.",
+        "vi": "Tự động hóa toàn bộ pipeline từ thu thập web đến dashboard BI tương tác, giúp các công ty xuất khẩu thực phẩm theo dõi luồng thương mại hạt điều, so sánh phiên bản, phân tích thị phần theo quốc gia và xuất báo cáo sẵn sàng cho hội đồng quản trị."
+      },
+      "workflow": [
+        { "step": "Orchestration", "desc": "main.py coordinates range/single-period runs with Smart Cache to avoid redundant scraping" },
+        { "step": "Web Scraping", "desc": "Playwright scrapes TCHQ portal, downloads 4 report types (2X, 5X, 2N, 5N) across 3 versions (SB/DC/CT)" },
+        { "step": "OCR Extraction", "desc": "pdfplumber + PaddleOCR extract tables; mathematical fallback reconstructs missing periods using growth rates" },
+        { "step": "Data Aggregation", "desc": "data_builder.py merges all years + Vinacas association data (757 records) into master Excel & JSON" },
+        { "step": "Web Dashboard", "desc": "Chart.js + Leaflet SPA serves trade flow visualization with year/version/flow filters and 6-format export" }
+      ],
+      "features": [
+        { "title": "Smart Cache Engine", "desc": "Automatically detects incomplete periods and triggers targeted re-scraping without redundant downloads" },
+        { "title": "Multi-version OCR", "desc": "Handles Preliminary (SB), Adjusted (DC), and Official (CT) versions simultaneously with audit trail" },
+        { "title": "Mathematical Fallback", "desc": "Reconstructs missing month M data from period M+1 using growth rate inversion formulas" },
+        { "title": "Vinacas Cross-reference", "desc": "Embeds 757-record Vinacas association dataset for independent source validation" },
+        { "title": "Geographic Dashboard", "desc": "Leaflet choropleth map showing export/import distribution by partner country" },
+        { "title": "6-Format Export", "desc": "Download reports as HTML, Excel (5-sheet), PDF, PPTX, JSON, and CSV with full Vietnamese typography" }
+      ],
+      "challenges": [
+        { "title": "PDF Structure Variability", "solution": "TCHQ PDFs change table structure across years. Built a schema-adaptive OCR parser with regex-based column detection and multi-engine fallback." },
+        { "title": "Missing Period Reconstruction", "solution": "Some early periods lack raw PDFs. Implemented mathematical inverse growth formula to derive month M from M+1 YoY and MoM deltas." },
+        { "title": "Multi-version Data Integrity", "solution": "Built a 3-layer version priority system (CT > DC > SB) with per-version sheet isolation and debug source tracking columns." }
+      ],
+      "results": [
+        "Automated 2020–2026 cashew trade data extraction (84+ monthly periods)",
+        "6-format export engine generating boardroom-ready reports",
+        "Cross-source validation between TCHQ and Vinacas datasets",
+        "Web dashboard with real-time year/flow/version switching"
+      ],
+      "future": [
+        "Scheduled daily automation with email/Telegram alerts on new TCHQ publications",
+        "Price prediction module using historical trade patterns",
+        "Multi-commodity extension beyond cashews"
+      ],
+      "relatedProjects": ["fund-portfolio", "job-scraping"]
+    },
+    {
+      "id": "see-content-connector",
+      "name": { "en": "SEE Content Connector", "vi": "SEE Content Connector" },
+      "tagline": {
+        "en": "Multi-platform social media analytics hub with a self-healing OAuth token engine, live metrics sync, and an interactive performance dashboard.",
+        "vi": "Trung tâm phân tích mạng xã hội đa nền tảng với engine token OAuth tự phục hồi, đồng bộ metrics trực tiếp và dashboard hiệu suất tương tác."
+      },
+      "category": ["automation", "api-integration", "web-dev"],
+      "status": "production",
+      "year": 2024,
+      "thumbnail": null,
+      "github": null,
+      "techStack": ["Node.js", "Express", "Next.js 14", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Docker", "Render", "Meta Graph API"],
+      "overview": {
+        "en": "A production-deployed connector hub that integrates Facebook, Instagram, TikTok, and LinkedIn through their respective OAuth 2.0 APIs. Features a Self-Healing Token Engine that automatically exchanges short-lived tokens for permanent page access tokens, background sync workers running every 15 minutes, and a real-time analytics dashboard with Viral Score ranking.",
+        "vi": "Hub kết nối triển khai sản xuất tích hợp Facebook, Instagram, TikTok và LinkedIn qua API OAuth 2.0. Có engine token tự phục hồi tự động đổi token ngắn hạn thành token truy cập trang vĩnh viễn, worker đồng bộ nền chạy mỗi 15 phút, và dashboard phân tích thời gian thực với xếp hạng Viral Score."
+      },
+      "problem": {
+        "en": "Managing multiple social media channels requires constant manual token refresh, cross-platform data aggregation, and performance monitoring. Token expiration causes silent data loss and dashboard blackouts.",
+        "vi": "Quản lý nhiều kênh mạng xã hội đòi hỏi làm mới token thủ công liên tục, tổng hợp dữ liệu đa nền tảng và giám sát hiệu suất. Token hết hạn gây mất dữ liệu im lặng và màn hình đen dashboard."
+      },
+      "businessObjective": {
+        "en": "Build a zero-maintenance social media intelligence system that survives token expiration, provides unified cross-platform analytics, and ranks top-performing content automatically.",
+        "vi": "Xây dựng hệ thống tình báo mạng xã hội không cần bảo trì, chịu được hết hạn token, cung cấp phân tích đa nền tảng thống nhất và xếp hạng nội dung hiệu suất cao tự động."
+      },
+      "workflow": [
+        { "step": "OAuth 2.0 Authentication", "desc": "User authorizes via Meta/TikTok/LinkedIn OAuth flows; backend exchanges code for access tokens" },
+        { "step": "Self-Healing Token Engine", "desc": "Automatically upgrades short-lived tokens to Permanent Page Access Tokens; cron worker refreshes TikTok/LinkedIn tokens 7 days before expiry" },
+        { "step": "Background Sync Worker", "desc": "node-cron job runs every 15 minutes, fetching new posts and updating reach, impressions, likes, comments, shares" },
+        { "step": "Data Storage", "desc": "PostgreSQL stores assets + metrics with deduplication; in-memory fallback preserves data during token failure" },
+        { "step": "Analytics Dashboard", "desc": "Next.js frontend renders trend charts, stacked engagement bars, Viral Score rankings, and asset detail modals" }
+      ],
+      "features": [
+        { "title": "Self-Healing Token Engine", "desc": "Meta permanent tokens + TikTok/LinkedIn pre-expiry refresh. 100% data retention during token failure via Graceful Degradation" },
+        { "title": "15-Minute Live Sync", "desc": "Background worker continuously pulls Reach, Impressions, Likes, Comments, Shares across all connected platforms" },
+        { "title": "Viral Score Algorithm", "desc": "Custom 0-100 scoring model ranks top 5 performing posts based on engagement rate and reach velocity" },
+        { "title": "Asset Detail Modal", "desc": "Deep-dive view per post showing KPI metrics, video completion rate, and day-by-day growth trajectory" },
+        { "title": "1-Click Cloud Deploy", "desc": "render.yaml Blueprint deploys PostgreSQL + Node.js API + Next.js frontend to Render Cloud in a single click" },
+        { "title": "Token Management UI", "desc": "Live connection testing and one-click token update from the web UI — no server restart required" }
+      ],
+      "challenges": [
+        { "title": "Token Permanence Across Platforms", "solution": "Meta tokens exchanged to never-expiring Page Access Tokens. TikTok/LinkedIn use refresh_token cron 7 days before expiry with alert fallback." },
+        { "title": "Data Continuity on Token Failure", "solution": "In-memory cache preserves all historical posts and charts. Banner + 1-click re-auth shown to user rather than empty dashboard." },
+        { "title": "Multi-platform Rate Limits", "solution": "Request queuing with exponential backoff; separate sync schedules per platform to avoid simultaneous API bursts." }
+      ],
+      "results": [
+        "Zero-downtime token management across 4 social platforms",
+        "Automated 15-minute metrics refresh with 100% data retention",
+        "1-click Render Cloud deployment with IaC blueprint",
+        "Viral Score algorithm ranking top content automatically"
+      ],
+      "future": [
+        "AI-powered content recommendation engine based on engagement patterns",
+        "YouTube and Twitter/X API integration",
+        "Automated post scheduling and A/B testing"
+      ],
+      "relatedProjects": ["see-notion", "job-scraping"]
+    },
+    {
+      "id": "see-notion",
+      "name": { "en": "SEE Notion Task Bot", "vi": "SEE Notion Task Bot" },
+      "tagline": {
+        "en": "Discord-powered task management bot that creates, assigns, and tracks Notion tasks via natural language commands with AI-driven parsing and scheduled reminders.",
+        "vi": "Bot quản lý công việc trên Discord tạo, phân công và theo dõi nhiệm vụ Notion qua lệnh ngôn ngữ tự nhiên với phân tích AI và nhắc nhở theo lịch."
+      },
+      "category": ["automation", "ai-ml", "api-integration"],
+      "status": "production",
+      "year": 2024,
+      "thumbnail": null,
+      "github": null,
+      "techStack": ["Python", "FastAPI", "Discord.py", "APScheduler", "SQLite", "GLM LLM", "Ollama", "SMTP", "Notion API"],
+      "overview": {
+        "en": "A production system integrating Discord, Notion, and LLM AI to automate team task management. Team members issue natural language commands in Discord (/task, /my); an LLM parser validates and structures the intent; the Notion Gateway API creates/updates tasks with rate limiting and retry; APScheduler runs reminder scans every 5 minutes and delivers DMs or email notifications.",
+        "vi": "Hệ thống sản xuất tích hợp Discord, Notion và AI LLM để tự động hóa quản lý công việc nhóm. Thành viên phát lệnh ngôn ngữ tự nhiên trên Discord; trình phân tích LLM xác thực và cấu trúc ý định; API Notion Gateway tạo/cập nhật nhiệm vụ với giới hạn tốc độ và thử lại; APScheduler quét nhắc nhở mỗi 5 phút."
+      },
+      "problem": {
+        "en": "Manual task logging between Discord chat and Notion is friction-heavy. Deadline reminders are missed. Task data is inconsistently structured and hard to audit.",
+        "vi": "Ghi nhật ký công việc thủ công giữa chat Discord và Notion gây ma sát nhiều. Nhắc nhở deadline bị bỏ lỡ. Dữ liệu công việc không nhất quán và khó kiểm tra."
+      },
+      "businessObjective": {
+        "en": "Eliminate manual task logging overhead by letting the team manage their entire Notion workspace through Discord commands, with AI parsing intent and automated reminders handling follow-ups.",
+        "vi": "Loại bỏ chi phí ghi log công việc thủ công bằng cách cho phép nhóm quản lý toàn bộ không gian làm việc Notion qua lệnh Discord, với AI phân tích ý định và nhắc nhở tự động xử lý theo dõi."
+      },
+      "workflow": [
+        { "step": "Discord Command", "desc": "Team member issues /task, /my, or confirmation buttons in Discord server" },
+        { "step": "LLM Parser", "desc": "GLM (primary) / Ollama (local fallback) parses natural language into structured ParsedCommand with validation" },
+        { "step": "Confirmation Preview", "desc": "Bot displays task preview for ✅/❌ confirmation before writing to Notion" },
+        { "step": "Notion Gateway", "desc": "Single-point API caller with rate limiting, automatic retry, and pagination handles all Notion writes" },
+        { "step": "Reminder Engine", "desc": "APScheduler scans every 5 min for approaching deadlines; sends Discord DM or SMTP email notifications" },
+        { "step": "Audit Log", "desc": "SQLite records all actions, notification history, and pending confirmations for traceability" }
+      ],
+      "features": [
+        { "title": "Natural Language Task Creation", "desc": "LLM parses free-form Discord messages into structured Notion tasks with assignee, deadline, priority, and description" },
+        { "title": "Confirmation Flow", "desc": "Two-step confirm/cancel pattern prevents accidental task creation — team sees preview before commit" },
+        { "title": "5-Minute Reminder Scans", "desc": "APScheduler engine checks deadlines continuously and delivers multi-channel reminders (Discord DM + email)" },
+        { "title": "Notion Rate-Limit Gateway", "desc": "Centralized API caller handles pagination, 429 retry with backoff, and error logging for all Notion operations" },
+        { "title": "46 Unit Tests", "desc": "Test suite covering lifecycle, validator, reminder engine, and confirmation flow for production reliability" },
+        { "title": "FastAPI REST Endpoints", "desc": "/api/v1/tasks and /api/v1/audit provide external access and health monitoring" }
+      ],
+      "challenges": [
+        { "title": "LLM Parsing Accuracy", "solution": "Built a Validator layer that checks LLM output against business rules (valid assignees, deadline format, priority levels) before any Notion write." },
+        { "title": "Notion API Rate Limits", "solution": "Single-entry-point gateway with request queuing and exponential backoff ensures no 429 errors reach the application layer." },
+        { "title": "Reminder Deduplication", "solution": "notification_log SQLite table records all sent reminders with timestamps, preventing duplicate DMs for the same deadline." }
+      ],
+      "results": [
+        "Full team task lifecycle managed through Discord commands",
+        "5-minute reminder SLA for deadline notifications",
+        "46 passing unit tests covering core business logic",
+        "Zero duplicate reminder incidents via deduplication log"
+      ],
+      "future": [
+        "Slack integration as additional command interface",
+        "Task analytics dashboard showing team velocity",
+        "AI-powered workload balancing recommendations"
+      ],
+      "relatedProjects": ["see-content-connector", "ai-meeting"]
+    },
+    {
+      "id": "ai-meeting",
+      "name": { "en": "AI Meeting Intelligence Assistant", "vi": "Trợ Lý Cuộc Họp Thông Minh AI" },
+      "tagline": {
+        "en": "Real-time meeting transcription, speaker diarization, and AI-generated meeting minutes with action item tracking — powered by Groq Whisper and LLM chains.",
+        "vi": "Phiên âm cuộc họp thời gian thực, phân biệt người nói và biên bản họp được AI tạo ra với theo dõi action item — được hỗ trợ bởi Groq Whisper và chuỗi LLM."
+      },
+      "category": ["ai-ml", "automation", "web-dev"],
+      "status": "production",
+      "year": 2024,
+      "thumbnail": null,
+      "github": null,
+      "techStack": ["Python", "FastAPI", "Next.js", "WebSocket", "Groq API", "Whisper large-v3-turbo", "SQLAlchemy", "SQLite", "Docker"],
+      "overview": {
+        "en": "A full-stack AI meeting assistant that captures audio (live microphone or file upload), transcribes via Groq's Whisper large-v3-turbo, identifies speakers through LLM diarization chains, and generates structured meeting minutes with action items, decisions, and key points. Multi-LLM fallback chain (Qwen → GPT-oss → Allam) ensures 100% uptime for AI generation.",
+        "vi": "Trợ lý họp AI full-stack thu âm (microphone trực tiếp hoặc tải file), phiên âm qua Whisper large-v3-turbo của Groq, nhận dạng người nói qua chuỗi LLM, và tạo biên bản họp có cấu trúc với action item, quyết định và điểm chính. Chuỗi fallback đa LLM (Qwen → GPT-oss → Allam) đảm bảo 100% uptime cho tạo AI."
+      },
+      "problem": {
+        "en": "Manual meeting note-taking misses critical details, fails to attribute statements to speakers, and leaves action items untracked. Reviewing long meeting recordings is impractical.",
+        "vi": "Ghi chú cuộc họp thủ công bỏ lỡ các chi tiết quan trọng, không gán phát biểu cho người nói và để action item không được theo dõi. Xem lại các bản ghi cuộc họp dài là không thực tế."
+      },
+      "businessObjective": {
+        "en": "Automate the entire meeting intelligence workflow: capture → transcribe → identify speakers → generate minutes → extract and track action items, eliminating manual note-taking entirely.",
+        "vi": "Tự động hóa toàn bộ quy trình tình báo cuộc họp: thu âm → phiên âm → nhận dạng người nói → tạo biên bản → trích xuất và theo dõi action item, loại bỏ hoàn toàn ghi chú thủ công."
+      },
+      "workflow": [
+        { "step": "Audio Capture", "desc": "Browser microphone via WebSpeech API (live) or file upload (.mp3, .wav, .webm, .ogg, .m4a)" },
+        { "step": "Streaming Transcription", "desc": "WebSocket /ws/live streams audio chunks to FastAPI; Groq Whisper large-v3-turbo returns real-time transcript" },
+        { "step": "Speaker Diarization", "desc": "LLM chain analyzes conversational context to assign speaker labels — Qwen primary, GPT-oss → Allam fallback" },
+        { "step": "Vocabulary Injection", "desc": "Custom names and keywords injected into Whisper to prevent misrecognition of proper nouns" },
+        { "step": "AI Report Generation", "desc": "LLM generates structured meeting minutes: summary, key points, decisions, action items with owners" },
+        { "step": "Storage & Dashboard", "desc": "SQLite stores all transcripts and reports; Next.js dashboard enables review, speaker rename, and task sync" }
+      ],
+      "features": [
+        { "title": "Real-time Transcription", "desc": "Live WebSocket streaming from browser microphone to Groq Whisper with sub-second latency" },
+        { "title": "AI Speaker Diarization", "desc": "Context-aware LLM identification of speakers — no audio fingerprinting required" },
+        { "title": "Multi-LLM Fallback Chain", "desc": "Qwen primary → GPT-oss → Allam fallback ensures AI generation continues even when a model is unavailable" },
+        { "title": "Vocabulary Injection", "desc": "Custom name/keyword dictionary fed to Whisper prevents misrecognition of Vietnamese names and technical terms" },
+        { "title": "Structured Meeting Minutes", "desc": "Auto-generates formal minutes: facilitator, scribe, agenda, resolutions, and action items in standard format" },
+        { "title": "Batch Speaker Rename", "desc": "Rename any speaker globally across the entire transcript with one action" }
+      ],
+      "challenges": [
+        { "title": "Vietnamese Speech Recognition Accuracy", "solution": "Vocabulary injection feeds team member names and meeting-specific terms into Whisper context, reducing misrecognition by >60%." },
+        { "title": "LLM Diarization Without Audio Features", "solution": "Conversational pattern analysis (turn-taking, pronoun references, topic continuity) used as diarization signals instead of audio fingerprinting." },
+        { "title": "WebSocket Stability for Long Meetings", "solution": "Heartbeat mechanism with automatic reconnection; partial transcript stored to SQLite every 30 seconds to prevent data loss." }
+      ],
+      "results": [
+        "Real-time transcription with sub-second Groq Whisper latency",
+        "Structured meeting minutes generated automatically post-call",
+        "Multi-LLM fallback chain providing AI generation redundancy",
+        "Action item extraction and task tracking integrated workflow"
+      ],
+      "future": [
+        "Calendar integration (Google Calendar / Notion) for automatic meeting scheduling and minute distribution",
+        "Sentiment analysis per speaker to identify meeting dynamics",
+        "Multi-language simultaneous transcription"
+      ],
+      "relatedProjects": ["see-notion", "see-content-connector"]
+    },
+    {
+      "id": "fund-portfolio",
+      "name": { "en": "Dragon Capital Fund Analytics Platform", "vi": "Nền Tảng Phân Tích Quỹ Dragon Capital" },
+      "tagline": {
+        "en": "Automated ETL pipeline scraping Dragon Capital fund NAV data, computing risk-adjusted metrics, and delivering an interactive portfolio analytics dashboard with Monte Carlo simulation.",
+        "vi": "Pipeline ETL tự động thu thập dữ liệu NAV quỹ Dragon Capital, tính toán chỉ số điều chỉnh rủi ro và cung cấp dashboard phân tích danh mục tương tác với mô phỏng Monte Carlo."
+      },
+      "category": ["financial-engineering", "data-engineering", "automation"],
+      "status": "active",
+      "year": 2024,
+      "thumbnail": null,
+      "github": null,
+      "techStack": ["Python", "Selenium 4", "pandas", "numpy", "PyTorch", "openpyxl", "Chart.js", "SheetJS", "Parquet"],
+      "overview": {
+        "en": "A quantitative finance pipeline that automates collection of Dragon Capital fund performance data (DCDS, DCBF, DCDE, DCIP, Diamond) via Selenium scraping, normalizes 2,000+ Excel reports through a parallel ETL pipeline, computes risk metrics and Monte Carlo projections using PyTorch GPU acceleration, and serves results through a web dashboard.",
+        "vi": "Pipeline tài chính định lượng tự động thu thập dữ liệu hiệu suất quỹ Dragon Capital (DCDS, DCBF, DCDE, DCIP, Diamond) qua thu thập Selenium, chuẩn hóa 2.000+ báo cáo Excel qua pipeline ETL song song, tính toán chỉ số rủi ro và dự báo Monte Carlo sử dụng GPU PyTorch và phục vụ kết quả qua dashboard web."
+      },
+      "problem": {
+        "en": "Fund NAV historical data is locked in thousands of individual Excel files on Dragon Capital's portal. Manual collection for multi-fund longitudinal analysis is infeasible, and standard tools cannot handle the LWC-based portal structure.",
+        "vi": "Dữ liệu lịch sử NAV quỹ bị khóa trong hàng nghìn file Excel riêng lẻ trên cổng Dragon Capital. Thu thập thủ công cho phân tích đa quỹ theo chiều dọc thời gian là không khả thi, và các công cụ tiêu chuẩn không thể xử lý cấu trúc cổng dựa trên LWC."
+      },
+      "businessObjective": {
+        "en": "Build an automated quant research platform enabling systematic comparison of Vietnamese fund performance using risk-adjusted metrics, annual return analysis, and probabilistic projection.",
+        "vi": "Xây dựng nền tảng nghiên cứu định lượng tự động cho phép so sánh có hệ thống hiệu suất quỹ Việt Nam sử dụng chỉ số điều chỉnh rủi ro, phân tích lợi nhuận hàng năm và dự báo xác suất."
+      },
+      "workflow": [
+        { "step": "Selenium Scraping", "desc": "Headless Chrome scrapes Dragon Capital's LWC portal, navigating dynamic dropdowns and accordion components" },
+        { "step": "Parallel ETL", "desc": "ProcessPoolExecutor extracts NAV from 2,000+ monthly Excel files using all CPU cores" },
+        { "step": "Data Normalization", "desc": "NAV_CODE_MAP standardizes field names; deduplication by fund_code + report_date retains latest version" },
+        { "step": "Quantitative Analysis", "desc": "pandas computes Sharpe ratio, max drawdown, Sortino ratio; PyTorch GPU runs 100,000 Monte Carlo simulations" },
+        { "step": "Output & Dashboard", "desc": "Parquet/Excel outputs feed Chart.js BI dashboard with fund comparison and projection visualization" }
+      ],
+      "features": [
+        { "title": "LWC Portal Scraper", "desc": "XPath-based Selenium scraper navigates Lightning Web Components dropdown/accordion structures unavailable to standard HTTP scrapers" },
+        { "title": "Parallel NAV Extraction", "desc": "Multi-core ProcessPoolExecutor processes 2,000+ Excel files simultaneously with date-from-filename fallback" },
+        { "title": "GPU Monte Carlo", "desc": "PyTorch CUDA-accelerated 100,000-path simulation over 252 trading days for probabilistic return projection" },
+        { "title": "Risk Metrics Suite", "desc": "Sharpe ratio, Sortino ratio, max drawdown, annual returns, and VaR computed across all fund series" },
+        { "title": "NAV Validation", "desc": "Automatic flagging of NAV changes >50% MoM and NAV/unit outside [1,000–100M] range for data quality assurance" },
+        { "title": "Parquet Data Store", "desc": "Columnar storage enables fast dashboard loading from multi-year fund time series data" }
+      ],
+      "challenges": [
+        { "title": "LWC Dynamic Portal", "solution": "XPath selectors target stable name attributes and class patterns in LWC components, surviving UI updates better than CSS selectors." },
+        { "title": "2,000+ File Processing Speed", "solution": "ProcessPoolExecutor scales extraction linearly with CPU cores; temporary Excel lock files (~$*.xlsx) are detected and skipped." },
+        { "title": "GPU Monte Carlo Integration", "solution": "Automatic CUDA device detection falls back to CPU — same simulation code runs on any hardware without modification." }
+      ],
+      "results": [
+        "Automated collection of Dragon Capital fund data across 5 fund series",
+        "100,000 Monte Carlo paths computed with PyTorch GPU acceleration",
+        "Risk-adjusted metrics (Sharpe, Sortino, Drawdown) for systematic fund comparison",
+        "ETL pipeline processing 2,000+ Excel files in parallel"
+      ],
+      "future": [
+        "Live NAV alerts when fund performance crosses threshold",
+        "Portfolio optimization using Modern Portfolio Theory",
+        "Extension to other Vietnamese fund managers (Vinacapital, SSI AM)"
+      ],
+      "relatedProjects": ["xnk-cashew", "job-scraping"]
+    },
+    {
+      "id": "job-scraping",
+      "name": { "en": "Job Market Intelligence Pipeline", "vi": "Pipeline Tình Báo Thị Trường Việc Làm" },
+      "tagline": {
+        "en": "A 5-layer NLP scraping pipeline that aggregates job postings across multiple platforms, classifies roles, analyzes keyword trends, and tracks salary time-series data.",
+        "vi": "Pipeline NLP 5 lớp tổng hợp tin tuyển dụng đa nền tảng, phân loại vai trò, phân tích xu hướng từ khóa và theo dõi chuỗi thời gian mức lương."
+      },
+      "category": ["data-engineering", "automation", "ai-ml"],
+      "status": "active",
+      "year": 2024,
+      "thumbnail": null,
+      "github": null,
+      "techStack": ["Python", "Playwright", "PostgreSQL", "NLP", "pandas", "YAML", "Docker", "APScheduler"],
+      "overview": {
+        "en": "A multi-layer data engineering pipeline that scrapes job postings from multiple Vietnamese job boards using Playwright, processes descriptions through NLP keyword extraction and role classification (defined via roles.yaml), aggregates time-series metrics, and exports ranked job matches with flagged anomaly detection.",
+        "vi": "Pipeline kỹ thuật dữ liệu đa lớp thu thập tin tuyển dụng từ nhiều bảng việc làm Việt Nam bằng Playwright, xử lý mô tả qua trích xuất từ khóa NLP và phân loại vai trò (định nghĩa qua roles.yaml), tổng hợp chỉ số chuỗi thời gian và xuất khớp việc làm có xếp hạng với phát hiện bất thường được gắn cờ."
+      },
+      "problem": {
+        "en": "Manually tracking job market trends across multiple platforms is infeasible at scale. Salary benchmarking, skill demand analysis, and role classification require systematic data aggregation that no single job board provides.",
+        "vi": "Theo dõi thủ công xu hướng thị trường việc làm trên nhiều nền tảng là không khả thi ở quy mô lớn. Đo điểm chuẩn lương, phân tích nhu cầu kỹ năng và phân loại vai trò đòi hỏi tổng hợp dữ liệu có hệ thống mà không có bảng việc làm nào cung cấp."
+      },
+      "businessObjective": {
+        "en": "Create a systematic job market intelligence system that tracks skill demand trends, salary ranges, and role availability over time to support career strategy and HR analytics decisions.",
+        "vi": "Tạo hệ thống tình báo thị trường việc làm có hệ thống theo dõi xu hướng nhu cầu kỹ năng, dải lương và khả dụng vai trò theo thời gian để hỗ trợ quyết định chiến lược nghề nghiệp và phân tích nhân sự."
+      },
+      "workflow": [
+        { "step": "Layer 1: Input Config", "desc": "keywords.yaml (26K+ entries) and roles.yaml define scraping targets and classification rules" },
+        { "step": "Layer 2: Scraping", "desc": "Playwright multi-source scraper collects job postings with structured data extraction" },
+        { "step": "Layer 3: NLP Processing", "desc": "Keyword matching, skill extraction, role classification, and relevance scoring against defined role profiles" },
+        { "step": "Layer 4: Analytics", "desc": "Time-series aggregation, salary range analysis, trend detection, and flagged anomaly identification" },
+        { "step": "Layer 5: Output", "desc": "PostgreSQL storage + scheduled CSV/JSON exports with ranked job matches and market trend reports" }
+      ],
+      "features": [
+        { "title": "26K+ Keyword Dictionary", "desc": "YAML-based keyword taxonomy covering technical skills, soft skills, industries, and role hierarchies" },
+        { "title": "Role Classification Engine", "desc": "Rules-based classifier maps job descriptions to standardized role profiles defined in roles.yaml" },
+        { "title": "Time-Series Tracking", "desc": "Historical demand tracking per skill/role enables trend analysis over weeks and months" },
+        { "title": "Anomaly Flagging", "desc": "Automated detection and flagging of unusual salary ranges, role mismatches, and posting anomalies" },
+        { "title": "Scheduled Pipeline", "desc": "APScheduler runs automated scraping cycles without manual intervention" },
+        { "title": "Freelance Mode", "desc": "run_freelance_pipeline.py adapts the pipeline for freelance market data collection" }
+      ],
+      "challenges": [
+        { "title": "Dynamic Job Board Anti-scraping", "solution": "Playwright with randomized delays, realistic browser fingerprinting, and session persistence to handle bot detection." },
+        { "title": "Keyword Classification Scale", "solution": "26K+ keyword YAML taxonomy with hierarchical matching — coarse role classification first, then fine-grained skill extraction." },
+        { "title": "Time-series Data Consistency", "solution": "Deduplication by source + job_id + date prevents double-counting; flagged_timeseries tracks anomalous posting patterns." }
+      ],
+      "results": [
+        "Multi-source job posting aggregation across Vietnamese job platforms",
+        "26K+ keyword taxonomy for systematic skill demand tracking",
+        "Automated scheduled pipeline with APScheduler",
+        "Time-series database enabling longitudinal market analysis"
+      ],
+      "future": [
+        "Salary prediction model using historical posting data",
+        "Real-time market alert dashboard",
+        "Integration with LinkedIn Jobs API for international comparison"
+      ],
+      "relatedProjects": ["xnk-cashew", "fund-portfolio"]
+    }
+  ]
+}
