@@ -180,6 +180,18 @@ const Projects = {
       ? `<img src="${project.thumbnail}" alt="${Utils.sanitize(name)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.remove();" />`
       : `<div class="card-thumbnail-icon" style="color:${(this.ARCH[project.id]?.[0]?.color) || 'var(--color-accent)'};">${icon}</div>`;
 
+    // Tier 1 ROI Badges for Executive Audience
+    const roiHTML = (project.roiMetrics || []).map(m => {
+      const label = typeof m.label === 'object' ? (m.label[lang] || m.label.en) : m.label;
+      const sub = typeof m.sub === 'object' ? (m.sub[lang] || m.sub.en) : m.sub;
+      return `
+      <div style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:6px;padding:6px 10px;display:flex;flex-direction:column;gap:1px;">
+        <span style="font-size:10px;text-transform:uppercase;color:var(--color-text-muted);font-weight:600;letter-spacing:0.04em;">${Utils.sanitize(label)}</span>
+        <span style="font-size:14px;font-weight:700;color:var(--color-accent);">${Utils.sanitize(m.value)}</span>
+        <span style="font-size:9.5px;color:var(--color-text-secondary);">${Utils.sanitize(sub)}</span>
+      </div>`;
+    }).join('');
+
     return `
     <div class="project-card reveal" data-id="${project.id}" data-categories='${JSON.stringify(project.category)}' data-year="${project.year}" data-name="${Utils.sanitize(name)}">
       <div class="card-accent-line"></div>
@@ -193,6 +205,10 @@ const Projects = {
           ${this.statusBadge(project.status)}
         </div>
         <p class="card-description">${Utils.sanitize(tagline)}</p>
+        
+        <!-- Tier 1 Executive ROI Bar -->
+        ${roiHTML ? `<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(90px, 1fr));gap:6px;margin:var(--space-3) 0;">${roiHTML}</div>` : ''}
+
         <div style="display:flex;flex-wrap:wrap;gap:var(--space-1);margin:var(--space-2) 0;">${cats}</div>
         <div class="card-tags">${tags}</div>
       </div>
@@ -329,10 +345,25 @@ const Projects = {
     <!-- Body -->
     <div class="detail-body">
 
-      <!-- Overview -->
-      <div class="detail-section">
-        <h2 class="detail-section-title">${eyeIcon}${Utils.t('detail_overview')}</h2>
-        <p style="font-size:var(--text-base);color:var(--color-text-secondary);line-height:var(--leading-relaxed);">${Utils.sanitize(overview)}</p>
+      <!-- Tier 1: Executive Summary & Measurable ROI Bar -->
+      <div class="detail-section" style="background:var(--color-bg-secondary);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;color:var(--color-accent);letter-spacing:0.06em;margin-bottom:var(--space-3);">
+          ${Utils.t('tier1_label') || '1. Executive ROI & Business Impact'}
+        </div>
+        ${project.roiMetrics && project.roiMetrics.length ? `
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:var(--space-4);margin-bottom:var(--space-4);">
+          ${project.roiMetrics.map(m => {
+            const label = typeof m.label === 'object' ? (m.label[lang] || m.label.en) : m.label;
+            const sub = typeof m.sub === 'object' ? (m.sub[lang] || m.sub.en) : m.sub;
+            return `
+            <div style="background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-4);">
+              <div style="font-size:11px;text-transform:uppercase;color:var(--color-text-muted);font-weight:600;">${Utils.sanitize(label)}</div>
+              <div style="font-size:24px;font-weight:800;color:var(--color-accent);margin:4px 0;">${Utils.sanitize(m.value)}</div>
+              <div style="font-size:11px;color:var(--color-text-secondary);">${Utils.sanitize(sub)}</div>
+            </div>`;
+          }).join('')}
+        </div>` : ''}
+        <p style="font-size:var(--text-base);color:var(--color-text-primary);line-height:var(--leading-relaxed);margin:0;">${Utils.sanitize(overview)}</p>
       </div>
 
       <!-- Problem + Objective in 2-col -->

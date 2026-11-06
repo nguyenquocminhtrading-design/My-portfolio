@@ -1,141 +1,180 @@
 # NQM Engineering Portfolio
 
-**Nguyen Quoc Minh** — Automation Engineer | Financial Engineering | Full-stack Pipeline Builder  
-*Portfolio URL (Live / Local):* `http://localhost:8765`  
-*GitHub:* [https://github.com/nguyenquocminhtrading-design](https://github.com/nguyenquocminhtrading-design)  
-*LinkedIn:* [https://www.linkedin.com/in/minh-nguyen-7a6789353/](https://www.linkedin.com/in/minh-nguyen-7a6789353/)
+**Nguyen Quoc Minh** — Automation Engineer | Financial Engineering | Full-stack Pipeline Builder
 
----
-
-## 🚀 Quick Start (Local Setup)
+## 🚀 Quick Start
 
 ```powershell
-# Navigate to the portfolio project directory
-cd "My portfolio"
+# Navigate to the portfolio folder
+cd "C:\Users\Acer\Desktop\My carrer\My portfolio"
 
-# Start the local development server (HTTP server required for fetch() JSON requests)
+# Start the local server (required — do NOT open index.html directly)
 python -m http.server 8765
 
-# Open in your default browser
+# Open in browser
 start http://localhost:8765
 ```
 
-> ⚠️ **Note:** Do NOT double-click `index.html` via `file://`. Modern browsers block local asynchronous data loading (`fetch()`) when not served over HTTP.
+> ⚠️ **Must use HTTP server.** Opening `index.html` directly via `file://` will fail because the browser blocks `fetch()` calls for local JSON files.
 
 ---
 
-## 📁 Repository Structure
+## 📁 Project Structure
 
 ```
 My portfolio/
-├── index.html              # Core SPA shell & router
-├── README.md               # Architecture documentation & setup guide
+├── index.html              # SPA shell (single entry point)
+├── README.md
 │
 ├── assets/
-│   ├── cv/                 # Downloadable tailored resume PDFs
-│   │   ├── Nguyen_Quoc_Minh_Financial_Analyst_CV.pdf
-│   │   ├── Nguyen_Quoc_Minh_Data_Analyst_CV.pdf
-│   │   └── Nguyen_Quoc_Minh_Business_Analyst_CV.pdf
 │   ├── images/
-│   │   ├── headshot.jpg    # Verified headshot
-│   │   └── projects/       # Verified project UI & output screenshots
-│   │       ├── xnk-cashew-overview.png
-│   │       ├── xnk-cashew-trends.png
-│   │       ├── xnk-cashew-map.png
-│   │       └── xnk-cashew-export.png
+│   │   ├── headshot.jpg    # Profile photo
+│   │   └── projects/       # Optional project screenshots
 │   ├── icons/
-│   └── diagrams/           # SVG architecture assets
+│   └── diagrams/
 │
 ├── css/
-│   ├── variables.css       # Central design tokens (palette, typography, spacing)
-│   ├── reset.css           # Modern CSS reset & accessibility
-│   ├── themes.css          # Dark / Light theme token definitions
-│   ├── layout.css          # Collapsible sidebar, mobile header, grid systems
-│   ├── components.css      # Bento cards, macOS windows, border-beams, badges
-│   ├── animations.css      # Pulse packets, particle glows, counters
-│   └── responsive.css      # Responsive breakpoints (1440 / 1024 / 768 / 375px)
+│   ├── variables.css       # All design tokens (colors, spacing, fonts)
+│   ├── reset.css           # Normalize + base styles
+│   ├── themes.css          # Dark mode overrides
+│   ├── layout.css          # Sidebar, main content, grid
+│   ├── components.css      # Cards, buttons, badges, forms
+│   ├── animations.css      # Scroll reveal, counters, parallax
+│   └── responsive.css      # Breakpoints: 1440/1024/768/375px
 │
 ├── js/
-│   ├── app.js              # Application bootstrapper & page lifecycle
-│   ├── navigation.js       # Client routing, hash updates, CV modal, ESC handler
-│   ├── projects.js         # Project card & detail renderer with evidence tabs
-│   ├── terminal.js         # Interactive pipeline simulation sandbox (Dry-run)
-│   ├── filters.js          # Live keyword search, category filter & sort engine
-│   ├── animations.js       # IntersectionObserver, counters, particle flows
-│   ├── theme.js            # Dark/Light mode persistence (localStorage)
-│   ├── lang.js             # Bilingual switcher (EN / VI)
-│   └── utils.js            # Toast notifications, clipboard helpers, sanitization
+│   ├── app.js              # Main orchestrator, page renderers
+│   ├── navigation.js       # Sidebar, routing, scroll
+│   ├── projects.js         # Project card + detail page renderer
+│   ├── filters.js          # Search, category filter, sort, view toggle
+│   ├── animations.js       # IntersectionObserver, counters, parallax
+│   ├── theme.js            # Dark/Light mode toggle
+│   ├── lang.js             # EN/VI bilingual toggle
+│   └── utils.js            # Toast, clipboard, sanitize, debounce
 │
 └── data/
-    ├── projects.json       # Source of truth: 6 verified engineering projects
-    ├── profile.json        # Bio, verified quantitative metrics, and CV catalog
-    └── i18n.json           # Complete UI localization strings (EN + VI)
+    ├── projects.json       # All project data (edit here to add projects)
+    ├── profile.json        # Personal info, stats, skills, social links
+    └── i18n.json           # UI strings in English and Vietnamese
 ```
-
----
-
-## 📊 Verified Engineering Metrics (Evidence-Driven)
-
-All headline metrics on the portfolio are grounded in actual codebase facts:
-- **6 Featured Systems:** 
-  1. *XNK Cashew Data Platform* (Playwright + OCR + 6 Export Formats + Leaflet)
-  2. *SEE Content Connector* (Meta Graph API + Permanent Token Engine + Next.js)
-  3. *SEE Notion Bot* (Discord.py + FastAPI + APScheduler + GLM LLM)
-  4. *AI Meeting Intelligence Assistant* (Groq Whisper + LLM Diarization + Next.js)
-  5. *Dragon Capital Fund Analytics* (Selenium + PyTorch GPU Monte Carlo + Parquet)
-  6. *Job Market Scraping Pipeline* (5-layer NLP + Playwright + 26K taxonomies)
-- **10+ External APIs & Protocols:** Meta Graph, Notion, Discord, Groq Whisper, Telegram, Selenium, Playwright, Leaflet, PostgreSQL, SQLite.
-- **84 Months Ingested:** Continuous trade dataset spanning 2020 through 2026.
-- **50,000+ Lines of Production Code:** Verified across active Python, TypeScript, JavaScript, and SQL source files (excluding node_modules and vendor files).
 
 ---
 
 ## ➕ Adding a New Project
 
-Adding another project requires **no HTML/CSS modifications**. Simply append an entry to `data/projects.json`:
+1. Open `data/projects.json`
+2. Add a new object to the `"projects"` array following this schema:
 
 ```json
 {
-  "id": "new-pipeline-id",
-  "name": { "en": "System Name", "vi": "Tên Hệ Thống" },
-  "tagline": { "en": "High impact summary", "vi": "Mô tả giá trị" },
-  "category": ["financial-engineering", "automation"],
+  "id": "my-new-project",
+  "name": { "en": "My New Project", "vi": "Dự Án Mới" },
+  "tagline": { "en": "Short description", "vi": "Mô tả ngắn" },
+  "category": ["automation", "data-engineering"],
   "status": "production",
   "year": 2025,
-  "thumbnail": "assets/images/projects/your-screenshot.png",
+  "thumbnail": null,
   "github": "https://github.com/...",
   "techStack": ["Python", "FastAPI", "PostgreSQL"],
-  "cliCommand": "python run.py --execute",
-  "actualArtifacts": [
-    "output/report.xlsx (Generated workbook)",
-    "data/output.parquet (High-speed database)"
-  ],
   "overview": { "en": "...", "vi": "..." },
   "problem": { "en": "...", "vi": "..." },
-  "businessObjective": { "en": "...", "vi": "..." }
+  "businessObjective": { "en": "...", "vi": "..." },
+  "workflow": [{ "step": "Step Name", "desc": "Description" }],
+  "features": [{ "title": "Feature", "desc": "Description" }],
+  "challenges": [{ "title": "Challenge", "solution": "Solution" }],
+  "results": ["Result 1", "Result 2"],
+  "future": ["Future improvement 1"],
+  "relatedProjects": ["xnk-cashew"]
 }
 ```
 
-The system will dynamically populate the **Project Explorer**, **Category Filters**, **Search Index**, **Detailed Architecture View**, and **Codebase Inspector**.
+3. **No other files need to be changed.** The project will appear automatically in:
+   - Projects Explorer (with search/filter)
+   - Engineering Lab (if `status: active`)
+   - Finance & Quant (if category includes `financial-engineering`)
+   - Automation (if category includes `automation`)
+
+### Valid Category IDs
+
+| ID                      | Label                 |
+| ----------------------- | --------------------- |
+| `financial-engineering` | Financial Engineering |
+| `automation`            | Automation            |
+| `data-engineering`      | Data Engineering      |
+| `ai-ml`                 | AI & Machine Learning |
+| `web-dev`               | Web Development       |
+| `api-integration`       | API Integration       |
+
+### Valid Status Values
+
+| Value          | Badge           |
+| -------------- | --------------- |
+| `production`   | 🟢 Production   |
+| `active`       | 🔵 Active Dev   |
+| `completed`    | ⚫ Completed    |
+| `experimental` | 🟡 Experimental |
 
 ---
 
-## 🌐 Production Deployment (GitHub Pages)
+## 🔧 Updating Profile Info
 
-To publish this portfolio live:
-```powershell
-git init
-git add .
-git commit -m "feat: complete evidence-driven personal engineering portfolio"
-git branch -M main
-git remote add origin https://github.com/nguyenquocminhtrading-design/portfolio.git
-git push -u origin main
-```
-In your GitHub Repository:
-1. Navigate to **Settings** → **Pages**.
-2. Select **Branch: main** → **/ (root)**.
-3. Click **Save**. The portfolio will be available at `https://nguyenquocminhtrading-design.github.io/portfolio/`.
+Edit `data/profile.json` to update:
+
+- Name, title, bio (EN + VI)
+- GitHub, LinkedIn, email links
+- Stats counters (projects, APIs, lines of code, years)
+- Skills list
 
 ---
 
-*Author: Nguyen Quoc Minh (Automation Engineer · Financial Engineering · Full-stack Pipeline Builder)*
+## 🌐 Deployment (GitHub Pages)
+
+1. Push the portfolio folder to a GitHub repository
+2. Go to Settings → Pages → Deploy from branch → `main` → `/root`
+3. Your portfolio will be live at `https://yourusername.github.io/repo-name/`
+
+> Note: All paths are relative, so GitHub Pages deployment works without changes.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer      | Technology                           |
+| ---------- | ------------------------------------ |
+| HTML       | Semantic HTML5, SPA routing          |
+| CSS        | Custom properties, CSS Grid, Flexbox |
+| JavaScript | Vanilla ES6+, no frameworks          |
+| Data       | JSON files (projects, profile, i18n) |
+| Fonts      | Inter via Google Fonts               |
+
+---
+
+## ✅ Features Implemented
+
+- [x] Collapsible sidebar with icon-rail collapse
+- [x] Mobile hamburger navigation
+- [x] Light/Dark mode toggle with persistence
+- [x] EN/VI bilingual toggle
+- [x] SPA routing (no page reloads)
+- [x] Project Explorer with grid/list view
+- [x] Real-time search across all projects
+- [x] Category filter chips
+- [x] Sort (Newest / Oldest / A-Z)
+- [x] Project Detail page with full content
+- [x] SVG architecture diagrams per project
+- [x] Workflow step visualization
+- [x] Expandable challenges/solutions accordion
+- [x] Scroll reveal animations
+- [x] Animated counters
+- [x] Parallax hero blobs
+- [x] Scroll progress bar
+- [x] Back-to-top button
+- [x] Toast notification system
+- [x] Responsive: 1440 / 1024 / 768 / 375px
+- [x] prefers-reduced-motion support
+- [x] XSS-safe dynamic rendering
+- [x] No credentials or private paths exposed
+
+---
+
+_Portfolio v1.0 — Nguyen Quoc Minh_

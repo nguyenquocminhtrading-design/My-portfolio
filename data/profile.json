@@ -1,44 +1,81 @@
 {
   "name": { "en": "Nguyen Quoc Minh", "vi": "Nguyễn Quốc Minh" },
-  "title": { "en": "Automation Engineer | Financial Engineering | Full-stack Pipeline Builder", "vi": "Kỹ Sư Tự Động Hóa | Kỹ Thuật Tài Chính | Xây Dựng Pipeline Full-stack" },
+  "title": { 
+    "en": "Junior Business Process Automation Engineer", 
+    "vi": "Kỹ Sư Tự Động Hóa Quy Trình Kinh Doanh" 
+  },
+  "subtitle": {
+    "en": "Finance-oriented Automation | Systems Integration | Data Engineering",
+    "vi": "Tự Động Hóa Tài Chính | Tích Hợp Hệ Thống | Kỹ Thuật Dữ Liệu"
+  },
   "tagline": {
-    "en": "Bridging Finance and Engineering through Automation, Data, and Intelligent Systems.",
-    "vi": "Kết Nối Tài Chính và Kỹ Thuật qua Tự Động Hóa, Dữ Liệu và Hệ Thống Thông Minh."
+    "en": "I transform manual business and financial workflows into reliable, measurable, and maintainable automated systems.",
+    "vi": "Tôi chuyển đổi các quy trình kinh doanh và tài chính thủ công thành các hệ thống tự động hóa đáng tin cậy, có thể đo lường và dễ bảo trì."
   },
   "bio": {
-    "en": "I'm a finance-oriented engineer with hands-on expertise in building automation pipelines, financial data systems, API integrations, and AI-powered tools. I specialize in transforming complex business workflows into clean, maintainable technical solutions — from OCR extraction pipelines to real-time analytics dashboards.",
-    "vi": "Tôi là kỹ sư định hướng tài chính với kinh nghiệm thực tế trong xây dựng pipeline tự động hóa, hệ thống dữ liệu tài chính, tích hợp API và công cụ AI. Tôi chuyên chuyển đổi các quy trình kinh doanh phức tạp thành giải pháp kỹ thuật sạch, có thể kiểm chứng và bảo trì."
+    "en": "Finance-oriented Automation Engineer specializing in bridging operational bottlenecks across Finance, Operations, and Technology. Experienced in developing end-to-end data pipelines, OCR document intelligence, reconciliation engines, and API integrations that eliminate repetitive manual labor, reduce operational risks, and generate measurable business ROI.",
+    "vi": "Kỹ sư Tự Động Hóa định hướng Tài Chính chuyên giải quyết các điểm nghẽn vận hành giữa Tài chính, Vận hành và Công nghệ. Có kinh nghiệm xây dựng data pipeline hoàn chỉnh, xử lý chứng từ OCR thông minh, hệ thống đối soát tự động và tích hợp API giúp loại bỏ thao tác thủ công, giảm thiểu rủi ro vận hành và tạo ra ROI có thể đo lường."
   },
   "github":   "https://github.com/nguyenquocminhtrading-design",
   "linkedin": "https://www.linkedin.com/in/minh-nguyen-7a6789353/",
   "email":    "nguyenquocminh.trading@gmail.com",
   "photo":    "assets/images/headshot.jpg",
   "cvList": [
-    { "title": "Financial Analyst CV", "file": "assets/cv/Nguyen_Quoc_Minh_Financial_Analyst_CV.pdf", "role": "FA / Financial Engineering" },
-    { "title": "Business Analyst CV", "file": "assets/cv/Nguyen_Quoc_Minh_Business_Analyst_CV.pdf", "role": "BA / Systems & Workflows" }
+    { "title": "Automation Engineer CV", "file": "assets/cv/Nguyen_Quoc_Minh_Financial_Analyst_CV.pdf", "role": "Process Automation & Integration" },
+    { "title": "Business Systems Analyst CV", "file": "assets/cv/Nguyen_Quoc_Minh_Business_Analyst_CV.pdf", "role": "Systems & Financial Workflows" }
   ],
   "stats": [
-    { "label": { "en": "Featured Projects", "vi": "Dự Án Tiêu Biểu" }, "value": 6, "suffix": "+" },
-    { "label": { "en": "APIs Integrated", "vi": "API Đã Tích Hợp" }, "value": 10, "suffix": "+" },
-    { "label": { "en": "Data Spanned", "vi": "Tháng Dữ Liệu" }, "value": 84, "suffix": " mos" },
-    { "label": { "en": "Production Code", "vi": "Dòng Code Thực Tế" }, "value": 50, "suffix": "K+" }
+    { "label": { "en": "Hours Saved / Mo", "vi": "Giờ Tiết Kiệm / Tháng" }, "value": 160, "suffix": "+ hrs" },
+    { "label": { "en": "Data Accuracy", "vi": "Độ Chính Xác Dữ Liệu" }, "value": 99.8, "suffix": "%" },
+    { "label": { "en": "Integrated Systems", "vi": "Hệ Thống Tích Hợp" }, "value": 12, "suffix": "+" },
+    { "label": { "en": "Automated Workflows", "vi": "Quy Trình Tự Động Hóa" }, "value": 25, "suffix": "+" }
+  ],
+  "competencies": [
+    {
+      "icon": "finance",
+      "title": { "en": "Financial Process Automation", "vi": "Tự Động Hóa Quy Trình Tài Chính" },
+      "desc": { 
+        "en": "Automated ledger reconciliation, statement extraction, multi-currency processing, and auditable accounting data pipelines.",
+        "vi": "Tự động hóa đối soát sổ cái, bóc tách báo cáo sao kê, xử lý đa tiền tệ và pipeline dữ liệu kế toán sẵn sàng kiểm toán."
+      }
+    },
+    {
+      "icon": "integration",
+      "title": { "en": "Systems & API Integration", "vi": "Tích Hợp Hệ Thống & API" },
+      "desc": { 
+        "en": "Connecting fragmented CRM, ERP, banking APIs, and database warehouses with robust webhook handlers, retries, and data validation.",
+        "vi": "Kết nối CRM, ERP, API ngân hàng và kho dữ liệu với cơ chế xử lý webhook, retry tự động và kiểm thực dữ liệu nghiêm ngặt."
+      }
+    },
+    {
+      "icon": "data",
+      "title": { "en": "Data Pipelines & OCR Intelligence", "vi": "Pipeline Dữ Liệu & OCR Thông Minh" },
+      "desc": { 
+        "en": "Extracting structured data from unstructured invoices, receipts, and market feeds using OCR, regex parsing, and automated ETL jobs.",
+        "vi": "Trích xuất dữ liệu có cấu trúc từ hóa đơn, chứng từ và dữ liệu thị trường bằng OCR, parsing regex và các tác vụ ETL tự động."
+      }
+    },
+    {
+      "icon": "governance",
+      "title": { "en": "System Reliability & Governance", "vi": "Độ Tin Cậy & Quản Trị Hệ Thống" },
+      "desc": { 
+        "en": "Designing idempotent workflows, structured audit logs, failover alerts, and maintainable documentation for operations teams.",
+        "vi": "Thiết kế quy trình idempotent, log kiểm toán chi tiết, cảnh báo lỗi tức thì và tài liệu bàn giao rõ ràng cho đội ngũ vận hành."
+      }
+    }
   ],
   "skills": [
-    { "name": "Python", "category": "core" },
-    { "name": "Financial Analysis", "category": "finance" },
-    { "name": "API Integration", "category": "core" },
-    { "name": "Web Scraping", "category": "data" },
-    { "name": "OCR / Document Processing", "category": "data" },
-    { "name": "Data Engineering", "category": "data" },
-    { "name": "SQL / PostgreSQL", "category": "data" },
-    { "name": "JavaScript / TypeScript", "category": "core" },
-    { "name": "Node.js", "category": "backend" },
-    { "name": "FastAPI", "category": "backend" },
-    { "name": "Next.js / React", "category": "frontend" },
-    { "name": "Docker / Cloud Deploy", "category": "devops" },
-    { "name": "LLM / AI Systems", "category": "ai" },
-    { "name": "Quantitative Finance", "category": "finance" },
-    { "name": "System Architecture", "category": "core" },
-    { "name": "Automation Engineering", "category": "core" }
+    { "name": "Python (ETL / Pandas)", "category": "core" },
+    { "name": "Process Automation (RPA/APIs)", "category": "core" },
+    { "name": "Financial Reconciliation", "category": "finance" },
+    { "name": "REST API Architecture", "category": "core" },
+    { "name": "OCR & Document Parsing", "category": "data" },
+    { "name": "PostgreSQL & SQL Modeling", "category": "data" },
+    { "name": "FastAPI & Microservices", "category": "backend" },
+    { "name": "Docker & Automation Deploy", "category": "devops" },
+    { "name": "Audit Logging & Monitoring", "category": "devops" },
+    { "name": "Web Scraping & Data Ingestion", "category": "data" },
+    { "name": "Financial Modeling", "category": "finance" },
+    { "name": "Workflow Orchestration", "category": "core" }
   ]
 }

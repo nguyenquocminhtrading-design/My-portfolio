@@ -4,61 +4,61 @@
    ============================================================ */
 
 :root {
-  /* ── Brand Colors ─────────────────────────────────────── */
-  --color-brand-deep:    #102A56;
-  --color-brand-dark:    #174EA6;
-  --color-brand-accent:  #4285F4;
-  --color-brand-light:   #DCEBFF;
-  --color-brand-teal:    #00BCD4;
+  /* ── Corporate Technology × Financial Engineering Palette ──── */
+  --color-brand-deep:    #1E293B;
+  --color-brand-dark:    #1E3A8A;
+  --color-brand-accent:  #2563EB;
+  --color-brand-light:   #DCEBFA;
+  --color-brand-teal:    #0D9488;
 
-  /* ── Light Theme (Default) ────────────────────────────── */
+  /* ── Light Theme (Executive Corporate Standard) ────────── */
   --color-bg:            #FFFFFF;
-  --color-bg-secondary:  #F5F7FA;
-  --color-bg-tertiary:   #EEF2F8;
+  --color-bg-secondary:  #F1F3F5;
+  --color-bg-tertiary:   #E2E8F0;
   --color-surface:       #FFFFFF;
-  --color-surface-raised:#F8FAFD;
-  --color-border:        #E1E6ED;
-  --color-border-subtle: #EEF0F4;
-  --color-divider:       #E8ECF2;
+  --color-surface-raised:#FFFFFF;
+  --color-border:        #E2E8F0;
+  --color-border-subtle: #EDF2F7;
+  --color-divider:       #E2E8F0;
 
-  --color-text-primary:  #172033;
+  --color-text-primary:  #202938;
   --color-text-secondary:#64748B;
   --color-text-muted:    #94A3B8;
   --color-text-inverse:  #FFFFFF;
-  --color-text-accent:   #4285F4;
-  --color-text-code:     #1E3A5F;
+  --color-text-accent:   #2563EB;
+  --color-text-code:     #1E293B;
 
-  --color-accent:        #4285F4;
-  --color-accent-hover:  #2B6FDB;
-  --color-accent-subtle: rgba(66, 133, 244, 0.08);
-  --color-accent-border: rgba(66, 133, 244, 0.25);
+  --color-accent:        #2563EB;
+  --color-accent-hover:  #1D4ED8;
+  --color-accent-subtle: #DCEBFA;
+  --color-accent-border: rgba(37, 99, 235, 0.25);
 
   /* ── Status Colors ────────────────────────────────────── */
-  --color-success:       #1DB97A;
-  --color-success-bg:    #E8F8F1;
-  --color-warning:       #F59E0B;
+  --color-success:       #16A34A;
+  --color-success-bg:    #DCFCE7;
+  --color-warning:       #D97706;
   --color-warning-bg:    #FEF3C7;
-  --color-info:          #4285F4;
-  --color-info-bg:       #DCEBFF;
-  --color-danger:        #EF4444;
+  --color-info:          #2563EB;
+  --color-info-bg:       #DCEBFA;
+  --color-danger:        #DC2626;
   --color-danger-bg:     #FEE2E2;
 
-  /* ── Sidebar ──────────────────────────────────────────── */
-  --sidebar-bg:          #102A56;
-  --sidebar-border:      rgba(255,255,255,0.08);
-  --sidebar-text:        rgba(255,255,255,0.75);
+  /* ── Sidebar (Corporate Clean Light / Dark Dual Tone) ── */
+  --sidebar-bg:          #0F172A;
+  --sidebar-border:      rgba(255, 255, 255, 0.08);
+  --sidebar-text:        #94A3B8;
   --sidebar-text-active: #FFFFFF;
-  --sidebar-text-muted:  rgba(255,255,255,0.4);
-  --sidebar-active-bg:   rgba(66,133,244,0.25);
-  --sidebar-active-border:#4285F4;
-  --sidebar-hover-bg:    rgba(255,255,255,0.06);
-  --sidebar-icon:        rgba(255,255,255,0.55);
-  --sidebar-icon-active: #4285F4;
+  --sidebar-text-muted:  #64748B;
+  --sidebar-active-bg:   #2563EB;
+  --sidebar-active-border:#3B82F6;
+  --sidebar-hover-bg:    rgba(255, 255, 255, 0.05);
+  --sidebar-icon:        #94A3B8;
+  --sidebar-icon-active: #FFFFFF;
 
   /* ── Typography ───────────────────────────────────────── */
-  --font-sans:    'Google Sans', 'Inter', 'Roboto', -apple-system, Arial, sans-serif;
-  --font-mono:    'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
-  --font-display: 'Google Sans', 'Inter', sans-serif;
+  --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --text-xs:   0.75rem;
   --text-sm:   0.875rem;

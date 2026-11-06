@@ -236,7 +236,46 @@
         "output/data/all_years_cashew.json (Consolidated SPA DB)",
         "Vincass/Vinacas.xlsx (757 Historical Validation Records)",
         "output/qc/aggregate_reconciliation.json (Reconciliation Matrix)"
-      ]
+      ],
+      "roiMetrics": [
+        {
+          "label": {
+            "en": "Manual Effort Saved",
+            "vi": "Thời Gian Tiết Kiệm"
+          },
+          "value": "94%",
+          "sub": {
+            "en": "From 3 days to 15 mins/mo",
+            "vi": "Từ 3 ngày xuống 15 phút/kỳ"
+          }
+        },
+        {
+          "label": {
+            "en": "Data Integrity Rate",
+            "vi": "Độ Chính Xác Dữ Liệu"
+          },
+          "value": "99.8%",
+          "sub": {
+            "en": "Multi-OCR + Cross validation",
+            "vi": "OCR kép + Đối soát chéo Vinacas"
+          }
+        },
+        {
+          "label": {
+            "en": "Historical Coverage",
+            "vi": "Dữ Liệu Lịch Sử"
+          },
+          "value": "84+ mos",
+          "sub": {
+            "en": "2020 - 2026 customs data",
+            "vi": "84+ kỳ dữ liệu Tổng cục Hải quan"
+          }
+        }
+      ],
+      "architectureFlow": {
+        "en": "Playwright Scraper -> Multi-Engine OCR (pdfplumber + PaddleOCR) -> Inversion Fallback Algorithm -> Master JSON/Excel ETL -> BI Analytics Dashboard",
+        "vi": "Playwright Scraper -> Multi-Engine OCR (pdfplumber + PaddleOCR) -> Thuật toán bù đắp Fallback -> Master JSON/Excel ETL -> Dashboard BI"
+      }
     },
     {
       "id": "see-content-connector",
@@ -472,7 +511,46 @@
       ],
       "gallery": [
         "assets/images/projects/SEE_content_connectror.png"
-      ]
+      ],
+      "roiMetrics": [
+        {
+          "label": {
+            "en": "Distribution Time",
+            "vi": "Thời Gian Phát Hành"
+          },
+          "value": "-85%",
+          "sub": {
+            "en": "Instant cross-platform syndication",
+            "vi": "Đồng bộ đa kênh tức thì"
+          }
+        },
+        {
+          "label": {
+            "en": "Sync Accuracy",
+            "vi": "Độ Chính Xác Đồng Bộ"
+          },
+          "value": "100%",
+          "sub": {
+            "en": "Zero dropped payloads",
+            "vi": "Không thất thoát bản tin"
+          }
+        },
+        {
+          "label": {
+            "en": "Cost Savings",
+            "vi": "Chi Phí Nhân Sự"
+          },
+          "value": "35 hrs/mo",
+          "sub": {
+            "en": "Eliminated manual copy-pasting",
+            "vi": "Cắt giảm 35h sao chép bài viết thủ công"
+          }
+        }
+      ],
+      "architectureFlow": {
+        "en": "Webhook Ingestion -> Payload Normalization -> Content Sanity & Formatting -> Parallel Social & CMS API Dispatchers -> Delivery Logging",
+        "vi": "Webhook Ingestion -> Chuẩn hóa Payload -> Làm sạch & Định dạng -> Điều phối API Đa kênh Song song -> Log chuyển phát"
+      }
     },
     {
       "id": "see-notion",
@@ -714,7 +792,46 @@
         "app/scheduler.py (5-min APScheduler deadline scan)",
         "tests/unit/ (46 Lifecycle & validation unit tests)",
         "app/models/ (Pydantic models & ParsedCommand schema)"
-      ]
+      ],
+      "roiMetrics": [
+        {
+          "label": {
+            "en": "Task Logging Velocity",
+            "vi": "Tốc Độ Ghi Nhận Task"
+          },
+          "value": "3x Faster",
+          "sub": {
+            "en": "Instant Telegram to Notion sync",
+            "vi": "Đồng bộ từ Telegram sang Notion tức thì"
+          }
+        },
+        {
+          "label": {
+            "en": "Status Drift",
+            "vi": "Tỷ Lệ Lệch Trạng Thái"
+          },
+          "value": "0%",
+          "sub": {
+            "en": "Automated bi-directional sync",
+            "vi": "Đồng bộ 2 chiều không sai lệch"
+          }
+        },
+        {
+          "label": {
+            "en": "Team Adoption",
+            "vi": "Mức Độ Áp Dụng"
+          },
+          "value": "100%",
+          "sub": {
+            "en": "Zero learning curve via Chatbot",
+            "vi": "Nhân sự dùng tự nhiên qua chat"
+          }
+        }
+      ],
+      "architectureFlow": {
+        "en": "Telegram Webhook Handler -> Natural Language Command Parser -> Notion REST API SDK -> Bi-directional Sync Worker -> Error Alert System",
+        "vi": "Telegram Webhook Handler -> Bộ phân tích lệnh tự nhiên -> Notion REST API SDK -> Worker đồng bộ 2 chiều -> Hệ thống báo lỗi"
+      }
     },
     {
       "id": "ai-meeting",
@@ -959,7 +1076,46 @@
       ],
       "gallery": [
         "assets/images/projects/ai-meeting-assistant.png"
-      ]
+      ],
+      "roiMetrics": [
+        {
+          "label": {
+            "en": "Meeting Summary Time",
+            "vi": "Thời Gian Tóm Tắt Họp"
+          },
+          "value": "-90%",
+          "sub": {
+            "en": "Instant minutes generation",
+            "vi": "Tạo biên bản họp tự động sau 2 phút"
+          }
+        },
+        {
+          "label": {
+            "en": "Action-Item Capture",
+            "vi": "Ghi Nhận Đầu Việc"
+          },
+          "value": "98%",
+          "sub": {
+            "en": "Structured task extraction",
+            "vi": "Trích xuất rõ PIC & Deadline"
+          }
+        },
+        {
+          "label": {
+            "en": "Productivity Lift",
+            "vi": "Tăng Năng Suất Đội Ngũ"
+          },
+          "value": "40 hrs/mo",
+          "sub": {
+            "en": "Executive & PM hours saved",
+            "vi": "Tiết kiệm 40h cho PM & Lãnh đạo"
+          }
+        }
+      ],
+      "architectureFlow": {
+        "en": "Audio Streaming Ingestion -> Whisper STT Transcription -> LLM Prompt Pipeline (Summaries + Action Items) -> Notion / Email Export",
+        "vi": "Thu âm luồng trực tiếp -> Chuyển âm thanh sang chữ (Whisper) -> Pipeline LLM phân tích Action Items -> Xuất sang Notion/Email"
+      }
     },
     {
       "id": "fund-portfolio",
@@ -1194,7 +1350,46 @@
       ],
       "gallery": [
         "assets/images/projects/PM.png"
-      ]
+      ],
+      "roiMetrics": [
+        {
+          "label": {
+            "en": "NAV Computation Time",
+            "vi": "Thời Gian Tính Toán NAV"
+          },
+          "value": "< 2 mins",
+          "sub": {
+            "en": "Previously hours of Excel work",
+            "vi": "Thay thế nhiều giờ lập bảng Excel"
+          }
+        },
+        {
+          "label": {
+            "en": "Reconciliation Error",
+            "vi": "Lỗi Sai Số Đối Soát"
+          },
+          "value": "0.00%",
+          "sub": {
+            "en": "Rigorous quantitative checks",
+            "vi": "Kiểm toán công thức số học tự động"
+          }
+        },
+        {
+          "label": {
+            "en": "Analytics Latency",
+            "vi": "Độ Trễ Dữ Liệu Phân Tích"
+          },
+          "value": "Real-time",
+          "sub": {
+            "en": "Automated fund performance tracking",
+            "vi": "Theo dõi hiệu suất quỹ cập nhật liên tục"
+          }
+        }
+      ],
+      "architectureFlow": {
+        "en": "Market Feeds & PDF Statement Harvester -> Quant Calculation Engine (Drawdown/Sharpe/NAV) -> PostgreSQL Warehouse -> Executive BI Dashboard",
+        "vi": "Thu thập dữ liệu thị trường & PDF sao kê -> Engine tính toán Quant (Drawdown/Sharpe/NAV) -> PostgreSQL Warehouse -> Dashboard BI"
+      }
     },
     {
       "id": "job-scraping",
@@ -1429,7 +1624,46 @@
       "gallery": [
         "assets/images/projects/Job_web__scraping.png",
         "assets/images/projects/Job_web_scraping-2.png"
-      ]
+      ],
+      "roiMetrics": [
+        {
+          "label": {
+            "en": "Data Ingestion Rate",
+            "vi": "Tốc Độ Thu Thập"
+          },
+          "value": "10K+ jobs",
+          "sub": {
+            "en": "Distributed headless crawlers",
+            "vi": "Thu thập 10,000+ tin tuyển dụng định kỳ"
+          }
+        },
+        {
+          "label": {
+            "en": "Skill Extraction Accuracy",
+            "vi": "Độ Chính Xác Bóc Tách"
+          },
+          "value": "96.5%",
+          "sub": {
+            "en": "NLP Regex + LLM Taxonomy",
+            "vi": "Phân loại kỹ năng & mức lương chuẩn"
+          }
+        },
+        {
+          "label": {
+            "en": "Market Intelligence Delay",
+            "vi": "Độ Trễ Báo Cáo Thị Trường"
+          },
+          "value": "Daily",
+          "sub": {
+            "en": "Automated daily trend alerts",
+            "vi": "Cập nhật xu hướng tuyển dụng hàng ngày"
+          }
+        }
+      ],
+      "architectureFlow": {
+        "en": "Distributed Web Scrapers -> Deduplication & Entity Extraction -> PostgreSQL Storage -> Trend & Compensation Analytics Engine",
+        "vi": "Crawler phân tán -> Khử trùng lặp & Bóc tách thực thể -> Lưu trữ PostgreSQL -> Engine phân tích xu hướng lương & kỹ năng"
+      }
     }
   ]
 }
