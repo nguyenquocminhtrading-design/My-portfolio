@@ -366,6 +366,45 @@ const Projects = {
         <p style="font-size:var(--text-base);color:var(--color-text-primary);line-height:var(--leading-relaxed);margin:0;">${Utils.sanitize(overview)}</p>
       </div>
 
+      <!-- STAR-M Deep Dive (Situation, Task, Action, Result) -->
+      ${project.starFormat ? `
+      <div class="detail-section" style="border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);background:var(--color-surface);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-5);">
+          <h2 class="detail-section-title" style="margin-bottom:0;color:var(--color-text-primary);">
+            ${starIcon} Case Study: STAR-M Framework
+          </h2>
+          <span class="badge" style="background:#16A34A18;color:#16A34A;border:1px solid #16A34A40;font-weight:700;">
+            ${Utils.sanitize(project.starFormat.headlineMetric)}
+          </span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);">
+          <div style="background:var(--color-bg-secondary);padding:var(--space-4);border-radius:var(--radius-md);border-left:3px solid #EF4444;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#EF4444;letter-spacing:0.05em;margin-bottom:4px;">1. Situation (Business Pain Point)</div>
+            <p style="font-size:13.5px;color:var(--color-text-secondary);line-height:1.6;margin:0;">
+              ${Utils.sanitize(project.starFormat.situation[lang] || project.starFormat.situation.en)}
+            </p>
+          </div>
+          <div style="background:var(--color-bg-secondary);padding:var(--space-4);border-radius:var(--radius-md);border-left:3px solid #F59E0B;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#F59E0B;letter-spacing:0.05em;margin-bottom:4px;">2. Task (Automation Objective)</div>
+            <p style="font-size:13.5px;color:var(--color-text-secondary);line-height:1.6;margin:0;">
+              ${Utils.sanitize(project.starFormat.task[lang] || project.starFormat.task.en)}
+            </p>
+          </div>
+          <div style="background:var(--color-bg-secondary);padding:var(--space-4);border-radius:var(--radius-md);border-left:3px solid #2563EB;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#2563EB;letter-spacing:0.05em;margin-bottom:4px;">3. Action (Engineering Approach)</div>
+            <p style="font-size:13.5px;color:var(--color-text-secondary);line-height:1.6;margin:0;">
+              ${Utils.sanitize(project.starFormat.action[lang] || project.starFormat.action.en)}
+            </p>
+          </div>
+          <div style="background:var(--color-bg-secondary);padding:var(--space-4);border-radius:var(--radius-md);border-left:3px solid #16A34A;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#16A34A;letter-spacing:0.05em;margin-bottom:4px;">4. Result & Metrics (ROI Delivered)</div>
+            <p style="font-size:13.5px;color:var(--color-text-secondary);line-height:1.6;margin:0;">
+              ${Utils.sanitize(project.starFormat.result[lang] || project.starFormat.result.en)}
+            </p>
+          </div>
+        </div>
+      </div>` : ''}
+
       <!-- Problem + Objective in 2-col -->
       <div class="detail-section">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8);">
